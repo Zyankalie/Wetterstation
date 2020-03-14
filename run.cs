@@ -12,7 +12,6 @@ namespace Wetterstation
 
         static void run()
         {
-            
             Console.CursorVisible = false;
             Datensatz[] Wetterdaten = new Datensatz[366];
             for (int i = 0; i < Wetterdaten.Length; i++)

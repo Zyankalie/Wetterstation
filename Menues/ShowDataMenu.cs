@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Wetterstation
+﻿namespace Wetterstation
 {
     partial class main
     {
@@ -20,6 +18,7 @@ namespace Wetterstation
                 Select = ShowSomeMenu(ref MenuItems, Headline);
                 if (Select == 0)
                 {
+                    SearchProcess = true;
                     do
                     {
                         SearchValue = ShowSomeMenu(ref SearchValues, "Wählen Sie einen Parameter als Suchkriterium aus:\n");
@@ -58,8 +57,8 @@ namespace Wetterstation
                 }
                 else if (Select == 1)
                 {
-                    ShowFullData(ref Wetterdaten);
                     //Alle Datensätze anzeigen
+                    ShowFullData(ref Wetterdaten);
                 }
                 else if (Select == 2)
                 {
@@ -70,7 +69,7 @@ namespace Wetterstation
                     MenuFinished = true;
                 }
                 else
-                { 
+                {
                     //Nichts
                 }
             } while (!MenuFinished);
