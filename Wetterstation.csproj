@@ -43,10 +43,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EvaluateData\ArithmetischesMittel.cs" />
+    <Compile Include="EvaluateData\EvaluateData.cs" />
+    <Compile Include="EvaluateData\GeometrischesMittel.cs" />
+    <Compile Include="EvaluateData\Median.cs" />
+    <Compile Include="EvaluateData\ShowEvaluatedData.cs" />
     <Compile Include="Helpers\Defragment.cs" />
     <Compile Include="Helpers\Swap.cs" />
+    <Compile Include="ManageData\AddRecord.cs" />
+    <Compile Include="ManageData\AlterRecord.cs" />
+    <Compile Include="ManageData\DeleteRecord.cs" />
+    <Compile Include="ManageData\ExportData.cs" />
+    <Compile Include="ManageData\ImportData.cs" />
+    <Compile Include="ManageData\ShowAddRecordMultiple.cs" />
+    <Compile Include="ManageData\ShowAddRecordSingle.cs" />
+    <Compile Include="ManageData\ShowDeleteRecord.cs" />
+    <Compile Include="ManageData\ValidateEntry.cs" />
     <Compile Include="Menues\EvaluateDataMenu.cs" />
     <Compile Include="Menues\MainMenu.cs" />
+    <Compile Include="Menues\ManageDataMenu.cs" />
     <Compile Include="Menues\ShowSomeMenu.cs" />
     <Compile Include="Menues\ShowDataMenu.cs" />
     <Compile Include="run.cs" />
@@ -61,5 +76,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

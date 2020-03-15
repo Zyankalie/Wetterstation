@@ -18,11 +18,11 @@ namespace Wetterstation
                 }
                 else if (Select == 1)
                 {
-
+                    ManageDataMenu(ref Wetterdaten);
                 }
                 else if (Select == 2)
                 {
-
+                    EvaluateDataMenu(ref Wetterdaten);
                 }
                 else if (Select == 3)
                 {
