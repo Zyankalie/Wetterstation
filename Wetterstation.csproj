@@ -52,6 +52,10 @@
     <Compile Include="Helpers\Swap.cs" />
     <Compile Include="ManageData\AddRecord.cs" />
     <Compile Include="ManageData\AlterRecord.cs" />
+    <Compile Include="ManageData\DateFits.cs" />
+    <Compile Include="ManageData\TemperatureFits.cs" />
+    <Compile Include="ManageData\PressureFits.cs" />
+    <Compile Include="ManageData\HumidityFits.cs" />
     <Compile Include="ManageData\DeleteRecord.cs" />
     <Compile Include="ManageData\ExportData.cs" />
     <Compile Include="ManageData\ImportData.cs" />

@@ -1,4 +1,6 @@
-﻿namespace Wetterstation
+﻿using System;
+
+namespace Wetterstation
 {
     partial class main
     {
@@ -11,8 +13,10 @@
             string[] MenuItems = { "Datensatz suchen", "Alle Datensätze anzeigen", "Datensätze sortieren", "Zurück" };
             string Headline = "Daten anzeigen";
             int Select = -1;
-            int SearchValue = -1;
+            int SearchParameter = -1;
             int SelectedSearchAlgorithm = -1;
+            string SearchValue = "";
+
             do
             {
                 Select = ShowSomeMenu(ref MenuItems, Headline);
@@ -21,18 +25,22 @@
                     SearchProcess = true;
                     do
                     {
-                        SearchValue = ShowSomeMenu(ref SearchValues, "Wählen Sie einen Parameter als Suchkriterium aus:\n");
-                        if (SearchValue != 4)
+                        SearchParameter = ShowSomeMenu(ref SearchValues, "Wählen Sie einen Parameter als Suchkriterium aus:\n");
+                        if (SearchParameter != 4)
                         {
                             SelectedSearchAlgorithm = ShowSomeMenu(ref SearchAlgorithms, "Mit welchem Algorithmus soll gesucht werden?\n");
                             if (SelectedSearchAlgorithm == 0)
                             {
-                                LineareSuche(ref Wetterdaten, SearchValue);
+                                Console.Clear();
+                                Console.WriteLine("Geben Sie den Suchwert ein:");
+                                SearchValue = Console.ReadLine();
+                                Defragment(ref Wetterdaten);
+                                ShowFullData(ref Wetterdaten, LineareSuche(ref Wetterdaten, SearchParameter, SearchValue));
                                 SearchProcess = false;
                             }
                             else if (SelectedSearchAlgorithm == 1)
                             {
-                                BinaereSuche(ref Wetterdaten, SearchValue);
+                                BinaereSuche(ref Wetterdaten, SearchParameter);
                                 SearchProcess = false;
                             }
                             else if (SelectedSearchAlgorithm == 2)
