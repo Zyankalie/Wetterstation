@@ -6,7 +6,7 @@ namespace Wetterstation
     {
         static void EvaluateData(ref Datensatz[] Wetterdaten, int Verfahren, int Parameter)
         {
-            string EvaluationResult = "";
+            double EvaluationResult = -1;
 
             if (Verfahren == 0)
             {

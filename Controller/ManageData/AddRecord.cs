@@ -18,6 +18,7 @@ namespace Wetterstation
                     if (Wetterdaten[i].Datum == "  .  .    ")
                     {
                         Wetterdaten[i] = NewEntry;
+                        break;
                     }
                     else
                     {

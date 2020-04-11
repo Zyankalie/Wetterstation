@@ -10,7 +10,7 @@ namespace Wetterstation
     {
         static bool PressureFits(int pressure)
         {
-            if(pressure > 1080 || pressure < 700)
+            if (pressure > 1080 || pressure < 700)
             {
                 return false;
             }

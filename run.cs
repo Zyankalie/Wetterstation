@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Wetterstation
 {
@@ -16,7 +12,7 @@ namespace Wetterstation
             Datensatz[] Wetterdaten = new Datensatz[366];
             for (int i = 0; i < Wetterdaten.Length; i++)
             {
-                Wetterdaten[i].Datum = "  .  .    ";
+                Wetterdaten[i].Datum = "11.11.1111";
                 Wetterdaten[i].Lufttemperatur = 0.0d;
                 Wetterdaten[i].Luftdruck = 0;
                 Wetterdaten[i].Luftfeuchtigkeit = 0;

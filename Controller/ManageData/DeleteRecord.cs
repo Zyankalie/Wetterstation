@@ -10,8 +10,10 @@ namespace Wetterstation
     {
         static void DeleteRecord(ref Datensatz[] Wetterdaten, int Pos)
         {
-
-
+            Wetterdaten[Pos].Datum = "  .  .    ";
+            Wetterdaten[Pos].Lufttemperatur = 0.0;
+            Wetterdaten[Pos].Luftdruck = 0;
+            Wetterdaten[Pos].Luftfeuchtigkeit = 0;
         }
     }
 }
