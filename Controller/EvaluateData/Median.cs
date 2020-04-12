@@ -7,11 +7,8 @@ namespace Wetterstation
         static double Median(ref Datensatz[] Wetterdaten, int Parameter)
         {
             Defragment(ref Wetterdaten);
-            BubbleSort(ref Wetterdaten, Parameter + 1);
-            int i = 0;
-
-            for (i = 0; i < Wetterdaten.Length && Wetterdaten[i].Datum != "  .  .    "; i++)
-            { }
+            BubbleSort(ref Wetterdaten, Parameter + 1, true);
+            int i = FindUpperBorder(ref Wetterdaten);
             if (Parameter == 0)
             {
                 return Wetterdaten[i / 2].Lufttemperatur;

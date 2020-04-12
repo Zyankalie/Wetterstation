@@ -7,7 +7,7 @@ namespace Wetterstation
         static int BinaereSuche(ref Datensatz[] Wetterdaten, int Parameter, string SearchValue)
         {
             Defragment(ref Wetterdaten);
-            BubbleSort(ref Wetterdaten, Parameter);
+            BubbleSort(ref Wetterdaten, Parameter, true);
             int Pivot = -1;
             int UntereGrenze = 0;
             int ObereGrenze = FindUpperBorder(ref Wetterdaten);
@@ -27,7 +27,7 @@ namespace Wetterstation
                     {
                         UntereGrenze = Pivot + 1;
                     }
-                    else if(CompareDates(SearchValue, Wetterdaten[Pivot].Datum, false))
+                    else //(CompareDates(SearchValue, Wetterdaten[Pivot].Datum, false))
                     {
                         ObereGrenze = Pivot - 1;
                     }

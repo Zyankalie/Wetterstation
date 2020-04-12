@@ -13,7 +13,7 @@ namespace Wetterstation
             {
                 return true && AscDesc;
             }
-            else if (Convert.ToInt32(FirstDateAsArray[2]) < Convert.ToInt32(SecondDateAsArray[2]))
+            else if (Convert.ToInt32(FirstDateAsArray[2]) > Convert.ToInt32(SecondDateAsArray[2]))
             {
                 return false && AscDesc;
             }

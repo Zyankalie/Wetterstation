@@ -10,7 +10,6 @@
             {
                 if (Wetterdaten[Pos].Datum == "  .  .    ")
                 {
-                    Pos--;
                     break;
                 }
             }

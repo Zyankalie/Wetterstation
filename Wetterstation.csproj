@@ -47,9 +47,11 @@
     <Compile Include="Controller\EvaluateData\EvaluateData.cs" />
     <Compile Include="Controller\EvaluateData\GeometrischesMittel.cs" />
     <Compile Include="Controller\EvaluateData\Median.cs" />
+    <Compile Include="Controller\Helpers\FillWetterdaten.cs" />
     <Compile Include="Controller\Helpers\FindUpperBorder.cs" />
+    <Compile Include="Controller\Helpers\IntToParam.cs" />
     <Compile Include="Controller\Helpers\NthRoot.cs" />
-    <Compile Include="Controller\EvaluateData\ShowEvaluatedData.cs" />
+    <Compile Include="View\ShowEvaluatedData.cs" />
     <Compile Include="Controller\Helpers\Defragment.cs" />
     <Compile Include="Controller\Helpers\Swap.cs" />
     <Compile Include="Controller\ManageData\AddRecord.cs" />

@@ -104,14 +104,13 @@ namespace Wetterstation
                 numberPagesFilled++;
             }
 
-
             do
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Datum            Lufttemperatur            Luftdruck            Luftfeuchtigkeit");
+                Console.WriteLine("Pos    Datum           Temperatur           Luftdruck           Luftfeuchtigkeit");
                 Console.ForegroundColor = ConsoleColor.White;
-
+                int counter = 1;
                 for (int PageContent = currPage * 15; (PageContent < (currPage * 15 + 15)) && (PageContent < 366); PageContent++)
                 {
                     if (Wetterdaten[PageContent].Datum != "  .  .    ")
@@ -120,12 +119,15 @@ namespace Wetterstation
                         {
                             Console.ForegroundColor = ConsoleColor.Green;
                         }
-                        currData += Wetterdaten[PageContent].Datum
-                        + new string(' ', 8 + (4 - Wetterdaten[PageContent].Lufttemperatur.ToString("N1").Length)) + Wetterdaten[PageContent].Lufttemperatur.ToString("N1") + "°C"
-                        + new string(' ', 19 + (4 - Wetterdaten[PageContent].Luftdruck.ToString().Length)) + Wetterdaten[PageContent].Luftdruck + "HPa"
-                        + new string(' ', 15 + (3 - Wetterdaten[PageContent].Luftfeuchtigkeit.ToString().Length)) + Wetterdaten[PageContent].Luftfeuchtigkeit + "%";
+
+                        currData += new string(' ', 3 - (currPage * 15 + counter).ToString().Length) + (currPage * 15 + counter)
+                            + "    " + Wetterdaten[PageContent].Datum
+                        + new string(' ', 8 + (3 - Wetterdaten[PageContent].Lufttemperatur.ToString("N1").Length)) + Wetterdaten[PageContent].Lufttemperatur.ToString("N1") + "°C"
+                        + new string(' ', 15 + (3 - Wetterdaten[PageContent].Luftdruck.ToString().Length)) + Wetterdaten[PageContent].Luftdruck + "HPa"
+                        + new string(' ', 14 + (2 - Wetterdaten[PageContent].Luftfeuchtigkeit.ToString().Length)) + Wetterdaten[PageContent].Luftfeuchtigkeit + "%";
                         Console.WriteLine(currData);
                         Console.ForegroundColor = ConsoleColor.White;
+                        counter++;
                     }
                     currData = "";
                 }

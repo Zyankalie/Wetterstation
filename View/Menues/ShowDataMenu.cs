@@ -6,69 +6,190 @@ namespace Wetterstation
     {
         static void ShowDataMenu(ref Datensatz[] Wetterdaten)
         {
-            bool MenuFinished = false;
-            bool SearchProcess = true;
-            string[] SearchValues = { "Datum", "Temperatur", "Luftdruck", "Luftfeuchtigkeit", "Zurück" };
-            string[] SearchAlgorithms = { "Lineare Suche", "Binäre Suche", "Zurück", "Abbrechen" };
             string[] MenuItems = { "Datensatz suchen", "Alle Datensätze anzeigen", "Datensätze sortieren", "Zurück" };
-            string Headline = "Daten anzeigen";
-            int Select = -1;
-            int SearchParameter = -1;
-            int SelectedSearchAlgorithm = -1;
-            string SearchValue = "";
+            string[] SearchAlgorithms = { "Lineare Suche", "Binäre Suche", "Zurück" };
+            string[] SortAlgorithms = { "Bubblesort", "Selectionsort", "Zurück", "Abbrechen" };
+            string[] PossibleParameters = { "Datum", "Temperatur", "Luftdruck", "Luftfeuchtigkeit", "Zurück", "Abbrechen" };
+            string[] MenuPathSearching = { "Hauptmenü", "Datenanzeigen Menü", "Auswahl Suchalgorithmus", "Auswahl Suchparameter", "Eingabe Suchwert" };
+
+            bool MenuFinished = false;
+            bool Process = true;
+            bool SelectedParameter = true;
+            bool SearchProcess = true;
+
+            int PositionOfItem = -1;
+            int ErrorHandling = -1;
+
+            string UserInput = "";
+
+            int ProcessSelect = -1;
+            int ParameterSelected = -1;
+            int SelectedAlgorithm = -1;
+
 
             do
             {
-                Select = ShowSomeMenu(ref MenuItems, Headline);
-                if (Select == 0)
+                Process = true;
+                SelectedParameter = true;
+                SearchProcess = true;
+                ProcessSelect = ShowSomeMenu(ref MenuItems, "Datensätze anzeigen");
+                if (ProcessSelect == 0)
                 {
-                    SearchProcess = true;
                     do
                     {
-                        SearchParameter = ShowSomeMenu(ref SearchValues, "Wählen Sie einen Parameter als Suchkriterium aus:\n");
-                        if (SearchParameter != 4)
+                        SelectedParameter = true;
+                        SelectedAlgorithm = ShowSomeMenu(ref SearchAlgorithms, "Welcher Suchalgorithmus soll verwendet werden?");
+
+                        if (SelectedAlgorithm == 0)
                         {
-                            SelectedSearchAlgorithm = ShowSomeMenu(ref SearchAlgorithms, "Mit welchem Algorithmus soll gesucht werden?\n");
-                            if (SelectedSearchAlgorithm == 0)
-                            {
-                                Console.Clear();
-                                Console.WriteLine("Geben Sie den Suchwert ein:");
-                                SearchValue = Console.ReadLine();
-                                Defragment(ref Wetterdaten);
-                                ShowFullData(ref Wetterdaten, LineareSuche(ref Wetterdaten, SearchParameter, SearchValue));
-                                SearchProcess = false;
-                            }
-                            else if (SelectedSearchAlgorithm == 1)
-                            {
-                                BinaereSuche(ref Wetterdaten, SearchParameter);
-                                SearchProcess = false;
-                            }
-                            else if (SelectedSearchAlgorithm == 2)
+                            do
                             {
                                 SearchProcess = true;
-                            }
-                            else if (SelectedSearchAlgorithm == 3)
+                                ParameterSelected = ShowSomeMenu(ref PossibleParameters, "Nach welchem Parameter soll gesucht werden?");
+                                if (ParameterSelected == 4)
+                                {
+                                    SelectedParameter = false;
+                                }
+                                else if (ParameterSelected == 5)
+                                {
+                                    SelectedParameter = false;
+                                    Process = false;
+                                }
+                                else
+                                {
+                                    do
+                                    {
+                                        Console.Clear();
+                                        Console.WriteLine("Bitte den Suchwert für den Parameter " + IntToParam(ParameterSelected) + " eingeben.");
+                                        UserInput = Console.ReadLine();
+                                        PositionOfItem = LineareSuche(ref Wetterdaten, ParameterSelected, UserInput);
+                                        Console.Clear();
+                                        if (PositionOfItem == -1)
+                                        {
+                                            ErrorHandling = ShowSomeMenu(ref MenuPathSearching, ShowErrorMessage(1) + "In welchen Menüpunkt wollen Sie zurückkehren?");
+                                            if (ErrorHandling == 0)
+                                            {
+                                                SearchProcess = false;
+                                                SelectedParameter = false;
+                                                Process = false;
+                                                MenuFinished = true;
+                                            }
+                                            else if (ErrorHandling == 1)
+                                            {
+                                                SearchProcess = false;
+                                                SelectedParameter = false;
+                                                Process = false;
+                                            }
+                                            else if (ErrorHandling == 2)
+                                            {
+                                                SearchProcess = false;
+                                                SelectedParameter = false;
+                                            }
+                                            else if (ErrorHandling == 3)
+                                            {
+                                                SearchProcess = false;
+                                            }
+                                            else if (ErrorHandling == 4)
+                                            {
+                                                //Nichts - Parameter Eingabe
+                                            }
+                                            else
+                                            {
+                                                //Nichts - Wird nie erreicht
+                                            }
+                                        }
+                                        else
+                                        {
+                                            ShowFullData(ref Wetterdaten, PositionOfItem);
+                                            SearchProcess = false;
+                                            SelectedParameter = false;
+                                            Process = false;
+                                        }
+                                    } while (SearchProcess);
+                                }
+                            } while (SelectedParameter);
+                        }
+                        else if (SelectedAlgorithm == 1)
+                        {
+                            do
                             {
-                                SearchProcess = false;
-                            }
-                            else
-                            {
-                                //Nichts
-                            }
+                                SearchProcess = true;
+                                ParameterSelected = ShowSomeMenu(ref PossibleParameters, "Nach welchem Parameter soll gesucht werden?");
+                                if (ParameterSelected == 4)
+                                {
+                                    SelectedParameter = false;
+                                }
+                                else if (ParameterSelected == 5)
+                                {
+                                    SelectedParameter = false;
+                                    Process = false;
+                                }
+                                else
+                                {
+                                    do
+                                    {
+                                        Console.Clear();
+                                        Console.WriteLine("Bitte den Suchwert für den Parameter " + IntToParam(ParameterSelected) + " eingeben.");
+                                        UserInput = Console.ReadLine();
+                                        PositionOfItem = BinaereSuche(ref Wetterdaten, ParameterSelected, UserInput);
+                                        Console.Clear();
+                                        if (PositionOfItem == -1)
+                                        {
+                                            ErrorHandling = ShowSomeMenu(ref MenuPathSearching, ShowErrorMessage(1) + "In welchen Menüpunkt wollen Sie zurückkehren?");
+                                            if (ErrorHandling == 0)
+                                            {
+                                                SearchProcess = false;
+                                                SelectedParameter = false;
+                                                Process = false;
+                                                MenuFinished = true;
+                                            }
+                                            else if (ErrorHandling == 1)
+                                            {
+                                                SearchProcess = false;
+                                                SelectedParameter = false;
+                                                Process = false;
+                                            }
+                                            else if (ErrorHandling == 2)
+                                            {
+                                                SearchProcess = false;
+                                                SelectedParameter = false;
+                                            }
+                                            else if (ErrorHandling == 3)
+                                            {
+                                                SearchProcess = false;
+                                            }
+                                            else if (ErrorHandling == 4)
+                                            {
+                                                //Nichts - Parameter Eingabe
+                                            }
+                                            else
+                                            {
+                                                //Nichts - Wird nie erreicht
+                                            }
+                                        }
+                                        else
+                                        {
+                                            ShowFullData(ref Wetterdaten, PositionOfItem);
+                                            SearchProcess = false;
+                                            SelectedParameter = false;
+                                            Process = false;
+                                        }
+                                    } while (SearchProcess);
+                                }
+                            } while (SelectedParameter);
                         }
                         else
                         {
-                            SearchProcess = false;
+                            Process = false;
                         }
-                    } while (SearchProcess);
-
+                    } while (Process);
                 }
-                else if (Select == 1)
+                else if (ProcessSelect == 1)
                 {
                     //Alle Datensätze anzeigen
                     ShowFullData(ref Wetterdaten);
                 }
-                else if (Select == 2)
+                else if (ProcessSelect == 2)
                 {
                     //Datensätze sortieren
                     bool SortProcess = true;
@@ -78,21 +199,21 @@ namespace Wetterstation
                         int SortValue = ShowSomeMenu(ref SortValues, "Wählen Sie einen Parameter als Sortierkriterium aus:\n");
                         if (SortValue != 4)
                         {
-                            string[] SortAlgorithms = { "Bubblesort", "Selectionsort", "Zurück", "Abbrechen" };
+
                             int SelectedSortAlgorithm = ShowSomeMenu(ref SortAlgorithms, "Mit welchem Algorithmus soll sortiert werden?\n");
-                            if (SelectedSearchAlgorithm == 0)
+                            if (SelectedAlgorithm == 0)
                             {
-                                BubbleSort(ref Wetterdaten, SortValue);
+                                //BubbleSort(ref Wetterdaten, SortValue);
                                 SortProcess = false;
                             }
                             else if (SelectedSortAlgorithm == 1)
                             {
-                                SelectionSort(ref Wetterdaten, SortValue);
+                                //SelectionSort(ref Wetterdaten, SortValue);
                                 SortProcess = false;
                             }
                             else if (SelectedSortAlgorithm == 2)
                             {
-                                SearchProcess = true;
+                                Process = true;
                             }
                             else if (SelectedSortAlgorithm == 3)
                             {
@@ -109,7 +230,7 @@ namespace Wetterstation
                         }
                     } while (SortProcess);
                 }
-                else if (Select == 3)
+                else if (ProcessSelect == 3)
                 {
                     MenuFinished = true;
                 }
