@@ -17,10 +17,21 @@ namespace Wetterstation
                     Swaped = false;
                     for (int index1 = 1; index1 < UpperBorder; index1 = index1 + 1)
                     {
-                        if (CompareDates(Wetterdaten[index1 - 1].Datum, Wetterdaten[index1].Datum, AscDesc))
+                        if (AscDesc)
                         {
-                            Swap(ref Wetterdaten, index1 - 1, index1);
-                            Swaped = true;
+                            if (CompareDates(Wetterdaten[index1].Datum, Wetterdaten[index1 - 1].Datum))
+                            {
+                                Swap(ref Wetterdaten, index1 - 1, index1);
+                                Swaped = true;
+                            }
+                        }
+                        else
+                        {
+                            if (CompareDates(Wetterdaten[index1 - 1].Datum, Wetterdaten[index1].Datum))
+                            {
+                                Swap(ref Wetterdaten, index1 - 1, index1);
+                                Swaped = true;
+                            }
                         }
                     }
                 }
@@ -32,10 +43,21 @@ namespace Wetterstation
                     Swaped = false;
                     for (int index1 = 1; index1 < UpperBorder; index1 = index1 + 1)
                     {
-                        if (Wetterdaten[index1].Lufttemperatur < Wetterdaten[index1 - 1].Lufttemperatur && AscDesc)
+                        if (AscDesc)
                         {
-                            Swap(ref Wetterdaten, index1 - 1, index1);
-                            Swaped = true;
+                            if (Wetterdaten[index1].Lufttemperatur < Wetterdaten[index1 - 1].Lufttemperatur && AscDesc)
+                            {
+                                Swap(ref Wetterdaten, index1 - 1, index1);
+                                Swaped = true;
+                            }
+                        }
+                        else
+                        {
+                            if (Wetterdaten[index1].Lufttemperatur > Wetterdaten[index1 - 1].Lufttemperatur && AscDesc)
+                            {
+                                Swap(ref Wetterdaten, index1 - 1, index1);
+                                Swaped = true;
+                            }
                         }
                     }
                 }
@@ -47,10 +69,21 @@ namespace Wetterstation
                     Swaped = false;
                     for (int index1 = 1; index1 < UpperBorder; index1 = index1 + 1)
                     {
-                        if (Wetterdaten[index1].Luftdruck < Wetterdaten[index1 - 1].Luftdruck && AscDesc)
+                        if (AscDesc)
                         {
-                            Swap(ref Wetterdaten, index1 - 1, index1);
-                            Swaped = true;
+                            if (Wetterdaten[index1].Luftdruck < Wetterdaten[index1 - 1].Luftdruck && AscDesc)
+                            {
+                                Swap(ref Wetterdaten, index1 - 1, index1);
+                                Swaped = true;
+                            }
+                        }
+                        else
+                        {
+                            if (Wetterdaten[index1].Luftdruck > Wetterdaten[index1 - 1].Luftdruck && AscDesc)
+                            {
+                                Swap(ref Wetterdaten, index1 - 1, index1);
+                                Swaped = true;
+                            }
                         }
                     }
                 }
@@ -62,10 +95,21 @@ namespace Wetterstation
                     Swaped = false;
                     for (int index1 = 1; index1 < UpperBorder; index1 = index1 + 1)
                     {
-                        if (Wetterdaten[index1].Luftfeuchtigkeit < Wetterdaten[index1 - 1].Luftfeuchtigkeit && AscDesc)
+                        if (AscDesc)
                         {
-                            Swap(ref Wetterdaten, index1 - 1, index1);
-                            Swaped = true;
+                            if (Wetterdaten[index1].Luftfeuchtigkeit < Wetterdaten[index1 - 1].Luftfeuchtigkeit)
+                            {
+                                Swap(ref Wetterdaten, index1 - 1, index1);
+                                Swaped = true;
+                            }
+                        }
+                        else
+                        {
+                            if (Wetterdaten[index1].Luftfeuchtigkeit > Wetterdaten[index1 - 1].Luftfeuchtigkeit)
+                            {
+                                Swap(ref Wetterdaten, index1 - 1, index1);
+                                Swaped = true;
+                            }
                         }
                     }
                 }

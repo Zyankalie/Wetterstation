@@ -5,37 +5,37 @@ namespace Wetterstation
 {
     partial class main
     {
-        static bool CompareDates(string FirstDate, string SecondDate, bool AscDesc)
+        static bool CompareDates(string FirstDate, string SecondDate)
         {
             string[] FirstDateAsArray = FirstDate.Split('.');
             string[] SecondDateAsArray = SecondDate.Split('.');
             if (Convert.ToInt32(FirstDateAsArray[2]) < Convert.ToInt32(SecondDateAsArray[2]))
             {
-                return true && AscDesc;
+                return true;
             }
             else if (Convert.ToInt32(FirstDateAsArray[2]) > Convert.ToInt32(SecondDateAsArray[2]))
             {
-                return false && AscDesc;
+                return false;
             }
             else
             {
                 if (Convert.ToInt32(FirstDateAsArray[1]) < Convert.ToInt32(SecondDateAsArray[1]))
                 {
-                    return true && AscDesc;
+                    return true;
                 }
                 else if (Convert.ToInt32(FirstDateAsArray[1]) > Convert.ToInt32(SecondDateAsArray[1]))
                 {
-                    return false && AscDesc;
+                    return false;
                 }
                 else
                 {
                     if (Convert.ToInt32(FirstDateAsArray[0]) < Convert.ToInt32(SecondDateAsArray[0]))
                     {
-                        return true && AscDesc;
+                        return true;
                     }
                     else
                     {
-                        return false && AscDesc;
+                        return false;
                     }
                 }
             }

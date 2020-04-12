@@ -34,17 +34,18 @@ namespace Wetterstation
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Datum            Lufttemperatur            Luftdruck            Luftfeuchtigkeit");
+                Console.WriteLine("Pos    Datum           Temperatur           Luftdruck           Luftfeuchtigkeit");
                 Console.ForegroundColor = ConsoleColor.White;
 
                 for (int PageContent = currPage * 15; (PageContent < (currPage * 15 + 15)) && (PageContent < 366); PageContent++)
                 {
                     if (Wetterdaten[PageContent].Datum != "  .  .    ")
                     {
-                        currData += Wetterdaten[PageContent].Datum
-                        + new string(' ', 8 + (4 - Wetterdaten[PageContent].Lufttemperatur.ToString("N1").Length)) + Wetterdaten[PageContent].Lufttemperatur.ToString("N1") + "°C"
-                        + new string(' ', 19 + (4 - Wetterdaten[PageContent].Luftdruck.ToString().Length)) + Wetterdaten[PageContent].Luftdruck + "HPa"
-                        + new string(' ', 15 + (3 - Wetterdaten[PageContent].Luftfeuchtigkeit.ToString().Length)) + Wetterdaten[PageContent].Luftfeuchtigkeit + "%";
+                        currData += new string(' ', 3 - (PageContent + 1).ToString().Length) + (PageContent + 1)
+                            + "    " + Wetterdaten[PageContent].Datum
+                        + new string(' ', 8 + (3 - Wetterdaten[PageContent].Lufttemperatur.ToString("N1").Length)) + Wetterdaten[PageContent].Lufttemperatur.ToString("N1") + "°C"
+                        + new string(' ', 15 + (3 - Wetterdaten[PageContent].Luftdruck.ToString().Length)) + Wetterdaten[PageContent].Luftdruck + "HPa"
+                        + new string(' ', 14 + (2 - Wetterdaten[PageContent].Luftfeuchtigkeit.ToString().Length)) + Wetterdaten[PageContent].Luftfeuchtigkeit + "%";
                         Console.WriteLine(currData);
                     }
                     currData = "";
@@ -54,7 +55,9 @@ namespace Wetterstation
 
                 Console.Write("Schließen [esc]" + new string(' ', Console.BufferWidth - 28) + "Seite ");
                 Console.Write("[" + (currPage + 1 > 9 ? "" : "0") + (currPage + 1) + "/" + (numberPagesFilled > 9 ? "" : "0") + numberPagesFilled + "]");
-
+                Console.WriteLine();
+                Console.WriteLine(new string(' ', 25) + ((currPage == 0) ? new string(' ', 15) : "Vorherige Seite") + "     " + ((currPage == numberPagesFilled - 1) ? new string(' ', 13) : "Nächste Seite"));
+                Console.WriteLine(new string(' ', 37) + ((currPage == 0) ? "   " : "<--") + "     " + ((currPage == numberPagesFilled - 1) ? "   " : "-->"));
 
 
                 ConsoleKeyInfo key = Console.ReadKey(true);
@@ -82,7 +85,7 @@ namespace Wetterstation
         static void ShowFullData(ref Datensatz[] Wetterdaten, int SearchedEntry)
         {
             bool ContentIsShown = true;
-            int currPage = 0;
+            int currPage = SearchedEntry % 15;
             string currData = "";
             Defragment(ref Wetterdaten);
             int numberPagesFilled = 0;
@@ -110,7 +113,6 @@ namespace Wetterstation
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Pos    Datum           Temperatur           Luftdruck           Luftfeuchtigkeit");
                 Console.ForegroundColor = ConsoleColor.White;
-                int counter = 1;
                 for (int PageContent = currPage * 15; (PageContent < (currPage * 15 + 15)) && (PageContent < 366); PageContent++)
                 {
                     if (Wetterdaten[PageContent].Datum != "  .  .    ")
@@ -120,14 +122,13 @@ namespace Wetterstation
                             Console.ForegroundColor = ConsoleColor.Green;
                         }
 
-                        currData += new string(' ', 3 - (currPage * 15 + counter).ToString().Length) + (currPage * 15 + counter)
+                        currData += new string(' ', 3 - (PageContent + 1).ToString().Length) + (PageContent + 1)
                             + "    " + Wetterdaten[PageContent].Datum
                         + new string(' ', 8 + (3 - Wetterdaten[PageContent].Lufttemperatur.ToString("N1").Length)) + Wetterdaten[PageContent].Lufttemperatur.ToString("N1") + "°C"
                         + new string(' ', 15 + (3 - Wetterdaten[PageContent].Luftdruck.ToString().Length)) + Wetterdaten[PageContent].Luftdruck + "HPa"
                         + new string(' ', 14 + (2 - Wetterdaten[PageContent].Luftfeuchtigkeit.ToString().Length)) + Wetterdaten[PageContent].Luftfeuchtigkeit + "%";
                         Console.WriteLine(currData);
                         Console.ForegroundColor = ConsoleColor.White;
-                        counter++;
                     }
                     currData = "";
                 }
@@ -136,8 +137,9 @@ namespace Wetterstation
 
                 Console.Write("Schließen [esc]" + new string(' ', Console.BufferWidth - 28) + "Seite ");
                 Console.Write("[" + (currPage + 1 > 9 ? "" : "0") + (currPage + 1) + "/" + (numberPagesFilled > 9 ? "" : "0") + numberPagesFilled + "]");
-
-
+                Console.WriteLine();
+                Console.WriteLine(new string(' ', 25) + ((currPage == 0) ? new string(' ', 15) : "Vorherige Seite") + "     " + ((currPage == numberPagesFilled - 1) ? new string(' ', 13) : "Nächste Seite"));
+                Console.WriteLine(new string(' ', 37) + ((currPage == 0) ? "   " : "<--") + "     " + ((currPage == numberPagesFilled - 1) ? "   " : "-->"));
 
                 ConsoleKeyInfo key = Console.ReadKey(true);
                 if (key.Key.ToString() == "LeftArrow")

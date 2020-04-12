@@ -17,7 +17,7 @@ namespace Wetterstation
                     pivot = aeussereSchleife;
                     for (int innereSchleife = aeussereSchleife; innereSchleife < UpperBorder; innereSchleife = innereSchleife + 1)
                     {
-                        if(CompareDates(Wetterdaten[innereSchleife].Datum, Wetterdaten[pivot].Datum, AscDesc))
+                        if(CompareDates(Wetterdaten[innereSchleife].Datum, Wetterdaten[pivot].Datum))
                         {
                             pivot = innereSchleife;
                         }

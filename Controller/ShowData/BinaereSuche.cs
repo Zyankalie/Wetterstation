@@ -23,7 +23,7 @@ namespace Wetterstation
                         Pos = Pivot;
                         break;
                     }
-                    else if (CompareDates(SearchValue, Wetterdaten[Pivot].Datum, true))
+                    else if (CompareDates(SearchValue, Wetterdaten[Pivot].Datum))
                     {
                         UntereGrenze = Pivot + 1;
                     }
