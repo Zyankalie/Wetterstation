@@ -27,7 +27,7 @@ namespace Wetterstation
                         if (InputMask(ref Wetterdaten, ref newEntry, ref Position))
                         {
                             AddRecord(ref Wetterdaten, ref newEntry, ref Position);
-                            Weiter = ShowSomeMenu(ref JaNein, "Wollen Sie einen weiteren Datensatz hinzufügen?");
+                            Weiter = ShowSomeMenu(ref JaNein, "Datensatz wurde hinzugefügt.\r\nWollen Sie einen weiteren Datensatz hinzufügen?");
                             if (Weiter == 0)
                             {
 
@@ -72,7 +72,7 @@ namespace Wetterstation
                             if (InputMask(ref Wetterdaten, ref newEntry, newEntry.Datum, newEntry.Lufttemperatur.ToString(), newEntry.Luftdruck.ToString(), newEntry.Luftfeuchtigkeit.ToString(), Position.ToString()))
                             {
                                 AlterRecord(ref Wetterdaten, Position - 1, ref newEntry);
-                                Weiter = ShowSomeMenu(ref JaNein, "Wollen Sie einen weiteren Datensatz anpassen?");
+                                Weiter = ShowSomeMenu(ref JaNein, "Datensatz wurde angepasst.\r\nWollen Sie einen weiteren Datensatz anpassen?");
                                 if (Weiter == 0)
                                 {
 
@@ -95,7 +95,41 @@ namespace Wetterstation
                 }
                 else if (Selection == 2)
                 {
-                    //Löschen
+                    do
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Geben Sie die Position des Datensatzes an, den Sie löschen wollen.");
+                        Position = Convert.ToInt32(Console.ReadLine());
+                        if (Wetterdaten[Position - 1].Datum == "  .  .    ")
+                        {
+                            Weiter = ShowSomeMenu(ref JaNein, ShowErrorMessage(128) + "Wollen Sie eine andere Position eingeben?");
+                            if (Weiter == 0)
+                            {
+
+                            }
+                            else
+                            {
+                                ProcessOngoing = false;
+                            }
+                        }
+                        else
+                        {
+                            DeleteRecord(ref Wetterdaten, Position - 1);
+                            Weiter = ShowSomeMenu(ref JaNein, "Datensatz wurde löschen.\r\nWollen Sie einen weiteren Datensatz löschen?");
+                            if (Weiter == 0)
+                            {
+
+                            }
+                            else if (Weiter == 1)
+                            {
+                                ProcessOngoing = false;
+                            }
+                            else
+                            {
+                                //Nichts
+                            }
+                        }
+                    } while (ProcessOngoing);
                 }
                 else if (Selection == 3)
                 {
