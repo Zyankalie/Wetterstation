@@ -21,7 +21,7 @@ namespace Wetterstation
                 {
                     return false;
                 }
-                else if (Convert.ToInt32(DateAsArray[2]) > Convert.ToInt32(DateTime.Now.ToString("dd/MM/yyyy")) || Convert.ToInt32(DateAsArray[2]) < 1900)
+                else if (Convert.ToInt32(DateAsArray[2]) < 1900)
                 {
                     return false;
                 }

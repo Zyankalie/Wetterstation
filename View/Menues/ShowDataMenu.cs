@@ -252,8 +252,8 @@ namespace Wetterstation
                         {
                             do
                             {
-                                SearchProcess = true;
-                                ParameterSelected = ShowSomeMenu(ref PossibleParameters, "Nach welchem Parameter soll gesucht werden?");
+                                SelectAscDesc = true;
+                                ParameterSelected = ShowSomeMenu(ref PossibleParameters, "Nach welchem Parameter soll sortiert werden?");
                                 if (ParameterSelected == 4)
                                 {
                                     SelectedParameter = false;
@@ -270,57 +270,31 @@ namespace Wetterstation
                                         AscDescSelect = ShowSomeMenu(ref AscendingDescending, "Sollen die Daten auf- oder abwärts sortiert werden?");
                                         if (AscDescSelect == 0)
                                         {
-                                            BubbleSort(ref Wetterdaten, ParameterSelected, true);
+                                            SelectionSort(ref Wetterdaten, ParameterSelected, true);
                                         }
-
-
-
-                                        Console.Clear();
-                                        Console.WriteLine("Bitte den Suchwert für den Parameter " + IntToParam(ParameterSelected) + " eingeben.");
-                                        UserInput = Console.ReadLine();
-                                        PositionOfItem = BinaereSuche(ref Wetterdaten, ParameterSelected, UserInput);
-                                        Console.Clear();
-                                        if (PositionOfItem == -1)
+                                        else if (AscDescSelect == 1)
                                         {
-                                            ErrorHandling = ShowSomeMenu(ref MenuPathSearching, ShowErrorMessage(1) + "In welchen Menüpunkt wollen Sie zurückkehren?");
-                                            if (ErrorHandling == 0)
-                                            {
-                                                SearchProcess = false;
-                                                SelectedParameter = false;
-                                                Process = false;
-                                                MenuFinished = true;
-                                            }
-                                            else if (ErrorHandling == 1)
-                                            {
-                                                SearchProcess = false;
-                                                SelectedParameter = false;
-                                                Process = false;
-                                            }
-                                            else if (ErrorHandling == 2)
-                                            {
-                                                SearchProcess = false;
-                                                SelectedParameter = false;
-                                            }
-                                            else if (ErrorHandling == 3)
-                                            {
-                                                SearchProcess = false;
-                                            }
-                                            else if (ErrorHandling == 4)
-                                            {
-                                                //Nichts - Parameter Eingabe
-                                            }
-                                            else
-                                            {
-                                                //Nichts - Wird nie erreicht
-                                            }
+                                            SelectionSort(ref Wetterdaten, ParameterSelected, false);
                                         }
-                                        else
+                                        else if (AscDescSelect == 2)
                                         {
-                                            ShowFullData(ref Wetterdaten, PositionOfItem);
-                                            SearchProcess = false;
+                                            SelectAscDesc = false;
+                                        }
+                                        else if (AscDescSelect == 3)
+                                        {
+                                            SelectAscDesc = false;
                                             SelectedParameter = false;
                                             Process = false;
                                         }
+                                        else
+                                        {
+                                            //Nichts
+                                        }
+                                        ShowFullData(ref Wetterdaten);
+                                        SelectAscDesc = false;
+                                        SelectedParameter = false;
+                                        Process = false;
+
                                     } while (SelectAscDesc);
                                 }
                             } while (SelectedParameter);

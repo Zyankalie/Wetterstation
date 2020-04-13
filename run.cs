@@ -26,7 +26,7 @@ namespace Wetterstation
             //Wetterdaten[22].Lufttemperatur = 26.4;
             //Wetterdaten[22].Luftdruck = 1000;
             //Wetterdaten[22].Luftfeuchtigkeit = 43;
-            FillWetterdaten(ref Wetterdaten, 366);
+            FillWetterdaten(ref Wetterdaten, 365);
             MainMenu(ref Wetterdaten);
         }
         struct Datensatz

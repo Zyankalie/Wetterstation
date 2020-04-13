@@ -17,9 +17,19 @@ namespace Wetterstation
                     pivot = aeussereSchleife;
                     for (int innereSchleife = aeussereSchleife; innereSchleife < UpperBorder; innereSchleife = innereSchleife + 1)
                     {
-                        if(CompareDates(Wetterdaten[innereSchleife].Datum, Wetterdaten[pivot].Datum))
+                        if (AscDesc)
                         {
-                            pivot = innereSchleife;
+                            if (CompareDates(Wetterdaten[innereSchleife].Datum, Wetterdaten[pivot].Datum))
+                            {
+                                pivot = innereSchleife;
+                            }
+                        }
+                        else
+                        {
+                            if (CompareDates(Wetterdaten[pivot].Datum, Wetterdaten[innereSchleife].Datum))
+                            {
+                                pivot = innereSchleife;
+                            }
                         }
                     }
                     Swap(ref Wetterdaten, aeussereSchleife, pivot);
@@ -32,9 +42,19 @@ namespace Wetterstation
                     pivot = aeussereSchleife;
                     for (int innereSchleife = aeussereSchleife; innereSchleife < UpperBorder; innereSchleife = innereSchleife + 1)
                     {
-                        if (Wetterdaten[innereSchleife].Lufttemperatur < Wetterdaten[pivot].Lufttemperatur && AscDesc)
+                        if (AscDesc)
                         {
-                            pivot = innereSchleife;
+                            if (Wetterdaten[innereSchleife].Lufttemperatur < Wetterdaten[pivot].Lufttemperatur)
+                            {
+                                pivot = innereSchleife;
+                            }
+                        }
+                        else
+                        {
+                            if (Wetterdaten[innereSchleife].Lufttemperatur > Wetterdaten[pivot].Lufttemperatur)
+                            {
+                                pivot = innereSchleife;
+                            }
                         }
                     }
                     Swap(ref Wetterdaten, aeussereSchleife, pivot);
@@ -47,9 +67,19 @@ namespace Wetterstation
                     pivot = aeussereSchleife;
                     for (int innereSchleife = aeussereSchleife; innereSchleife < UpperBorder; innereSchleife = innereSchleife + 1)
                     {
-                        if (Wetterdaten[innereSchleife].Luftdruck < Wetterdaten[pivot].Luftdruck && AscDesc)
+                        if (AscDesc)
                         {
-                            pivot = innereSchleife;
+                            if (Wetterdaten[innereSchleife].Luftdruck < Wetterdaten[pivot].Luftdruck)
+                            {
+                                pivot = innereSchleife;
+                            }
+                        }
+                        else
+                        {
+                            if (Wetterdaten[innereSchleife].Luftdruck > Wetterdaten[pivot].Luftdruck)
+                            {
+                                pivot = innereSchleife;
+                            }
                         }
                     }
                     Swap(ref Wetterdaten, aeussereSchleife, pivot);
@@ -62,9 +92,19 @@ namespace Wetterstation
                     pivot = aeussereSchleife;
                     for (int innereSchleife = aeussereSchleife; innereSchleife < UpperBorder; innereSchleife = innereSchleife + 1)
                     {
-                        if (Wetterdaten[innereSchleife].Luftfeuchtigkeit < Wetterdaten[pivot].Luftfeuchtigkeit && AscDesc)
+                        if (AscDesc)
                         {
-                            pivot = innereSchleife;
+                            if (Wetterdaten[innereSchleife].Luftfeuchtigkeit < Wetterdaten[pivot].Luftfeuchtigkeit)
+                            {
+                                pivot = innereSchleife;
+                            }
+                        }
+                        else
+                        {
+                            if (Wetterdaten[innereSchleife].Luftfeuchtigkeit > Wetterdaten[pivot].Luftfeuchtigkeit)
+                            {
+                                pivot = innereSchleife;
+                            }
                         }
                     }
                     Swap(ref Wetterdaten, aeussereSchleife, pivot);

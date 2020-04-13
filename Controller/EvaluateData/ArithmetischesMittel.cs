@@ -8,17 +8,18 @@ namespace Wetterstation
         {
             double Mittel = 0;
             int i = 0;
-            if(Parameter == 0)
+            int UpperBorder = FindUpperBorder(ref Wetterdaten);
+            if (Parameter == 0)
             {
-                for(i = 0; i< Wetterdaten.Length && Wetterdaten[i].Datum!="  .  .    ";i++)
+                for (i = 0; i < UpperBorder; i++)
                 {
                     Mittel = Mittel + Wetterdaten[i].Lufttemperatur;
                 }
                 return Mittel / i;
             }
-            else if(Parameter == 1)
+            else if (Parameter == 1)
             {
-                for (i = 0; i < Wetterdaten.Length && Wetterdaten[i].Datum != "  .  .    "; i++)
+                for (i = 0; i < UpperBorder; i++)
                 {
                     Mittel = Mittel + Wetterdaten[i].Luftdruck;
                 }
@@ -26,13 +27,13 @@ namespace Wetterstation
             }
             else if (Parameter == 2)
             {
-                for (i = 0; i < Wetterdaten.Length && Wetterdaten[i].Datum != "  .  .    "; i++)
+                for (i = 0; i < UpperBorder; i++)
                 {
                     Mittel = Mittel + Wetterdaten[i].Luftfeuchtigkeit;
                 }
                 return Mittel / i;
             }
-            else 
+            else
             {
                 return -1;
             }

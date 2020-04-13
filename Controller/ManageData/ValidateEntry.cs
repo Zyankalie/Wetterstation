@@ -8,37 +8,35 @@ namespace Wetterstation
 {
     partial class main
     {
-        static int ValidateEntry(ref Datensatz[] Wetterdaten, Datensatz Entry)
+        static int ValidateEntry(ref Datensatz[] Wetterdaten, ref Datensatz Entry)
         {
+            int result = 0;
             Defragment(ref Wetterdaten);
             if (Wetterdaten[Wetterdaten.Length - 1].Datum == "  .  .    ")
             {
                 if (!DateFits(Entry.Datum))
                 {
-                    return 0;
+                    result += 2;
                 }
-                else if (!TemperatureFits(Entry.Lufttemperatur))
+                if (!TemperatureFits(Entry.Lufttemperatur))
                 {
-                    return 1;
+                    result += 4;
                 }
 
-                else if (!PressureFits(Entry.Luftdruck))
+                if (!PressureFits(Entry.Luftdruck))
                 {
-                    return 2;
+                    result += 8;
                 }
-                else if (!HumidityFits(Entry.Luftfeuchtigkeit))
+                if (!HumidityFits(Entry.Luftfeuchtigkeit))
                 {
-                    return 3;
-                }
-                else
-                {
-                    return 4;
+                    result += 16;
                 }
             }
             else
             {
-                return -1;
+                return result += 32;
             }
+            return result;
         }
     }
 }

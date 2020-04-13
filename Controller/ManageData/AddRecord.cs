@@ -8,23 +8,16 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void AddRecord(ref Datensatz[] Wetterdaten, string date, double temperature, int pressure, int humidity)
+        static void AddRecord(ref Datensatz[] Wetterdaten, ref Datensatz NewEntry, ref int Position)
         {
-            Datensatz NewEntry = new Datensatz { Datum = date, Lufttemperatur = temperature, Luftdruck = pressure, Luftfeuchtigkeit = humidity };
-            if (ValidateEntry(ref Wetterdaten, NewEntry) == 4)
+            if (Position == -1)
             {
-                for (int i = 0; i < Wetterdaten.Length; i++)
-                {
-                    if (Wetterdaten[i].Datum == "  .  .    ")
-                    {
-                        Wetterdaten[i] = NewEntry;
-                        break;
-                    }
-                    else
-                    {
-                        //Nichts
-                    }
-                }
+                Wetterdaten[FindUpperBorder(ref Wetterdaten)] = NewEntry;
+            }
+            else
+            {
+                FreeASpot(ref Wetterdaten, Position - 1);
+                Wetterdaten[Position - 1] = NewEntry;
             }
         }
     }
