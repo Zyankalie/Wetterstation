@@ -45,7 +45,7 @@ namespace Wetterstation
                     {
                         if (AscDesc)
                         {
-                            if (Wetterdaten[index1].Lufttemperatur < Wetterdaten[index1 - 1].Lufttemperatur && AscDesc)
+                            if (Wetterdaten[index1].Lufttemperatur < Wetterdaten[index1 - 1].Lufttemperatur)
                             {
                                 Swap(ref Wetterdaten, index1 - 1, index1);
                                 Swaped = true;
@@ -53,7 +53,7 @@ namespace Wetterstation
                         }
                         else
                         {
-                            if (Wetterdaten[index1].Lufttemperatur > Wetterdaten[index1 - 1].Lufttemperatur && AscDesc)
+                            if (Wetterdaten[index1].Lufttemperatur > Wetterdaten[index1 - 1].Lufttemperatur)
                             {
                                 Swap(ref Wetterdaten, index1 - 1, index1);
                                 Swaped = true;
@@ -71,7 +71,7 @@ namespace Wetterstation
                     {
                         if (AscDesc)
                         {
-                            if (Wetterdaten[index1].Luftdruck < Wetterdaten[index1 - 1].Luftdruck && AscDesc)
+                            if (Wetterdaten[index1].Luftdruck < Wetterdaten[index1 - 1].Luftdruck)
                             {
                                 Swap(ref Wetterdaten, index1 - 1, index1);
                                 Swaped = true;
@@ -79,7 +79,7 @@ namespace Wetterstation
                         }
                         else
                         {
-                            if (Wetterdaten[index1].Luftdruck > Wetterdaten[index1 - 1].Luftdruck && AscDesc)
+                            if (Wetterdaten[index1].Luftdruck > Wetterdaten[index1 - 1].Luftdruck)
                             {
                                 Swap(ref Wetterdaten, index1 - 1, index1);
                                 Swaped = true;

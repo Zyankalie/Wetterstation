@@ -9,8 +9,7 @@ namespace Wetterstation
     partial class main
     {
         static void ImportData(ref Datensatz[] Wetterdaten, string Path)
-        {
-            
+        {          
 
         }
     }
