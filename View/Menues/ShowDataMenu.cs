@@ -4,7 +4,7 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void ShowDataMenu(ref Datensatz[] Wetterdaten)
+        static void ShowDataMenu(ref Record[] WeatherData)
         {
             string[] MenuItems = { "Datensatz suchen", "Alle Datensätze anzeigen", "Datensätze sortieren", "Zurück" };
             string[] SearchAlgorithms = { "Lineare Suche", "Binäre Suche", "Zurück" };
@@ -63,7 +63,7 @@ namespace Wetterstation
                                         Console.Clear();
                                         Console.WriteLine("Bitte den Suchwert für den Parameter " + IntToParam(ParameterSelected) + " eingeben.");
                                         UserInput = Console.ReadLine();
-                                        PositionOfItem = LineareSuche(ref Wetterdaten, ParameterSelected, UserInput);
+                                        PositionOfItem = LinearSearch(ref WeatherData, ParameterSelected, UserInput);
                                         Console.Clear();
                                         if (PositionOfItem == -1)
                                         {
@@ -101,7 +101,7 @@ namespace Wetterstation
                                         }
                                         else
                                         {
-                                            ShowFullData(ref Wetterdaten, PositionOfItem);
+                                            ShowFullData(ref WeatherData, PositionOfItem);
                                             SearchProcess = false;
                                             SelectedParameter = false;
                                             Process = false;
@@ -132,7 +132,7 @@ namespace Wetterstation
                                         Console.Clear();
                                         Console.WriteLine("Bitte den Suchwert für den Parameter " + IntToParam(ParameterSelected) + " eingeben.");
                                         UserInput = Console.ReadLine();
-                                        PositionOfItem = BinaereSuche(ref Wetterdaten, ParameterSelected, UserInput);
+                                        PositionOfItem = BinarySearch(ref WeatherData, ParameterSelected, UserInput);
                                         Console.Clear();
                                         if (PositionOfItem == -1)
                                         {
@@ -170,7 +170,7 @@ namespace Wetterstation
                                         }
                                         else
                                         {
-                                            ShowFullData(ref Wetterdaten, PositionOfItem);
+                                            ShowFullData(ref WeatherData, PositionOfItem);
                                             SearchProcess = false;
                                             SelectedParameter = false;
                                             Process = false;
@@ -188,7 +188,7 @@ namespace Wetterstation
                 else if (ProcessSelect == 1)
                 {
                     //Alle Datensätze anzeigen
-                    ShowFullData(ref Wetterdaten);
+                    ShowFullData(ref WeatherData);
                 }
                 else if (ProcessSelect == 2)
                 {
@@ -219,11 +219,11 @@ namespace Wetterstation
                                         AscDescSelect = ShowSomeMenu(ref AscendingDescending, "Sollen die Daten auf- oder abwärts sortiert werden?");
                                         if (AscDescSelect == 0)
                                         {
-                                            BubbleSort(ref Wetterdaten, ParameterSelected, true);
+                                            BubbleSort(ref WeatherData, ParameterSelected, true);
                                         }
                                         else if (AscDescSelect == 1)
                                         {
-                                            BubbleSort(ref Wetterdaten, ParameterSelected, false);
+                                            BubbleSort(ref WeatherData, ParameterSelected, false);
                                         }
                                         else if (AscDescSelect == 2)
                                         {
@@ -239,7 +239,7 @@ namespace Wetterstation
                                         {
                                             //Nichts
                                         }
-                                        ShowFullData(ref Wetterdaten);
+                                        ShowFullData(ref WeatherData);
                                         SelectAscDesc = false;
                                         SelectedParameter = false;
                                         Process = false;
@@ -270,11 +270,11 @@ namespace Wetterstation
                                         AscDescSelect = ShowSomeMenu(ref AscendingDescending, "Sollen die Daten auf- oder abwärts sortiert werden?");
                                         if (AscDescSelect == 0)
                                         {
-                                            SelectionSort(ref Wetterdaten, ParameterSelected, true);
+                                            SelectionSort(ref WeatherData, ParameterSelected, true);
                                         }
                                         else if (AscDescSelect == 1)
                                         {
-                                            SelectionSort(ref Wetterdaten, ParameterSelected, false);
+                                            SelectionSort(ref WeatherData, ParameterSelected, false);
                                         }
                                         else if (AscDescSelect == 2)
                                         {
@@ -290,7 +290,7 @@ namespace Wetterstation
                                         {
                                             //Nichts
                                         }
-                                        ShowFullData(ref Wetterdaten);
+                                        ShowFullData(ref WeatherData);
                                         SelectAscDesc = false;
                                         SelectedParameter = false;
                                         Process = false;

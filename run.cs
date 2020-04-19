@@ -9,16 +9,16 @@ namespace Wetterstation
         static void run()
         {
             Console.CursorVisible = false;
-            Datensatz[] Wetterdaten = new Datensatz[366];
-            FillWetterdaten(ref Wetterdaten, 365);
-            MainMenu(ref Wetterdaten);
+            Record[] WeatherData = new Record[366];
+            FillWithRandom(ref WeatherData, 365);
+            MainMenu(ref WeatherData);
         }
-        struct Datensatz
+        struct Record
         {
-            public string Datum;
-            public double Lufttemperatur;
-            public int Luftdruck;
-            public int Luftfeuchtigkeit;
+            public string Date;
+            public double AirTemperature;
+            public int AirPressure;
+            public int Humidity;
         }
     }
     

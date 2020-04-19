@@ -2,13 +2,13 @@
 {
     partial class main
     {
-        static int FindUpperBorder(ref Datensatz[] Wetterdaten)
+        static int FindUpperBorder(ref Record[] WeatherData)
         {
-            Defragment(ref Wetterdaten);
+            Defragment(ref WeatherData);
             int Pos = 0;
-            for (Pos = 0; Pos < Wetterdaten.Length; Pos++)
+            for (Pos = 0; Pos < WeatherData.Length; Pos++)
             {
-                if (Wetterdaten[Pos].Datum == "  .  .    ")
+                if (WeatherData[Pos].Date == "  .  .    ")
                 {
                     break;
                 }

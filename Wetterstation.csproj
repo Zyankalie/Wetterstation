@@ -43,10 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\EvaluateData\ArithmetischesMittel.cs" />
-    <Compile Include="Controller\EvaluateData\GeometrischesMittel.cs" />
+    <Compile Include="Controller\EvaluateData\ArithmeticMean.cs" />
+    <Compile Include="Controller\EvaluateData\GeometricMean.cs" />
     <Compile Include="Controller\EvaluateData\Median.cs" />
-    <Compile Include="Controller\Helpers\FillWetterdaten.cs" />
+    <Compile Include="Controller\Helpers\FillWithRandom.cs" />
     <Compile Include="Controller\Helpers\FindUpperBorder.cs" />
     <Compile Include="Controller\Helpers\FreeASpot.cs" />
     <Compile Include="Controller\Helpers\IntToEval.cs" />
@@ -58,10 +58,10 @@
     <Compile Include="Controller\Helpers\Swap.cs" />
     <Compile Include="Controller\ManageData\AddRecord.cs" />
     <Compile Include="Controller\ManageData\AlterRecord.cs" />
-    <Compile Include="Controller\ManageData\Validation\DateFits.cs" />
-    <Compile Include="Controller\ManageData\Validation\TemperatureFits.cs" />
-    <Compile Include="Controller\ManageData\Validation\PressureFits.cs" />
-    <Compile Include="Controller\ManageData\Validation\HumidityFits.cs" />
+    <Compile Include="Controller\ManageData\Validation\DateValidation.cs" />
+    <Compile Include="Controller\ManageData\Validation\AirTemperatureValidation.cs" />
+    <Compile Include="Controller\ManageData\Validation\AirPressureValidation.cs" />
+    <Compile Include="Controller\ManageData\Validation\HumidityValidation.cs" />
     <Compile Include="Controller\ManageData\DeleteRecord.cs" />
     <Compile Include="Controller\ManageData\ExportData.cs" />
     <Compile Include="Controller\ManageData\ImportData.cs" />
@@ -75,9 +75,9 @@
     <Compile Include="run.cs" />
     <Compile Include="main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controller\ShowData\BinaereSuche.cs" />
+    <Compile Include="Controller\ShowData\BinarySearch.cs" />
     <Compile Include="Controller\ShowData\BubbleSort.cs" />
-    <Compile Include="Controller\ShowData\LineareSuche.cs" />
+    <Compile Include="Controller\ShowData\LinearSearch.cs" />
     <Compile Include="Controller\ShowData\SelectionSort.cs" />
     <Compile Include="View\ShowErrorMessage.cs" />
     <Compile Include="View\ShowFullData.cs" />

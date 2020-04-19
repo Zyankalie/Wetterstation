@@ -6,23 +6,23 @@ namespace Wetterstation
     partial class main
     {
         static Random r = new Random();
-        static void FillWetterdaten(ref Datensatz[] Wetterdaten, int NumberOfEntries)
+        static void FillWithRandom(ref Record[] WeatherData, int NumberOfEntries)
         {
-            for (int i = 0; i < Wetterdaten.Length; i++)
+            for (int i = 0; i < WeatherData.Length; i++)
             {
                 if (i < NumberOfEntries)
                 {
-                    Wetterdaten[i] = CreateValidRandomEntry();
+                    WeatherData[i] = CreateValidRandomEntry();
                 }
                 else
                 {
-                    Wetterdaten[i] = new Datensatz { Datum = "  .  .    ", Lufttemperatur = 0.0d, Luftdruck = 0, Luftfeuchtigkeit = 0 };
+                    WeatherData[i] = new Record { Date = "  .  .    ", AirTemperature = 0.0d, AirPressure = 0, Humidity = 0 };
                 }
             }
 
         }
 
-        static Datensatz CreateValidRandomEntry()
+        static Record CreateValidRandomEntry()
         {
             //Date
             DateTime start = new DateTime(1900, 1, 1);
@@ -33,7 +33,7 @@ namespace Wetterstation
             int nPressure = r.Next(700, 1080);
             //Humidity
             int nHumidity = r.Next(0, 100);
-            return new Datensatz { Datum = nDate, Lufttemperatur = nTemperature, Luftdruck = nPressure, Luftfeuchtigkeit = nHumidity };
+            return new Record { Date = nDate, AirTemperature = nTemperature, AirPressure = nPressure, Humidity = nHumidity };
         }
     }
 }

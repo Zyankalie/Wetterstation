@@ -5,16 +5,16 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void ManageDataMenu(ref Datensatz[] Wetterdaten)
+        static void ManageDataMenu(ref Record[] WeatherData)
         {
             bool MenueFinished = false;
             string[] ManageSelection = { "Datensatz hinzufügen", "Datensatz verändern", "Datensatz löschen", "Datensätze importieren", "Datensätze exportieren", "Zurück" };
             string[] JaNein = { "Ja", "Nein" };
             int Selection = -1;
             bool ProcessOngoing = true;
-            int Weiter = -1;
+            int Continue = -1;
             int Position = -1;
-            Datensatz newEntry;
+            Record newEntry;
             do
             {
                 ProcessOngoing = true;
@@ -23,16 +23,16 @@ namespace Wetterstation
                 {
                     do
                     {
-                        newEntry = new Datensatz { Datum = "  .  .    ", Lufttemperatur = 0.0d, Luftdruck = 0, Luftfeuchtigkeit = 0 };
-                        if (InputMask(ref Wetterdaten, ref newEntry, ref Position))
+                        newEntry = new Record { Date = "  .  .    ", AirTemperature = 0.0d, AirPressure = 0, Humidity = 0 };
+                        if (InputMask(ref WeatherData, ref newEntry, ref Position))
                         {
-                            AddRecord(ref Wetterdaten, ref newEntry, ref Position);
-                            Weiter = ShowSomeMenu(ref JaNein, "Datensatz wurde hinzugefügt.\r\nWollen Sie einen weiteren Datensatz hinzufügen?");
-                            if (Weiter == 0)
+                            AddRecord(ref WeatherData, ref newEntry, ref Position);
+                            Continue = ShowSomeMenu(ref JaNein, "Datensatz wurde hinzugefügt.\r\nWollen Sie einen weiteren Datensatz hinzufügen?");
+                            if (Continue == 0)
                             {
 
                             }
-                            else if (Weiter == 1)
+                            else if (Continue == 1)
                             {
                                 ProcessOngoing = false;
                             }
@@ -54,10 +54,10 @@ namespace Wetterstation
                         Console.Clear();
                         Console.WriteLine("Geben Sie die Position des Datensatzes an, den Sie anpassen wollen.");
                         Position = Convert.ToInt32(Console.ReadLine());
-                        if (Wetterdaten[Position - 1].Datum == "  .  .    ")
+                        if (WeatherData[Position - 1].Date == "  .  .    ")
                         {
-                            Weiter = ShowSomeMenu(ref JaNein, ShowErrorMessage(128) + "Wollen Sie eine andere Position eingeben?");
-                            if (Weiter == 0)
+                            Continue = ShowSomeMenu(ref JaNein, ShowErrorMessage(128) + "Wollen Sie eine andere Position eingeben?");
+                            if (Continue == 0)
                             {
 
                             }
@@ -68,16 +68,16 @@ namespace Wetterstation
                         }
                         else
                         {
-                            newEntry = Wetterdaten[Position - 1];
-                            if (InputMask(ref Wetterdaten, ref newEntry, newEntry.Datum, newEntry.Lufttemperatur.ToString(), newEntry.Luftdruck.ToString(), newEntry.Luftfeuchtigkeit.ToString(), Position.ToString()))
+                            newEntry = WeatherData[Position - 1];
+                            if (InputMask(ref WeatherData, ref newEntry, newEntry.Date, newEntry.AirTemperature.ToString(), newEntry.AirPressure.ToString(), newEntry.Humidity.ToString(), Position.ToString()))
                             {
-                                AlterRecord(ref Wetterdaten, Position - 1, ref newEntry);
-                                Weiter = ShowSomeMenu(ref JaNein, "Datensatz wurde angepasst.\r\nWollen Sie einen weiteren Datensatz anpassen?");
-                                if (Weiter == 0)
+                                AlterRecord(ref WeatherData, Position - 1, ref newEntry);
+                                Continue = ShowSomeMenu(ref JaNein, "Datensatz wurde angepasst.\r\nWollen Sie einen weiteren Datensatz anpassen?");
+                                if (Continue == 0)
                                 {
 
                                 }
-                                else if (Weiter == 1)
+                                else if (Continue == 1)
                                 {
                                     ProcessOngoing = false;
                                 }
@@ -100,10 +100,10 @@ namespace Wetterstation
                         Console.Clear();
                         Console.WriteLine("Geben Sie die Position des Datensatzes an, den Sie löschen wollen.");
                         Position = Convert.ToInt32(Console.ReadLine());
-                        if (Wetterdaten[Position - 1].Datum == "  .  .    ")
+                        if (WeatherData[Position - 1].Date == "  .  .    ")
                         {
-                            Weiter = ShowSomeMenu(ref JaNein, ShowErrorMessage(128) + "Wollen Sie eine andere Position eingeben?");
-                            if (Weiter == 0)
+                            Continue = ShowSomeMenu(ref JaNein, ShowErrorMessage(128) + "Wollen Sie eine andere Position eingeben?");
+                            if (Continue == 0)
                             {
 
                             }
@@ -114,13 +114,13 @@ namespace Wetterstation
                         }
                         else
                         {
-                            DeleteRecord(ref Wetterdaten, Position - 1);
-                            Weiter = ShowSomeMenu(ref JaNein, "Datensatz wurde löschen.\r\nWollen Sie einen weiteren Datensatz löschen?");
-                            if (Weiter == 0)
+                            DeleteRecord(ref WeatherData, Position - 1);
+                            Continue = ShowSomeMenu(ref JaNein, "Datensatz wurde löschen.\r\nWollen Sie einen weiteren Datensatz löschen?");
+                            if (Continue == 0)
                             {
 
                             }
-                            else if (Weiter == 1)
+                            else if (Continue == 1)
                             {
                                 ProcessOngoing = false;
                             }
@@ -157,7 +157,7 @@ namespace Wetterstation
                         {
                             if (Directory.Exists(ImportPath))
                             {
-                                ImportData(ref Wetterdaten, ImportPath);
+                                ImportData(ref WeatherData, ImportPath);
                                 importProcess = false;
                             }
                             else

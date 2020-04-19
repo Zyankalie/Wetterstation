@@ -8,12 +8,12 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void DeleteRecord(ref Datensatz[] Wetterdaten, int Pos)
+        static void DeleteRecord(ref Record[] WeatherData, int Position)
         {
-            Wetterdaten[Pos].Datum = "  .  .    ";
-            Wetterdaten[Pos].Lufttemperatur = 0.0;
-            Wetterdaten[Pos].Luftdruck = 0;
-            Wetterdaten[Pos].Luftfeuchtigkeit = 0;
+            WeatherData[Position].Date = "  .  .    ";
+            WeatherData[Position].AirTemperature = 0.0;
+            WeatherData[Position].AirPressure = 0;
+            WeatherData[Position].Humidity = 0;
         }
     }
 }

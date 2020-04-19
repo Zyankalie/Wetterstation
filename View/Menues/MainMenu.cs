@@ -4,7 +4,7 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void MainMenu(ref Datensatz[] Wetterdaten)
+        static void MainMenu(ref Record[] WeatherData)
         {
             bool MenuFinished = false;
             do
@@ -14,15 +14,15 @@ namespace Wetterstation
                 int Select = ShowSomeMenu(ref MenuItems, Headline);
                 if (Select == 0)
                 {
-                    ShowDataMenu(ref Wetterdaten);
+                    ShowDataMenu(ref WeatherData);
                 }
                 else if (Select == 1)
                 {
-                    ManageDataMenu(ref Wetterdaten);
+                    ManageDataMenu(ref WeatherData);
                 }
                 else if (Select == 2)
                 {
-                    EvaluateDataMenu(ref Wetterdaten);
+                    EvaluateDataMenu(ref WeatherData);
                 }
                 else if (Select == 3)
                 {

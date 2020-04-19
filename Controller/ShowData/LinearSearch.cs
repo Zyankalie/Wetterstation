@@ -4,14 +4,14 @@ namespace Wetterstation
 {
     partial class main
     {
-        static int LineareSuche(ref Datensatz[] Wetterdaten, int Parameter, string SearchValue)
+        static int LinearSearch(ref Record[] WeatherData, int SearchParameter, string SearchValue)
         {
             int i = 0;
-            if (Parameter == 0)
+            if (SearchParameter == 0)
             {
-                for (i = 0; i < Wetterdaten.Length; i++)
+                for (i = 0; i < WeatherData.Length; i++)
                 {
-                    if (Wetterdaten[i].Datum == SearchValue)
+                    if (WeatherData[i].Date == SearchValue)
                     {
                         return i;
                     }
@@ -21,11 +21,11 @@ namespace Wetterstation
                     }
                 }
             }
-            else if (Parameter == 1)
+            else if (SearchParameter == 1)
             {
-                for (i = 0; i < Wetterdaten.Length; i++)
+                for (i = 0; i < WeatherData.Length; i++)
                 {
-                    if (Wetterdaten[i].Lufttemperatur== Convert.ToDouble(SearchValue))
+                    if (WeatherData[i].AirTemperature== Convert.ToDouble(SearchValue))
                     {
                         return i;
                     }
@@ -35,11 +35,11 @@ namespace Wetterstation
                     }
                 }
             }
-            else if (Parameter == 2)
+            else if (SearchParameter == 2)
             {
-                for (i = 0; i < Wetterdaten.Length; i++)
+                for (i = 0; i < WeatherData.Length; i++)
                 {
-                    if (Wetterdaten[i].Luftdruck == Convert.ToInt32(SearchValue))
+                    if (WeatherData[i].AirPressure == Convert.ToInt32(SearchValue))
                     {
                         return i;
                     }
@@ -49,11 +49,11 @@ namespace Wetterstation
                     }
                 }
             }
-            else if (Parameter == 3)
+            else if (SearchParameter == 3)
             {
-                for (i = 0; i < Wetterdaten.Length; i++)
+                for (i = 0; i < WeatherData.Length; i++)
                 {
-                    if (Wetterdaten[i].Luftfeuchtigkeit == Convert.ToInt32(SearchValue))
+                    if (WeatherData[i].Humidity == Convert.ToInt32(SearchValue))
                     {
                         return i;
                     }

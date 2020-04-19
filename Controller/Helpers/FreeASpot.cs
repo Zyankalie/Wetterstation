@@ -2,11 +2,11 @@
 {
     partial class main
     {
-        static void FreeASpot(ref Datensatz[] Wetterdaten, int Position)
+        static void FreeASpot(ref Record[] WeatherData, int Position)
         {
-            for (int UpperBorder = FindUpperBorder(ref Wetterdaten); UpperBorder > Position; UpperBorder--)
+            for (int UpperBorder = FindUpperBorder(ref WeatherData); UpperBorder > Position; UpperBorder--)
             {
-                Swap(ref Wetterdaten, UpperBorder, UpperBorder - 1);
+                Swap(ref WeatherData, UpperBorder, UpperBorder - 1);
             }
         }
     }

@@ -4,13 +4,13 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void BubbleSort(ref Datensatz[] Wetterdaten, int Parameter, bool AscDesc)
+        static void BubbleSort(ref Record[] WeatherData, int SortParameter, bool AscDesc)
         {
             bool Swaped = true;
-            Defragment(ref Wetterdaten);
-            int UpperBorder = FindUpperBorder(ref Wetterdaten);
+            Defragment(ref WeatherData);
+            int UpperBorder = FindUpperBorder(ref WeatherData);
 
-            if (Parameter == 0)
+            if (SortParameter == 0)
             {
                 while (Swaped)
                 {
@@ -19,24 +19,24 @@ namespace Wetterstation
                     {
                         if (AscDesc)
                         {
-                            if (CompareDates(Wetterdaten[index1].Datum, Wetterdaten[index1 - 1].Datum))
+                            if (CompareDates(WeatherData[index1].Date, WeatherData[index1 - 1].Date))
                             {
-                                Swap(ref Wetterdaten, index1 - 1, index1);
+                                Swap(ref WeatherData, index1 - 1, index1);
                                 Swaped = true;
                             }
                         }
                         else
                         {
-                            if (CompareDates(Wetterdaten[index1 - 1].Datum, Wetterdaten[index1].Datum))
+                            if (CompareDates(WeatherData[index1 - 1].Date, WeatherData[index1].Date))
                             {
-                                Swap(ref Wetterdaten, index1 - 1, index1);
+                                Swap(ref WeatherData, index1 - 1, index1);
                                 Swaped = true;
                             }
                         }
                     }
                 }
             }
-            else if (Parameter == 1)
+            else if (SortParameter == 1)
             {
                 while (Swaped)
                 {
@@ -45,24 +45,24 @@ namespace Wetterstation
                     {
                         if (AscDesc)
                         {
-                            if (Wetterdaten[index1].Lufttemperatur < Wetterdaten[index1 - 1].Lufttemperatur)
+                            if (WeatherData[index1].AirTemperature < WeatherData[index1 - 1].AirTemperature)
                             {
-                                Swap(ref Wetterdaten, index1 - 1, index1);
+                                Swap(ref WeatherData, index1 - 1, index1);
                                 Swaped = true;
                             }
                         }
                         else
                         {
-                            if (Wetterdaten[index1].Lufttemperatur > Wetterdaten[index1 - 1].Lufttemperatur)
+                            if (WeatherData[index1].AirTemperature > WeatherData[index1 - 1].AirTemperature)
                             {
-                                Swap(ref Wetterdaten, index1 - 1, index1);
+                                Swap(ref WeatherData, index1 - 1, index1);
                                 Swaped = true;
                             }
                         }
                     }
                 }
             }
-            else if (Parameter == 2)
+            else if (SortParameter == 2)
             {
                 while (Swaped)
                 {
@@ -71,24 +71,24 @@ namespace Wetterstation
                     {
                         if (AscDesc)
                         {
-                            if (Wetterdaten[index1].Luftdruck < Wetterdaten[index1 - 1].Luftdruck)
+                            if (WeatherData[index1].AirPressure < WeatherData[index1 - 1].AirPressure)
                             {
-                                Swap(ref Wetterdaten, index1 - 1, index1);
+                                Swap(ref WeatherData, index1 - 1, index1);
                                 Swaped = true;
                             }
                         }
                         else
                         {
-                            if (Wetterdaten[index1].Luftdruck > Wetterdaten[index1 - 1].Luftdruck)
+                            if (WeatherData[index1].AirPressure > WeatherData[index1 - 1].AirPressure)
                             {
-                                Swap(ref Wetterdaten, index1 - 1, index1);
+                                Swap(ref WeatherData, index1 - 1, index1);
                                 Swaped = true;
                             }
                         }
                     }
                 }
             }
-            else if (Parameter == 3)
+            else if (SortParameter == 3)
             {
                 while (Swaped)
                 {
@@ -97,17 +97,17 @@ namespace Wetterstation
                     {
                         if (AscDesc)
                         {
-                            if (Wetterdaten[index1].Luftfeuchtigkeit < Wetterdaten[index1 - 1].Luftfeuchtigkeit)
+                            if (WeatherData[index1].Humidity < WeatherData[index1 - 1].Humidity)
                             {
-                                Swap(ref Wetterdaten, index1 - 1, index1);
+                                Swap(ref WeatherData, index1 - 1, index1);
                                 Swaped = true;
                             }
                         }
                         else
                         {
-                            if (Wetterdaten[index1].Luftfeuchtigkeit > Wetterdaten[index1 - 1].Luftfeuchtigkeit)
+                            if (WeatherData[index1].Humidity > WeatherData[index1 - 1].Humidity)
                             {
-                                Swap(ref Wetterdaten, index1 - 1, index1);
+                                Swap(ref WeatherData, index1 - 1, index1);
                                 Swaped = true;
                             }
                         }

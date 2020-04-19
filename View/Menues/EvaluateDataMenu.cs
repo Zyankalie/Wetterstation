@@ -4,7 +4,7 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void EvaluateDataMenu(ref Datensatz[] Wetterdaten)
+        static void EvaluateDataMenu(ref Record[] WeatherDatra)
         {
             bool MenueFinished = false;
             bool ParameterSelected = true;
@@ -28,7 +28,7 @@ namespace Wetterstation
                         }
                         else
                         {
-                            ShowEvaluatedData(ref Wetterdaten, Algorithm, SelectedParameter);
+                            ShowEvaluatedData(ref WeatherDatra, Algorithm, SelectedParameter);
                             ParameterSelected = false;
                         }
                     } while (ParameterSelected);

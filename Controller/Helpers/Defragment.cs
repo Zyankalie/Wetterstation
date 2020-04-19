@@ -2,18 +2,18 @@
 {
     partial class main
     {
-        static void Defragment(ref Datensatz[] Wetterdaten)
+        static void Defragment(ref Record[] WeatherData)
         {
-            bool WurdeGetauscht = true;
-            while (WurdeGetauscht)
+            bool Swaped = true;
+            while (Swaped)
             {
-                WurdeGetauscht = false;
-                for (int i = 1; i < Wetterdaten.Length - 1; i++)
+                Swaped = false;
+                for (int i = 1; i < WeatherData.Length - 1; i++)
                 {
-                    if (Wetterdaten[i - 1].Datum == "  .  .    " && Wetterdaten[i].Datum != "  .  .    ")
+                    if (WeatherData[i - 1].Date == "  .  .    " && WeatherData[i].Date != "  .  .    ")
                     {
-                        WurdeGetauscht = true;
-                        Swap(ref Wetterdaten, i, i - 1);
+                        Swaped = true;
+                        Swap(ref WeatherData, i, i - 1);
                     }
                 }
             }

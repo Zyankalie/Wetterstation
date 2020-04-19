@@ -8,7 +8,7 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void ImportData(ref Datensatz[] Wetterdaten, string Path)
+        static void ImportData(ref Record[] WeatherData, string FilePath)
         {          
 
         }

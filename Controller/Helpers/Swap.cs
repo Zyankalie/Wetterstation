@@ -8,24 +8,24 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void Swap(ref Datensatz[] Wetterdaten, int elem1, int elem2)
+        static void Swap(ref Record[] WeatherData, int elem1, int elem2)
         {
-            Datensatz tmp = new Datensatz { 
-                Datum = Wetterdaten[elem1].Datum, 
-                Lufttemperatur = Wetterdaten[elem1].Lufttemperatur,
-                Luftdruck = Wetterdaten[elem1].Luftdruck, 
-                Luftfeuchtigkeit = Wetterdaten[elem1].Luftfeuchtigkeit
+            Record tmp = new Record { 
+                Date = WeatherData[elem1].Date, 
+                AirTemperature = WeatherData[elem1].AirTemperature,
+                AirPressure = WeatherData[elem1].AirPressure, 
+                Humidity = WeatherData[elem1].Humidity
             };
 
-            Wetterdaten[elem1].Datum = Wetterdaten[elem2].Datum;
-            Wetterdaten[elem1].Lufttemperatur = Wetterdaten[elem2].Lufttemperatur;
-            Wetterdaten[elem1].Luftdruck = Wetterdaten[elem2].Luftdruck;
-            Wetterdaten[elem1].Luftfeuchtigkeit = Wetterdaten[elem2].Luftfeuchtigkeit;
+            WeatherData[elem1].Date = WeatherData[elem2].Date;
+            WeatherData[elem1].AirTemperature = WeatherData[elem2].AirTemperature;
+            WeatherData[elem1].AirPressure = WeatherData[elem2].AirPressure;
+            WeatherData[elem1].Humidity = WeatherData[elem2].Humidity;
 
-            Wetterdaten[elem2].Datum = tmp.Datum;
-            Wetterdaten[elem2].Lufttemperatur = tmp.Lufttemperatur;
-            Wetterdaten[elem2].Luftdruck = tmp.Luftdruck;
-            Wetterdaten[elem2].Luftfeuchtigkeit = tmp.Luftfeuchtigkeit;
+            WeatherData[elem2].Date = tmp.Date;
+            WeatherData[elem2].AirTemperature = tmp.AirTemperature;
+            WeatherData[elem2].AirPressure = tmp.AirPressure;
+            WeatherData[elem2].Humidity = tmp.Humidity;
 
         }
     }

@@ -1,6 +1,4 @@
-﻿//Bei AscDesc = true überprüfung FirstDate älter als SecondDate
-//Bei AscDesc = false überprüfung FirstDate jünger als SecondDate
-using System;
+﻿using System;
 namespace Wetterstation
 {
     partial class main

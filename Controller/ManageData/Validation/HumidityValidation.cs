@@ -8,9 +8,9 @@ namespace Wetterstation
 {
     partial class main
     {
-        static bool TemperatureFits(double Temperature)
+        static bool HumidityValidation(int Humidity)
         {
-            if (Temperature > 60 || Temperature < -50)
+            if (Humidity > 100 || Humidity < 0)
             {
                 return false;
             }

@@ -4,13 +4,13 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void SelectionSort(ref Datensatz[] Wetterdaten, int Parameter, bool AscDesc)
+        static void SelectionSort(ref Record[] WeatherData, int SortParameter, bool AscDesc)
         {
             int pivot = -1;
-            Defragment(ref Wetterdaten);
-            int UpperBorder = FindUpperBorder(ref Wetterdaten);
+            Defragment(ref WeatherData);
+            int UpperBorder = FindUpperBorder(ref WeatherData);
 
-            if (Parameter == 0)
+            if (SortParameter == 0)
             {
                 for (int aeussereSchleife = 0; aeussereSchleife < UpperBorder; aeussereSchleife = aeussereSchleife + 1)
                 {
@@ -19,23 +19,23 @@ namespace Wetterstation
                     {
                         if (AscDesc)
                         {
-                            if (CompareDates(Wetterdaten[innereSchleife].Datum, Wetterdaten[pivot].Datum))
+                            if (CompareDates(WeatherData[innereSchleife].Date, WeatherData[pivot].Date))
                             {
                                 pivot = innereSchleife;
                             }
                         }
                         else
                         {
-                            if (CompareDates(Wetterdaten[pivot].Datum, Wetterdaten[innereSchleife].Datum))
+                            if (CompareDates(WeatherData[pivot].Date, WeatherData[innereSchleife].Date))
                             {
                                 pivot = innereSchleife;
                             }
                         }
                     }
-                    Swap(ref Wetterdaten, aeussereSchleife, pivot);
+                    Swap(ref WeatherData, aeussereSchleife, pivot);
                 }
             }
-            else if (Parameter == 1)
+            else if (SortParameter == 1)
             {
                 for (int aeussereSchleife = 0; aeussereSchleife < UpperBorder; aeussereSchleife = aeussereSchleife + 1)
                 {
@@ -44,23 +44,23 @@ namespace Wetterstation
                     {
                         if (AscDesc)
                         {
-                            if (Wetterdaten[innereSchleife].Lufttemperatur < Wetterdaten[pivot].Lufttemperatur)
+                            if (WeatherData[innereSchleife].AirTemperature < WeatherData[pivot].AirTemperature)
                             {
                                 pivot = innereSchleife;
                             }
                         }
                         else
                         {
-                            if (Wetterdaten[innereSchleife].Lufttemperatur > Wetterdaten[pivot].Lufttemperatur)
+                            if (WeatherData[innereSchleife].AirTemperature > WeatherData[pivot].AirTemperature)
                             {
                                 pivot = innereSchleife;
                             }
                         }
                     }
-                    Swap(ref Wetterdaten, aeussereSchleife, pivot);
+                    Swap(ref WeatherData, aeussereSchleife, pivot);
                 }
             }
-            else if (Parameter == 2)
+            else if (SortParameter == 2)
             {
                 for (int aeussereSchleife = 0; aeussereSchleife < UpperBorder; aeussereSchleife = aeussereSchleife + 1)
                 {
@@ -69,23 +69,23 @@ namespace Wetterstation
                     {
                         if (AscDesc)
                         {
-                            if (Wetterdaten[innereSchleife].Luftdruck < Wetterdaten[pivot].Luftdruck)
+                            if (WeatherData[innereSchleife].AirPressure < WeatherData[pivot].AirPressure)
                             {
                                 pivot = innereSchleife;
                             }
                         }
                         else
                         {
-                            if (Wetterdaten[innereSchleife].Luftdruck > Wetterdaten[pivot].Luftdruck)
+                            if (WeatherData[innereSchleife].AirPressure > WeatherData[pivot].AirPressure)
                             {
                                 pivot = innereSchleife;
                             }
                         }
                     }
-                    Swap(ref Wetterdaten, aeussereSchleife, pivot);
+                    Swap(ref WeatherData, aeussereSchleife, pivot);
                 }
             }
-            else if (Parameter == 3)
+            else if (SortParameter == 3)
             {
                 for (int aeussereSchleife = 0; aeussereSchleife < UpperBorder; aeussereSchleife = aeussereSchleife + 1)
                 {
@@ -94,20 +94,20 @@ namespace Wetterstation
                     {
                         if (AscDesc)
                         {
-                            if (Wetterdaten[innereSchleife].Luftfeuchtigkeit < Wetterdaten[pivot].Luftfeuchtigkeit)
+                            if (WeatherData[innereSchleife].Humidity < WeatherData[pivot].Humidity)
                             {
                                 pivot = innereSchleife;
                             }
                         }
                         else
                         {
-                            if (Wetterdaten[innereSchleife].Luftfeuchtigkeit > Wetterdaten[pivot].Luftfeuchtigkeit)
+                            if (WeatherData[innereSchleife].Humidity > WeatherData[pivot].Humidity)
                             {
                                 pivot = innereSchleife;
                             }
                         }
                     }
-                    Swap(ref Wetterdaten, aeussereSchleife, pivot);
+                    Swap(ref WeatherData, aeussereSchleife, pivot);
                 }
             }
             else

@@ -8,7 +8,7 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void ExportData(ref Datensatz[] Wetterdaten, string Path)
+        static void ExportData(ref Record[] WeatherData, string DestinationPath)
         {
         }
     }

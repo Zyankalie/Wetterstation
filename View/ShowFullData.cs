@@ -4,16 +4,16 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void ShowFullData(ref Datensatz[] Wetterdaten)
+        static void ShowFullData(ref Record[] WeatherData)
         {
             bool ContentIsShown = true;
             int currPage = 0;
             string currData = "";
-            Defragment(ref Wetterdaten);
+            Defragment(ref WeatherData);
             int numberPagesFilled = 0;
             for (int i = 0; i < 366; i++)
             {
-                if (Wetterdaten[i].Datum != "  .  .    ")
+                if (WeatherData[i].Date != "  .  .    ")
                 {
                     numberPagesFilled++;
                 }
@@ -39,13 +39,13 @@ namespace Wetterstation
 
                 for (int PageContent = currPage * 15; (PageContent < (currPage * 15 + 15)) && (PageContent < 366); PageContent++)
                 {
-                    if (Wetterdaten[PageContent].Datum != "  .  .    ")
+                    if (WeatherData[PageContent].Date != "  .  .    ")
                     {
                         currData += new string(' ', 3 - (PageContent + 1).ToString().Length) + (PageContent + 1)
-                            + "    " + Wetterdaten[PageContent].Datum
-                        + new string(' ', 8 + (3 - Wetterdaten[PageContent].Lufttemperatur.ToString("N1").Length)) + Wetterdaten[PageContent].Lufttemperatur.ToString("N1") + "°C"
-                        + new string(' ', 15 + (3 - Wetterdaten[PageContent].Luftdruck.ToString().Length)) + Wetterdaten[PageContent].Luftdruck + "HPa"
-                        + new string(' ', 14 + (2 - Wetterdaten[PageContent].Luftfeuchtigkeit.ToString().Length)) + Wetterdaten[PageContent].Luftfeuchtigkeit + "%";
+                            + "    " + WeatherData[PageContent].Date
+                        + new string(' ', 8 + (3 - WeatherData[PageContent].AirTemperature.ToString("N1").Length)) + WeatherData[PageContent].AirTemperature.ToString("N1") + "°C"
+                        + new string(' ', 15 + (3 - WeatherData[PageContent].AirPressure.ToString().Length)) + WeatherData[PageContent].AirPressure + "HPa"
+                        + new string(' ', 14 + (2 - WeatherData[PageContent].Humidity.ToString().Length)) + WeatherData[PageContent].Humidity + "%";
                         Console.WriteLine(currData);
                     }
                     currData = "";
@@ -82,7 +82,7 @@ namespace Wetterstation
             } while (ContentIsShown);
         }
 
-        static void ShowFullData(ref Datensatz[] Wetterdaten, int SearchedEntry)
+        static void ShowFullData(ref Record[] Wetterdaten, int SearchedEntry)
         {
             bool ContentIsShown = true;
             int currPage = SearchedEntry % 15;
@@ -91,7 +91,7 @@ namespace Wetterstation
             int numberPagesFilled = 0;
             for (int i = 0; i < 366; i++)
             {
-                if (Wetterdaten[i].Datum != "  .  .    ")
+                if (Wetterdaten[i].Date != "  .  .    ")
                 {
                     numberPagesFilled++;
                 }
@@ -115,7 +115,7 @@ namespace Wetterstation
                 Console.ForegroundColor = ConsoleColor.White;
                 for (int PageContent = currPage * 15; (PageContent < (currPage * 15 + 15)) && (PageContent < 366); PageContent++)
                 {
-                    if (Wetterdaten[PageContent].Datum != "  .  .    ")
+                    if (Wetterdaten[PageContent].Date != "  .  .    ")
                     {
                         if (PageContent == SearchedEntry)
                         {
@@ -123,10 +123,10 @@ namespace Wetterstation
                         }
 
                         currData += new string(' ', 3 - (PageContent + 1).ToString().Length) + (PageContent + 1)
-                            + "    " + Wetterdaten[PageContent].Datum
-                        + new string(' ', 8 + (3 - Wetterdaten[PageContent].Lufttemperatur.ToString("N1").Length)) + Wetterdaten[PageContent].Lufttemperatur.ToString("N1") + "°C"
-                        + new string(' ', 15 + (3 - Wetterdaten[PageContent].Luftdruck.ToString().Length)) + Wetterdaten[PageContent].Luftdruck + "HPa"
-                        + new string(' ', 14 + (2 - Wetterdaten[PageContent].Luftfeuchtigkeit.ToString().Length)) + Wetterdaten[PageContent].Luftfeuchtigkeit + "%";
+                            + "    " + Wetterdaten[PageContent].Date
+                        + new string(' ', 8 + (3 - Wetterdaten[PageContent].AirTemperature.ToString("N1").Length)) + Wetterdaten[PageContent].AirTemperature.ToString("N1") + "°C"
+                        + new string(' ', 15 + (3 - Wetterdaten[PageContent].AirPressure.ToString().Length)) + Wetterdaten[PageContent].AirPressure + "HPa"
+                        + new string(' ', 14 + (2 - Wetterdaten[PageContent].Humidity.ToString().Length)) + Wetterdaten[PageContent].Humidity + "%";
                         Console.WriteLine(currData);
                         Console.ForegroundColor = ConsoleColor.White;
                     }

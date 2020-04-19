@@ -4,47 +4,47 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void ShowEvaluatedData(ref Datensatz[] Wetterdaten, int Verfahren, int Parameter)
+        static void ShowEvaluatedData(ref Record[] WeatherData, int EvaluationAlgorithm, int EvalutationParameter)
         {
             Console.Clear();
-            Console.WriteLine(IntToEval(Verfahren) + ":");
-            if (Verfahren == 0)
+            Console.WriteLine(IntToEval(EvaluationAlgorithm) + ":");
+            if (EvaluationAlgorithm == 0)
             {
-                if (Parameter != 3)
+                if (EvalutationParameter != 3)
                 {
-                    Console.WriteLine(IntToParam(Parameter + 1) + ": " + ArithmetischesMittel(ref Wetterdaten, Parameter));
+                    Console.WriteLine(IntToParam(EvalutationParameter + 1) + ": " + ArithmeticMean(ref WeatherData, EvalutationParameter));
                 }
                 else
                 {
-                    Console.WriteLine("Lufttemperatur: " + ArithmetischesMittel(ref Wetterdaten, 0));
-                    Console.WriteLine("Luftdruck: " + ArithmetischesMittel(ref Wetterdaten, 1));
-                    Console.WriteLine("Luftfeuchtigkeit: " + ArithmetischesMittel(ref Wetterdaten, 2));
+                    Console.WriteLine("Lufttemperatur: " + ArithmeticMean(ref WeatherData, 0));
+                    Console.WriteLine("Luftdruck: " + ArithmeticMean(ref WeatherData, 1));
+                    Console.WriteLine("Luftfeuchtigkeit: " + ArithmeticMean(ref WeatherData, 2));
                 }
             }
-            else if (Verfahren == 1)
+            else if (EvaluationAlgorithm == 1)
             {
-                if (Parameter != 3)
+                if (EvalutationParameter != 3)
                 {
-                    Console.WriteLine(IntToParam(Parameter + 1) + ": " + GeometrischesMittel(ref Wetterdaten, Parameter));
+                    Console.WriteLine(IntToParam(EvalutationParameter + 1) + ": " + GeometricMean(ref WeatherData, EvalutationParameter));
                 }
                 else
                 {
-                    Console.WriteLine("Lufttemperatur: " + GeometrischesMittel(ref Wetterdaten, 0));
-                    Console.WriteLine("Luftdruck: " + GeometrischesMittel(ref Wetterdaten, 1));
-                    Console.WriteLine("Luftfeuchtigkeit: " + GeometrischesMittel(ref Wetterdaten, 2));
+                    Console.WriteLine("Lufttemperatur: " + GeometricMean(ref WeatherData, 0));
+                    Console.WriteLine("Luftdruck: " + GeometricMean(ref WeatherData, 1));
+                    Console.WriteLine("Luftfeuchtigkeit: " + GeometricMean(ref WeatherData, 2));
                 }
             }
-            else if (Verfahren == 2)
+            else if (EvaluationAlgorithm == 2)
             {
-                if (Parameter != 3)
+                if (EvalutationParameter != 3)
                 {
-                    Console.WriteLine(IntToParam(Parameter + 1) + ": " + Median(ref Wetterdaten, Parameter));
+                    Console.WriteLine(IntToParam(EvalutationParameter + 1) + ": " + Median(ref WeatherData, EvalutationParameter));
                 }
                 else
                 {
-                    Console.WriteLine("Lufttemperatur: " + Median(ref Wetterdaten, 0));
-                    Console.WriteLine("Luftdruck: " + Median(ref Wetterdaten, 1));
-                    Console.WriteLine("Luftfeuchtigkeit: " + Median(ref Wetterdaten, 2));
+                    Console.WriteLine("Lufttemperatur: " + Median(ref WeatherData, 0));
+                    Console.WriteLine("Luftdruck: " + Median(ref WeatherData, 1));
+                    Console.WriteLine("Luftfeuchtigkeit: " + Median(ref WeatherData, 2));
                 }
             }
             else

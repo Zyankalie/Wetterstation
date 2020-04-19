@@ -4,32 +4,32 @@ namespace Wetterstation
 {
     partial class main
     {
-        static double GeometrischesMittel(ref Datensatz[] Wetterdaten, int Parameter)
+        static double GeometricMean(ref Record[] WeatherData, int EvaluationParameter)
         {
             double Mittel = 1;
             int i = 0;
-            int UpperBorder = FindUpperBorder(ref Wetterdaten);
-            if (Parameter == 0)
+            int UpperBorder = FindUpperBorder(ref WeatherData);
+            if (EvaluationParameter == 0)
             {
                 for (i = 0; i < UpperBorder; i++)
                 {
-                    Mittel = Mittel * Wetterdaten[i].Lufttemperatur;
+                    Mittel = Mittel * WeatherData[i].AirTemperature;
                 }
                 return NthRoot(Mittel, i);
             }
-            else if (Parameter == 1)
+            else if (EvaluationParameter == 1)
             {
                 for (i = 0; i < UpperBorder; i++)
                 {
-                    Mittel = Mittel * Wetterdaten[i].Luftdruck;
+                    Mittel = Mittel * WeatherData[i].AirPressure;
                 }
                 return NthRoot(Mittel, i);
             }
-            else if (Parameter == 2)
+            else if (EvaluationParameter == 2)
             {
                 for (i = 0; i < UpperBorder; i++)
                 {
-                    Mittel = Mittel * Wetterdaten[i].Luftfeuchtigkeit;
+                    Mittel = Mittel * WeatherData[i].Humidity;
                 }
                 return NthRoot(Mittel, i);
             }

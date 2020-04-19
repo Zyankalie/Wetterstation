@@ -8,7 +8,7 @@ namespace Wetterstation
 {
     partial class main
     {
-        static bool DateFits(string Date)
+        static bool DateValidation(string Date)
         {
             string[] DateAsArray = Date.Split('.');
             if (DateAsArray.Length == 3)

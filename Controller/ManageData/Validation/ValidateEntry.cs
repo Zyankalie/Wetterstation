@@ -8,26 +8,26 @@ namespace Wetterstation
 {
     partial class main
     {
-        static int ValidateEntry(ref Datensatz[] Wetterdaten, ref Datensatz Entry)
+        static int ValidateEntry(ref Record[] WeatherData, ref Record Entry)
         {
             int result = 0;
-            Defragment(ref Wetterdaten);
-            if (Wetterdaten[Wetterdaten.Length - 1].Datum == "  .  .    ")
+            Defragment(ref WeatherData);
+            if (WeatherData[WeatherData.Length - 1].Date == "  .  .    ")
             {
-                if (!DateFits(Entry.Datum))
+                if (!DateValidation(Entry.Date))
                 {
                     result += 2;
                 }
-                if (!TemperatureFits(Entry.Lufttemperatur))
+                if (!AirTemperatureValidation(Entry.AirTemperature))
                 {
                     result += 4;
                 }
 
-                if (!PressureFits(Entry.Luftdruck))
+                if (!AirPressureValidation(Entry.AirPressure))
                 {
                     result += 8;
                 }
-                if (!HumidityFits(Entry.Luftfeuchtigkeit))
+                if (!HumidityValidation(Entry.Humidity))
                 {
                     result += 16;
                 }
