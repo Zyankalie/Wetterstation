@@ -188,12 +188,6 @@ namespace Wetterstation
                     //Nichts
                 }
             } while (!MenueFinished);
-            //Datensatz hinzufügen
-            //Mehrere Datensätze hinzufügen
-            //Datensatz löschen
-            //Datensatz verändern
-            //Datensätze importieren
-            //Datensätze exportieren
         }
     }
 }
