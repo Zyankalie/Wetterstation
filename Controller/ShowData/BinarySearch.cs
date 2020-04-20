@@ -1,4 +1,13 @@
-﻿using System;
+﻿//Autor:        Jan-Lukas Spilles
+//Klasse:       IA119
+//Datei:        BinarySearch.cs
+//Datum:        10.04.2020
+//Beschreibung: Führt eine binäre Suche auf dem Array aus.
+//              Es wird ein SearchParamter (0 = Datum; 1 = Lufttemperatur; 2 = Luftdruck; 3 = Luftfeuchtigkeit)
+//              und ein Searchvalue übergeben.
+//              Gibt die Position des ersten Elements, dass passt zurück.
+//Aenderungen:  10.04.2020 Erstellung
+using System;
 
 namespace Wetterstation
 {
@@ -6,7 +15,9 @@ namespace Wetterstation
     {
         static int BinarySearch(ref Record[] WeatherData, int SearchParameter, string SearchValue)
         {
+            //Damit sortiert werden kann
             Defragment(ref WeatherData);
+            //Damit binär gesucht werden kann
             BubbleSort(ref WeatherData, SearchParameter, true);
             int Pivot = -1;
             int LowerLimit = 0;

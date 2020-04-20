@@ -1,5 +1,11 @@
-﻿using System;
-
+﻿//Autor:        Jan-Lukas Spilles
+//Klasse:       IA119
+//Datei:        SelectionSort.cs
+//Datum:        10.04.2020
+//Beschreibung: Führt einen SelectionSort auf dem Array aus.
+//              Es wird ein SortParameter (0 = Datum; 1 = Lufttemperatur; 2 = Luftdruck; 3 = Luftfeuchtigkeit)
+//              und ein bool übergeben(Dieser entscheidet, ob auf oder absteigend sortiert werden soll).
+//Aenderungen:  10.04.2020 Erstellung
 namespace Wetterstation
 {
     partial class main

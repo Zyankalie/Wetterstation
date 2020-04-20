@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿//Autor:        Jan-Lukas Spilles
+//Klasse:       IA119
+//Datei:        AirTemperatureValidation.cs
+//Datum:        14.04.2020
+//Beschreibung: Überprüft, ob es sich um einen validen Wert für die Lufttemperatur handelt.
+//              Valide: -50 <= x <= 60
+//Aenderungen:  14.04.2020 Erstellung
 namespace Wetterstation
 {
     partial class main

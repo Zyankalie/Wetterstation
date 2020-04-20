@@ -1,4 +1,12 @@
-﻿using System;
+﻿//Autor:        Jan-Lukas Spilles
+//Klasse:       IA119
+//Datei:        run.cs
+//Datum:        06.04.2020
+//Beschreibung: run-Funktion, stellt den Programmablauf dar
+//Aenderungen:  06.04.2020 Erstellung
+//              14.04.2020 Methodenaufruf FillWithRandom hinzugefügt
+//              19.04.2020 Aufruf Splashinfo hinzugefügt
+using System;
 
 namespace Wetterstation
 {

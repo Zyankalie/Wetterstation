@@ -1,4 +1,11 @@
-﻿using System;
+﻿//Autor:        Jan-Lukas Spilles
+//Klasse:       IA119
+//Datei:        GeometricMean.cs
+//Datum:        12.04.2020
+//Beschreibung: Berechnet das geometrische Mittel für einen übergebenen Parameter
+//              Mapping: 0 = Lufttemperatur; 1 = Luftdruck; 2 = Luftfeuchtigkeit
+//              return -1 heißt, dass der EvaluationParameter fehlerhaft war
+//Aenderungen:  12.04.2020 Erstellung
 
 namespace Wetterstation
 {

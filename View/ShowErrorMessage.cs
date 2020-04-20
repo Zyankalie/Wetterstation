@@ -1,4 +1,22 @@
-﻿namespace Wetterstation
+﻿//Autor:        Jan-Lukas Spilles
+//Klasse:       IA119
+//Datei:        ShowErrorMessage.cs
+//Datum:        12.04.2020
+//Beschreibung: Methode, um Fehlermeldungen auszugeben.
+//              Mapping für Fehlermeldungen auf Zweierpotenzen, so können
+//              mit der Übergabe von einem Integer mehrere Fehlermeldungen erzeugt werden.
+//              Mapping:
+//              1  : Datensatz konnte nicht gefunden werden.
+//              2  : Ungültiges Datum.
+//              4  : Ungültige Lufttemperatur.
+//              8  : Ungültiger Luftdruck.
+//              16 : Ungültige Luftfeuchtigkeit.
+//              32 : Datenbank voll.
+//              64 : Ungültige Position.
+//              128: Es befindet sich kein Datensatz an dieser Position.
+
+//Aenderungen:  12.04.2020 Erstellung
+namespace Wetterstation
 {
     partial class main
     {

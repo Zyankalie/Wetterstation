@@ -1,5 +1,10 @@
-﻿using System;
-using System.Linq;
+﻿//Autor:        Jan-Lukas Spilles
+//Klasse:       IA119
+//Datei:        FillWithRandom.cs
+//Datum:        14.04.2020
+//Beschreibung: Füllt das Array mit n zufälligen und validen Einträgen.
+//Aenderungen:  14.04.2020 Erstellung
+using System;
 
 namespace Wetterstation
 {

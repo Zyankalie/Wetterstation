@@ -1,8 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//Autor:        Jan-Lukas Spilles
+//Klasse:       IA119
+//Datei:        DateValidation.cs
+//Datum:        14.04.2020
+//Beschreibung: Überprüft, ob es sich um einen validen Wert für das Datum handelt.
+//              Valide: 1900 <= x 
+//Aenderungen:  14.04.2020 Erstellung
+using System;
 
 namespace Wetterstation
 {

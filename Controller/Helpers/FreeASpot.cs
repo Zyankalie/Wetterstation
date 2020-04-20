@@ -1,4 +1,12 @@
-﻿namespace Wetterstation
+﻿//Autor:        Jan-Lukas Spilles
+//Klasse:       IA119
+//Datei:        FreeASpot.cs
+//Datum:        14.04.2020
+//Beschreibung: Nimmt eine Position n entgegen. 
+//              Von dieser Position an werden alle Einträge um einen
+//              Platz nach hinten verschoben
+//Aenderungen:  14.04.2020 Erstellung
+namespace Wetterstation
 {
     partial class main
     {

@@ -1,4 +1,13 @@
-﻿using System;
+﻿//Autor:        Jan-Lukas Spilles
+//Klasse:       IA119
+//Datei:        ShowEvaluatedData.cs
+//Datum:        16.04.2020
+//Beschreibung: Konsolenausgabe für die Evaluierung.
+//              Mapping: 
+//                  EvaluationAlgorithm: 0 = ArithmeticMean; 1 = GeometricMean; 2 = Median
+//                  EvaluationParameter: 0 = Lufttemperatur; 1 = Luftdruck; 2 = Luftfeuchtigkeit; 3 = Alle Werte
+//Aenderungen:  16.04.2020 Erstellung
+using System;
 
 namespace Wetterstation
 {

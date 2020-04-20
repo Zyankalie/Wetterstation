@@ -1,4 +1,13 @@
-﻿using System;
+﻿//Autor:        Jan-Lukas Spilles
+//Klasse:       IA119
+//Datei:        LinearSearch.cs
+//Datum:        10.04.2020
+//Beschreibung: Führt eine lineare Suche auf dem Array aus.
+//              Es wird ein SearchParamter (0 = Datum; 1 = Lufttemperatur; 2 = Luftdruck; 3 = Luftfeuchtigkeit)
+//              und ein Searchvalue übergeben.
+//              Gibt die Position des ersten Elements, dass passt zurück.
+//Aenderungen:  10.04.2020 Erstellung
+using System;
 
 namespace Wetterstation
 {

@@ -1,4 +1,10 @@
-﻿namespace Wetterstation
+﻿//Autor:        Jan-Lukas Spilles
+//Klasse:       IA119
+//Datei:        IntToParam.cs
+//Datum:        12.04.2020
+//Beschreibung: Übersetzt Integer in Strings für Ausgaben.
+//Aenderungen:  12.04.2020 Erstellung
+namespace Wetterstation
 {
     partial class main
     {

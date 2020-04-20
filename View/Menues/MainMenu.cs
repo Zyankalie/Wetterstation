@@ -1,4 +1,9 @@
-﻿using System;
+﻿//Autor:        Jan-Lukas Spilles
+//Klasse:       IA119
+//Datei:        MainMenu.cs
+//Datum:        06.04.2020
+//Beschreibung: Programmablauf für das Hauptmenü
+//Aenderungen:  06.04.2020 Erstellung
 
 namespace Wetterstation
 {

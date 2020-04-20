@@ -1,4 +1,9 @@
-﻿using System;
+﻿//Autor:        Jan-Lukas Spilles
+//Klasse:       IA119
+//Datei:        EvaluateDataMenu.cs
+//Datum:        10.04.2020
+//Beschreibung: Programmablauf für das Menü "Daten auswerten"
+//Aenderungen:  10.04.2020 Erstellung
 
 namespace Wetterstation
 {

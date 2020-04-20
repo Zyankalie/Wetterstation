@@ -1,4 +1,13 @@
-﻿using System;
+﻿//Autor:        Jan-Lukas Spilles
+//Klasse:       IA119
+//Datei:        ShowDataMenu.cs
+//Datum:        10.04.2020
+//Beschreibung: Programmablauf für das Menü "Daten anzeigen"
+//Aenderungen:  10.04.2020 Erstellung
+//              11.04.2020 ShowFullData
+//              12.04.2020 Sortieren/Suchen
+//              16.04.2020 Strukturanpassungen
+using System;
 
 namespace Wetterstation
 {

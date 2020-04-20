@@ -1,9 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿//Autor:        Jan-Lukas Spilles
+//Klasse:       IA119
+//Datei:        ValidateEntry.cs
+//Datum:        14.04.2020
+//Beschreibung: Überprüft, ob ein Record valide ist und ob noch Platz im Array vorhanden ist.
+//              Gibt einen Integer für mögliche Fehler zurück, siehe ShowErrorMessage für Mapping.
+//              Bei 0 ist Record valide.
+//Aenderungen:  14.04.2020 Erstellung
 namespace Wetterstation
 {
     partial class main

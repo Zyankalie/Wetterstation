@@ -1,4 +1,12 @@
-﻿using System;
+﻿//Autor:        Jan-Lukas Spilles
+//Klasse:       IA119
+//Datei:        CompareDates.cs
+//Datum:        10.04.2020
+//Beschreibung: Erhält zwei Zeitstempel als Strings.
+//              Ist FirstDate aktueller als SecondDate
+//              wird true zurückgegeben, sonst false.
+//Aenderungen:  10.04.2020 Erstellung
+using System;
 namespace Wetterstation
 {
     partial class main

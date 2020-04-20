@@ -1,4 +1,10 @@
-﻿using System;
+﻿//Autor:        Jan-Lukas Spilles
+//Klasse:       IA119
+//Datei:        Splashinfo.cs
+//Datum:        19.04.2020
+//Beschreibung: Gibt eine Splashinfo über das Projekt auf der Konsole aus
+//Aenderungen:  19.04.2020 Erstellung
+using System;
 
 namespace Wetterstation
 {

@@ -1,4 +1,10 @@
-﻿using System;
+﻿//Autor:        Jan-Lukas Spilles
+//Klasse:       IA119
+//Datei:        InputMask.cs
+//Datum:        16.04.2020
+//Beschreibung: Eingabemaske für das Hinzufügen von Datensätzen
+//Aenderungen:  16.04.2020 Erstellung
+using System;
 
 namespace Wetterstation
 {

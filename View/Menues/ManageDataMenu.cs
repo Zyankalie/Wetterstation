@@ -1,6 +1,15 @@
-﻿using System;
+﻿//Autor:        Jan-Lukas Spilles
+//Klasse:       IA119
+//Datei:        ManageDataMenu.cs
+//Datum:        08.04.2020
+//Beschreibung: Programmablauf für das Menü "Daten verwalten"
+//Aenderungen:  08.04.2020 Erstellung
+//              13.04.2020 Daten hinzufügen/löschen/verändern
+//              14.04.2020 Pathvalidation
+
+//TODO: Import/Export
+using System;
 using System.IO;
-using System.Linq;
 
 namespace Wetterstation
 {

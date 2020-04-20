@@ -1,4 +1,13 @@
-﻿using System;
+﻿//Autor:        Jan-Lukas Spilles
+//Klasse:       IA119
+//Datei:        ShowFullData.cs
+//Datum:        06.04.2020
+//Beschreibung: Gibt das komplette Array graphisch in der Konsole aus.
+//              Überladung mit zusätzlichem Integer: Dieser Wert wird in grün angezeigt, für Suchfunktionen.
+//Aenderungen:  06.04.2020 Erstellung
+//              10.04.2020 Zweite Methode mit Markieren von Eintrag
+//              16.04.2020 Anzeigen von Pfeiltasten
+using System;
 
 namespace Wetterstation
 {

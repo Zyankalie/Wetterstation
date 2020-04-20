@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿//Autor:        Jan-Lukas Spilles
+//Klasse:       IA119
+//Datei:        Swap.cs
+//Datum:        06.04.2020
+//Beschreibung: Nimmt zwei Positionen entgegen 
+//              und tauscht die Einträge an diesen Positionen.
+//Aenderungen:  06.04.2020 Erstellung
 namespace Wetterstation
 {
     partial class main
