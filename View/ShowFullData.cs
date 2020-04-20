@@ -85,7 +85,7 @@ namespace Wetterstation
         static void ShowFullData(ref Record[] Wetterdaten, int SearchedEntry)
         {
             bool ContentIsShown = true;
-            int currPage = SearchedEntry % 15;
+            int currPage = SearchedEntry / 15;
             string currData = "";
             Defragment(ref Wetterdaten);
             int numberPagesFilled = 0;

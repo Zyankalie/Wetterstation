@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 
 namespace Wetterstation
 {
@@ -177,7 +178,7 @@ namespace Wetterstation
                 }
                 else if (Selection == 4)
                 {
-                    //Export
+                    
                 }
                 else if (Selection == 5)
                 {
