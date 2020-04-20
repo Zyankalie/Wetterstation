@@ -52,8 +52,10 @@
     <Compile Include="Controller\Helpers\IntToEval.cs" />
     <Compile Include="Controller\Helpers\IntToParam.cs" />
     <Compile Include="Controller\Helpers\NthRoot.cs" />
+    <Compile Include="Controller\Helpers\WipeArray.cs" />
     <Compile Include="Splashinfo.cs" />
-    <Compile Include="View\InputMask.cs" />
+    <Compile Include="View\InputMaskNewEntry.cs" />
+    <Compile Include="View\InputMaskPath.cs" />
     <Compile Include="View\ShowEvaluatedData.cs" />
     <Compile Include="Controller\Helpers\Defragment.cs" />
     <Compile Include="Controller\Helpers\Swap.cs" />

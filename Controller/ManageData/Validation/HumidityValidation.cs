@@ -9,7 +9,7 @@ namespace Wetterstation
 {
     partial class main
     {
-        static bool HumidityValidation(int Humidity)
+        static bool HumidityValidation(uint Humidity)
         {
             if (Humidity > 100 || Humidity < 0)
             {

@@ -9,7 +9,7 @@ namespace Wetterstation
 {
     partial class main
     {
-        static bool AirPressureValidation(int pressure)
+        static bool AirPressureValidation(uint pressure)
         {
             if (pressure > 1080 || pressure < 700)
             {

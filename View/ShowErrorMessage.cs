@@ -14,7 +14,15 @@
 //              32 : Datenbank voll.
 //              64 : Ungültige Position.
 //              128: Es befindet sich kein Datensatz an dieser Position.
-
+//    None   = 0,      // 000000  0
+//
+//    Melee  = 1 << 0, // 000001  1
+//
+//    Fire   = 1 << 1, // 000010  2
+//
+//    Ice    = 1 << 2, // 000100  4
+//
+//    Poison = 1 << 3, // 001000  8
 //Aenderungen:  12.04.2020 Erstellung
 namespace Wetterstation
 {
@@ -65,8 +73,7 @@ namespace Wetterstation
                     ErrorMessage += "Es befindet sich kein Datensatz an dieser Position!\r\n";
                 }
                 Error -= currError;
-            }
-            
+            }            
             return ErrorMessage;
         }
     }

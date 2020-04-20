@@ -1,6 +1,6 @@
 ﻿//Autor:        Jan-Lukas Spilles
 //Klasse:       IA119
-//Datei:        InputMask.cs
+//Datei:        InputMaskNewEntry.cs
 //Datum:        16.04.2020
 //Beschreibung: Eingabemaske für das Hinzufügen von Datensätzen
 //Aenderungen:  16.04.2020 Erstellung
@@ -10,7 +10,7 @@ namespace Wetterstation
 {
     partial class main
     {
-        static bool InputMask(ref Record[] WeatherData, ref Record newEntry, ref int Pos)
+        static bool InputMaskNewEntry(ref Record[] WeatherData, ref Record newEntry, ref int Pos)
         {
             bool Editing = true;
             int currentline = 0;
@@ -61,8 +61,8 @@ namespace Wetterstation
                 {
                     newEntry.Date = UserInputs[0];
                     newEntry.AirTemperature = Convert.ToDouble(UserInputs[1]);
-                    newEntry.AirPressure = Convert.ToInt32(UserInputs[2]);
-                    newEntry.Humidity = Convert.ToInt32(UserInputs[3]);
+                    newEntry.AirPressure = Convert.ToUInt32(UserInputs[2]);
+                    newEntry.Humidity = Convert.ToUInt32(UserInputs[3]);
                     int Validation = ValidateEntry(ref WeatherData, ref newEntry);
                     if (UserInputs[4] != "" && (Convert.ToInt32(UserInputs[4]) > 366 || (Convert.ToInt32(UserInputs[4]) < 1)))
                     {
@@ -130,7 +130,7 @@ namespace Wetterstation
             return false;
         }
 
-        static bool InputMask(ref Record[] Wetterdaten, ref Record newEntry, string date, string temperature, string pressure, string humidity, string position)
+        static bool InputMaskNewEntry(ref Record[] Wetterdaten, ref Record newEntry, string date, string temperature, string pressure, string humidity, string position)
         {
             bool Editing = true;
             int currentline = 0;
@@ -181,8 +181,8 @@ namespace Wetterstation
                 {
                     newEntry.Date = UserInputs[0];
                     newEntry.AirTemperature = Convert.ToDouble(UserInputs[1]);
-                    newEntry.AirPressure = Convert.ToInt32(UserInputs[2]);
-                    newEntry.Humidity = Convert.ToInt32(UserInputs[3]);
+                    newEntry.AirPressure = Convert.ToUInt32(UserInputs[2]);
+                    newEntry.Humidity = Convert.ToUInt32(UserInputs[3]);
                     int Validation = ValidateEntry(ref Wetterdaten, ref newEntry);
 
                     if (Validation != 0)

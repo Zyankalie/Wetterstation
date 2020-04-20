@@ -36,9 +36,9 @@ namespace Wetterstation
             //Temperature
             double nTemperature = r.NextDouble() * (60.0 - (-50.0)) + (-50.0);
             //Pressure
-            int nPressure = r.Next(700, 1080);
+            uint nPressure = (uint)r.Next(700, 1080);
             //Humidity
-            int nHumidity = r.Next(0, 100);
+            uint nHumidity = (uint)r.Next(0, 100);
             return new Record { Date = nDate, AirTemperature = nTemperature, AirPressure = nPressure, Humidity = nHumidity };
         }
     }
