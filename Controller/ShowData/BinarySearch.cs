@@ -13,94 +13,94 @@ namespace Wetterstation
 {
     partial class main
     {
-        static int BinarySearch(ref Record[] WeatherData, int SearchParameter, string SearchValue)
+        static int BinarySearch(ref Record[] weatherData, int searchParameter, string searchValue)
         {
             //Damit sortiert werden kann
-            Defragment(ref WeatherData);
+            Defragment(ref weatherData);
             //Damit binär gesucht werden kann
-            BubbleSort(ref WeatherData, SearchParameter, true);
-            int Pivot = -1;
-            int LowerLimit = 0;
-            int UpperLimit = FindUpperBorder(ref WeatherData);
-            int Pos = -1;
+            BubbleSort(ref weatherData, searchParameter, true);
+            int pivot = -1;
+            int lowerLimit = 0;
+            int upperLimit = FindUpperBorder(ref weatherData);
+            int pos = -1;
 
-            if (SearchParameter == 0)
+            if (searchParameter == 0)
             {
-                while (UpperLimit >= LowerLimit)
+                while (upperLimit >= lowerLimit)
                 {
-                    Pivot = LowerLimit + ((UpperLimit - LowerLimit) / 2);
-                    if (WeatherData[Pivot].Date == SearchValue)
+                    pivot = lowerLimit + ((upperLimit - lowerLimit) / 2);
+                    if (weatherData[pivot].date == searchValue)
                     {
-                        Pos = Pivot;
+                        pos = pivot;
                         break;
                     }
-                    else if (CompareDates(SearchValue, WeatherData[Pivot].Date))
+                    else if (CompareDates(searchValue, weatherData[pivot].date))
                     {
-                        LowerLimit = Pivot + 1;
+                        lowerLimit = pivot + 1;
                     }
                     else //(CompareDates(SearchValue, Wetterdaten[Pivot].Datum, false))
                     {
-                        UpperLimit = Pivot - 1;
+                        upperLimit = pivot - 1;
                     }
                 }                
             }
-            else if (SearchParameter == 1)
+            else if (searchParameter == 1)
             {
-                while (UpperLimit >= LowerLimit)
+                while (upperLimit >= lowerLimit)
                 {
-                    Pivot = LowerLimit + ((UpperLimit - LowerLimit) / 2);
-                    if (WeatherData[Pivot].AirTemperature == Convert.ToDouble(SearchValue))
+                    pivot = lowerLimit + ((upperLimit - lowerLimit) / 2);
+                    if (weatherData[pivot].airTemperature == Convert.ToDouble(searchValue))
                     {
-                        Pos = Pivot;
+                        pos = pivot;
                         break;
                     }
-                    else if (Convert.ToDouble(SearchValue) > WeatherData[Pivot].AirTemperature)
+                    else if (Convert.ToDouble(searchValue) > weatherData[pivot].airTemperature)
                     {
-                        LowerLimit = Pivot + 1;
+                        lowerLimit = pivot + 1;
                     }
-                    else if (Convert.ToDouble(SearchValue) < WeatherData[Pivot].AirTemperature)
+                    else if (Convert.ToDouble(searchValue) < weatherData[pivot].airTemperature)
                     {
-                        UpperLimit = Pivot - 1;
+                        upperLimit = pivot - 1;
                     }
                 }
             }
-            else if (SearchParameter == 2)
+            else if (searchParameter == 2)
             {
-                while (UpperLimit >= LowerLimit)
+                while (upperLimit >= lowerLimit)
                 {
-                    Pivot = LowerLimit + ((UpperLimit - LowerLimit) / 2);
-                    if (WeatherData[Pivot].AirPressure == Convert.ToInt32(SearchValue))
+                    pivot = lowerLimit + ((upperLimit - lowerLimit) / 2);
+                    if (weatherData[pivot].airPressure == Convert.ToInt32(searchValue))
                     {
-                        Pos = Pivot;
+                        pos = pivot;
                         break;
                     }
-                    else if (Convert.ToInt32(SearchValue) > WeatherData[Pivot].AirPressure)
+                    else if (Convert.ToInt32(searchValue) > weatherData[pivot].airPressure)
                     {
-                        LowerLimit = Pivot + 1;
+                        lowerLimit = pivot + 1;
                     }
-                    else if (Convert.ToInt32(SearchValue) < WeatherData[Pivot].AirPressure)
+                    else if (Convert.ToInt32(searchValue) < weatherData[pivot].airPressure)
                     {
-                        UpperLimit = Pivot - 1;
+                        upperLimit = pivot - 1;
                     }
                 }
             }
-            else if (SearchParameter == 3)
+            else if (searchParameter == 3)
             {
-                while (UpperLimit >= LowerLimit)
+                while (upperLimit >= lowerLimit)
                 {
-                    Pivot = LowerLimit + ((UpperLimit - LowerLimit) / 2);
-                    if (WeatherData[Pivot].Humidity == Convert.ToInt32(SearchValue))
+                    pivot = lowerLimit + ((upperLimit - lowerLimit) / 2);
+                    if (weatherData[pivot].humidity == Convert.ToInt32(searchValue))
                     {
-                        Pos = Pivot;
+                        pos = pivot;
                         break;
                     }
-                    else if (Convert.ToInt32(SearchValue) > WeatherData[Pivot].Humidity)
+                    else if (Convert.ToInt32(searchValue) > weatherData[pivot].humidity)
                     {
-                        LowerLimit = Pivot + 1;
+                        lowerLimit = pivot + 1;
                     }
-                    else if (Convert.ToInt32(SearchValue) < WeatherData[Pivot].Humidity)
+                    else if (Convert.ToInt32(searchValue) < weatherData[pivot].humidity)
                     {
-                        UpperLimit = Pivot - 1;
+                        upperLimit = pivot - 1;
                     }
                 }
             }
@@ -108,7 +108,7 @@ namespace Wetterstation
             {
                 //Nichts
             }
-            return Pos;
+            return pos;
         }
     }
 }

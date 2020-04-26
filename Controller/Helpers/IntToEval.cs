@@ -8,17 +8,17 @@ namespace Wetterstation
 {
     partial class main
     {
-        static string IntToEval(int Parameter)
+        static string IntToEval(int parameter)
         {
-            if (Parameter == 0)
+            if (parameter == 0)
             {
                 return "Arithmetisches Mittel";
             }
-            else if (Parameter == 1)
+            else if (parameter == 1)
             {
                 return "Geometrisches Mittel";
             }
-            else if (Parameter == 2)
+            else if (parameter == 2)
             {
                 return "Median";
             }

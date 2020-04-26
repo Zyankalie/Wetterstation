@@ -13,7 +13,7 @@ namespace Wetterstation
 {
     partial class main
     {
-        static int ShowSomeMenu(ref string[] MenuPoints, string Headline)
+        static int ShowSomeMenu(ref string[] menuPoints, string headline)
         {
 
             int curItem = 0;
@@ -22,19 +22,19 @@ namespace Wetterstation
             do
             {
                 Console.Clear();
-                Console.WriteLine(Headline + "\n");
+                Console.WriteLine(headline + "\n");
 
-                for (int counter = 0; counter < MenuPoints.Length; counter++)
+                for (int counter = 0; counter < menuPoints.Length; counter++)
                 {
                     if (curItem == counter)
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine(MenuPoints[counter]);
+                        Console.WriteLine(menuPoints[counter]);
                         Console.ForegroundColor = ConsoleColor.White;
                     }
                     else
                     {
-                        Console.WriteLine(MenuPoints[counter]);
+                        Console.WriteLine(menuPoints[counter]);
                     }
                 }
 
@@ -43,15 +43,15 @@ namespace Wetterstation
                 if (key.Key.ToString() == "DownArrow")
                 {
                     curItem++;
-                    if (curItem > MenuPoints.Length - 1) curItem = 0;
+                    if (curItem > menuPoints.Length - 1) curItem = 0;
                 }
                 else if (key.Key.ToString() == "UpArrow")
                 {
                     curItem--;
-                    if (curItem < 0) curItem = Convert.ToInt32(MenuPoints.Length - 1);
+                    if (curItem < 0) curItem = Convert.ToInt32(menuPoints.Length - 1);
                 }
                 else
-                { 
+                {
                     //Nichts
                 }
             } while (key.Key.ToString() != "Enter");

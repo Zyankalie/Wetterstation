@@ -9,9 +9,9 @@ namespace Wetterstation
 {
     partial class main
     {
-        static bool AirTemperatureValidation(double Temperature)
+        static bool AirTemperatureValidation(double temperature)
         {
-            if (Temperature > 60 || Temperature < -50)
+            if (temperature > 60 || temperature < -50)
             {
                 return false;
             }

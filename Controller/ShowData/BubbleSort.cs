@@ -10,111 +10,111 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void BubbleSort(ref Record[] WeatherData, int SortParameter, bool AscDesc)
+        static void BubbleSort(ref Record[] weatherData, int sortParameter, bool ascDesc)
         {
-            bool Swaped = true;
-            Defragment(ref WeatherData);
-            int UpperBorder = FindUpperBorder(ref WeatherData);
+            bool swaped = true;
+            Defragment(ref weatherData);
+            int upperBorder = FindUpperBorder(ref weatherData);
 
-            if (SortParameter == 0)
+            if (sortParameter == 0)
             {
-                while (Swaped)
+                while (swaped)
                 {
-                    Swaped = false;
-                    for (int index1 = 1; index1 < UpperBorder; index1 = index1 + 1)
+                    swaped = false;
+                    for (int index1 = 1; index1 < upperBorder; index1 = index1 + 1)
                     {
-                        if (AscDesc)
+                        if (ascDesc)
                         {
-                            if (CompareDates(WeatherData[index1].Date, WeatherData[index1 - 1].Date))
+                            if (CompareDates(weatherData[index1].date, weatherData[index1 - 1].date))
                             {
-                                Swap(ref WeatherData, index1 - 1, index1);
-                                Swaped = true;
+                                Swap(ref weatherData, index1 - 1, index1);
+                                swaped = true;
                             }
                         }
                         else
                         {
-                            if (CompareDates(WeatherData[index1 - 1].Date, WeatherData[index1].Date))
+                            if (CompareDates(weatherData[index1 - 1].date, weatherData[index1].date))
                             {
-                                Swap(ref WeatherData, index1 - 1, index1);
-                                Swaped = true;
+                                Swap(ref weatherData, index1 - 1, index1);
+                                swaped = true;
                             }
                         }
                     }
                 }
             }
-            else if (SortParameter == 1)
+            else if (sortParameter == 1)
             {
-                while (Swaped)
+                while (swaped)
                 {
-                    Swaped = false;
-                    for (int index1 = 1; index1 < UpperBorder; index1 = index1 + 1)
+                    swaped = false;
+                    for (int index1 = 1; index1 < upperBorder; index1 = index1 + 1)
                     {
-                        if (AscDesc)
+                        if (ascDesc)
                         {
-                            if (WeatherData[index1].AirTemperature < WeatherData[index1 - 1].AirTemperature)
+                            if (weatherData[index1].airTemperature < weatherData[index1 - 1].airTemperature)
                             {
-                                Swap(ref WeatherData, index1 - 1, index1);
-                                Swaped = true;
+                                Swap(ref weatherData, index1 - 1, index1);
+                                swaped = true;
                             }
                         }
                         else
                         {
-                            if (WeatherData[index1].AirTemperature > WeatherData[index1 - 1].AirTemperature)
+                            if (weatherData[index1].airTemperature > weatherData[index1 - 1].airTemperature)
                             {
-                                Swap(ref WeatherData, index1 - 1, index1);
-                                Swaped = true;
+                                Swap(ref weatherData, index1 - 1, index1);
+                                swaped = true;
                             }
                         }
                     }
                 }
             }
-            else if (SortParameter == 2)
+            else if (sortParameter == 2)
             {
-                while (Swaped)
+                while (swaped)
                 {
-                    Swaped = false;
-                    for (int index1 = 1; index1 < UpperBorder; index1 = index1 + 1)
+                    swaped = false;
+                    for (int index1 = 1; index1 < upperBorder; index1 = index1 + 1)
                     {
-                        if (AscDesc)
+                        if (ascDesc)
                         {
-                            if (WeatherData[index1].AirPressure < WeatherData[index1 - 1].AirPressure)
+                            if (weatherData[index1].airPressure < weatherData[index1 - 1].airPressure)
                             {
-                                Swap(ref WeatherData, index1 - 1, index1);
-                                Swaped = true;
+                                Swap(ref weatherData, index1 - 1, index1);
+                                swaped = true;
                             }
                         }
                         else
                         {
-                            if (WeatherData[index1].AirPressure > WeatherData[index1 - 1].AirPressure)
+                            if (weatherData[index1].airPressure > weatherData[index1 - 1].airPressure)
                             {
-                                Swap(ref WeatherData, index1 - 1, index1);
-                                Swaped = true;
+                                Swap(ref weatherData, index1 - 1, index1);
+                                swaped = true;
                             }
                         }
                     }
                 }
             }
-            else if (SortParameter == 3)
+            else if (sortParameter == 3)
             {
-                while (Swaped)
+                while (swaped)
                 {
-                    Swaped = false;
-                    for (int index1 = 1; index1 < UpperBorder; index1 = index1 + 1)
+                    swaped = false;
+                    for (int index1 = 1; index1 < upperBorder; index1 = index1 + 1)
                     {
-                        if (AscDesc)
+                        if (ascDesc)
                         {
-                            if (WeatherData[index1].Humidity < WeatherData[index1 - 1].Humidity)
+                            if (weatherData[index1].humidity < weatherData[index1 - 1].humidity)
                             {
-                                Swap(ref WeatherData, index1 - 1, index1);
-                                Swaped = true;
+                                Swap(ref weatherData, index1 - 1, index1);
+                                swaped = true;
                             }
                         }
                         else
                         {
-                            if (WeatherData[index1].Humidity > WeatherData[index1 - 1].Humidity)
+                            if (weatherData[index1].humidity > weatherData[index1 - 1].humidity)
                             {
-                                Swap(ref WeatherData, index1 - 1, index1);
-                                Swaped = true;
+                                Swap(ref weatherData, index1 - 1, index1);
+                                swaped = true;
                             }
                         }
                     }

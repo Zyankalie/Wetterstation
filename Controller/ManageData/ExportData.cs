@@ -12,18 +12,18 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void ExportData(ref Record[] WeatherData, string DestinationPath)
+        static void ExportData(ref Record[] weatherData, string destinationPath)
         {
             string filename = "WeatherDataExport_" + DateTime.Now.Date.ToString().Substring(0, 10) + ".csv";            
-            FileStream FS = new FileStream(DestinationPath + "\\" + filename, FileMode.Create, FileAccess.Write);
+            FileStream FS = new FileStream(destinationPath + "\\" + filename, FileMode.Create, FileAccess.Write);
             StreamWriter SW = new StreamWriter(FS, Encoding.UTF8);
             //SW.AutoFlush = true;
-            Defragment(ref WeatherData);
-            int UpperBorder = FindUpperBorder(ref WeatherData);
+            Defragment(ref weatherData);
+            int upperBorder = FindUpperBorder(ref weatherData);
             SW.WriteLine("Datum;Lufttemperatur;Luftdruck;Luftfeuchtigkeit");
-            for(int i = 0; i < UpperBorder;i++)
+            for(int i = 0; i < upperBorder;i++)
             {
-                SW.WriteLine(WeatherData[i].Date + ";" + WeatherData[i].AirTemperature + ";" + WeatherData[i].AirPressure + ";" + WeatherData[i].Humidity);
+                SW.WriteLine(weatherData[i].date + ";" + weatherData[i].airTemperature + ";" + weatherData[i].airPressure + ";" + weatherData[i].humidity);
             }
             SW.Close();
             FS.Close();

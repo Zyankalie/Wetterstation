@@ -11,34 +11,34 @@ namespace Wetterstation
 {
     partial class main
     {
-        static double GeometricMean(ref Record[] WeatherData, int EvaluationParameter)
+        static double GeometricMean(ref Record[] weatherData, int evaluationParameter)
         {
-            double Mittel = 1;
+            double mittel = 1;
             int i = 0;
-            int UpperBorder = FindUpperBorder(ref WeatherData);
-            if (EvaluationParameter == 0)
+            int upperBorder = FindUpperBorder(ref weatherData);
+            if (evaluationParameter == 0)
             {
-                for (i = 0; i < UpperBorder; i++)
+                for (i = 0; i < upperBorder; i++)
                 {
-                    Mittel = Mittel * WeatherData[i].AirTemperature;
+                    mittel = mittel * weatherData[i].airTemperature;
                 }
-                return NthRoot(Mittel, i);
+                return NthRoot(mittel, i);
             }
-            else if (EvaluationParameter == 1)
+            else if (evaluationParameter == 1)
             {
-                for (i = 0; i < UpperBorder; i++)
+                for (i = 0; i < upperBorder; i++)
                 {
-                    Mittel = Mittel * WeatherData[i].AirPressure;
+                    mittel = mittel * weatherData[i].airPressure;
                 }
-                return NthRoot(Mittel, i);
+                return NthRoot(mittel, i);
             }
-            else if (EvaluationParameter == 2)
+            else if (evaluationParameter == 2)
             {
-                for (i = 0; i < UpperBorder; i++)
+                for (i = 0; i < upperBorder; i++)
                 {
-                    Mittel = Mittel * WeatherData[i].Humidity;
+                    mittel = mittel * weatherData[i].humidity;
                 }
-                return NthRoot(Mittel, i);
+                return NthRoot(mittel, i);
             }
             else
             {

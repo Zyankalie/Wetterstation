@@ -9,24 +9,24 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void Swap(ref Record[] WeatherData, int elem1, int elem2)
+        static void Swap(ref Record[] weatherData, int elem1, int elem2)
         {
             Record tmp = new Record { 
-                Date = WeatherData[elem1].Date, 
-                AirTemperature = WeatherData[elem1].AirTemperature,
-                AirPressure = WeatherData[elem1].AirPressure, 
-                Humidity = WeatherData[elem1].Humidity
+                date = weatherData[elem1].date, 
+                airTemperature = weatherData[elem1].airTemperature,
+                airPressure = weatherData[elem1].airPressure, 
+                humidity = weatherData[elem1].humidity
             };
 
-            WeatherData[elem1].Date = WeatherData[elem2].Date;
-            WeatherData[elem1].AirTemperature = WeatherData[elem2].AirTemperature;
-            WeatherData[elem1].AirPressure = WeatherData[elem2].AirPressure;
-            WeatherData[elem1].Humidity = WeatherData[elem2].Humidity;
+            weatherData[elem1].date = weatherData[elem2].date;
+            weatherData[elem1].airTemperature = weatherData[elem2].airTemperature;
+            weatherData[elem1].airPressure = weatherData[elem2].airPressure;
+            weatherData[elem1].humidity = weatherData[elem2].humidity;
 
-            WeatherData[elem2].Date = tmp.Date;
-            WeatherData[elem2].AirTemperature = tmp.AirTemperature;
-            WeatherData[elem2].AirPressure = tmp.AirPressure;
-            WeatherData[elem2].Humidity = tmp.Humidity;
+            weatherData[elem2].date = tmp.date;
+            weatherData[elem2].airTemperature = tmp.airTemperature;
+            weatherData[elem2].airPressure = tmp.airPressure;
+            weatherData[elem2].humidity = tmp.humidity;
 
         }
     }

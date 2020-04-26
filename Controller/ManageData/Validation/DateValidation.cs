@@ -11,20 +11,20 @@ namespace Wetterstation
 {
     partial class main
     {
-        static bool DateValidation(string Date)
+        static bool DateValidation(string date)
         {
-            string[] DateAsArray = Date.Split('.');
-            if (DateAsArray.Length == 3)
+            string[] dateAsArray = date.Split('.');
+            if (dateAsArray.Length == 3)
             {
-                if (Convert.ToInt32(DateAsArray[0]) > 31 || Convert.ToInt32(DateAsArray[0]) < 0)
+                if (Convert.ToInt32(dateAsArray[0]) > 31 || Convert.ToInt32(dateAsArray[0]) < 0)
                 {
                     return false;
                 }
-                else if (Convert.ToInt32(DateAsArray[1]) > 12 || Convert.ToInt32(DateAsArray[1]) < 0)
+                else if (Convert.ToInt32(dateAsArray[1]) > 12 || Convert.ToInt32(dateAsArray[1]) < 0)
                 {
                     return false;
                 }
-                else if (Convert.ToInt32(DateAsArray[2]) < 1900)
+                else if (Convert.ToInt32(dateAsArray[2]) < 1900)
                 {
                     return false;
                 }

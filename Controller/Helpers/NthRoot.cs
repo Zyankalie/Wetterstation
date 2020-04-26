@@ -11,9 +11,9 @@ namespace Wetterstation
 {
     partial class main
     {
-        static double NthRoot(double Value, int root)
+        static double NthRoot(double value, int root)
         {
-            return Math.Pow(Value, 1.0 / root);
+            return Math.Pow(value, 1.0 / root);
         }
     }
 }

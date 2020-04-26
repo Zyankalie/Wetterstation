@@ -11,86 +11,86 @@ namespace Wetterstation
 {
     partial class main
     {
-        static bool InputMaskPath(bool ImportExport, ref string Path)
+        static bool InputMaskPath(bool importExport, ref string path)
         {
-            string Headline = "";
-            string ErrorMessage = "";
-            if (ImportExport)
+            string headline = "";
+            string errorMessage = "";
+            if (importExport)
             {
-                Headline = "Bitte geben Sie den relativen Pfad zu der Datei an,\r\nwelche importiert werden soll.";
-                ErrorMessage = "Der Dateipfad \"" + Path + "\" existiert nicht. Bitte überprüfen Sie Ihre Eingabe!";
+                headline = "Bitte geben Sie den relativen Pfad zu der Datei an,\r\nwelche importiert werden soll.";
+                errorMessage = "Der Dateipfad \"" + path + "\" existiert nicht. Bitte überprüfen Sie Ihre Eingabe!";
             }
             else
             {
-                Headline = "Bitte geben Sie den relativen Pfad zu dem Verzeichnis an,\r\nin welche die Wetterdaten exportiert werden sollen";
-                ErrorMessage = "Das Verzeichnis \"" + Path + "\" existiert nicht. Bitte überprüfen Sie Ihre Eingabe!";
+                headline = "Bitte geben Sie den relativen Pfad zu dem Verzeichnis an,\r\nin welche die Wetterdaten exportiert werden sollen";
+                errorMessage = "Das Verzeichnis \"" + path + "\" existiert nicht. Bitte überprüfen Sie Ihre Eingabe!";
             }
-            Path = "";
-            bool PathProcess = true;
+            path = "";
+            bool pathProcess = true;
             Console.CursorVisible = true;
-            string ErrorShown = "";
+            string errorShown = "";
             do
             {
                 Console.Clear();
-                Console.WriteLine(Headline);
+                Console.WriteLine(headline);
                 Console.WriteLine("Bestätigen Sie die Eingabe mit der Eingabetaste.");
                 Console.WriteLine("Um zurück zu gelangen drücken Sie die Escape Taste.");
                 Console.WriteLine();
                 Console.WriteLine();
-                Console.WriteLine("Dateipfad: " + Path);
+                Console.WriteLine("Dateipfad: " + path);
                 Console.WriteLine();
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(ErrorShown);
+                Console.WriteLine(errorShown);
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.CursorTop = 6;
-                Console.CursorLeft = 11 + Path.Length;
+                Console.CursorLeft = 11 + path.Length;
 
                 ConsoleKeyInfo key = Console.ReadKey(true);
                 if (key.Key == ConsoleKey.Escape)
                 {
-                    PathProcess = false;
+                    pathProcess = false;
                 }
                 else if (key.Key == ConsoleKey.Backspace)
                 {
-                    ErrorShown = "";
-                    Path = Path.Substring(0, Path.Length > 0 ? Path.Length - 1 : 0);
+                    errorShown = "";
+                    path = path.Substring(0, path.Length > 0 ? path.Length - 1 : 0);
                 }
                 else if (key.Key == ConsoleKey.Enter)
                 {
-                    if (ImportExport)
+                    if (importExport)
                     {
-                        if (File.Exists(Path))
+                        if (File.Exists(path))
                         {
                             return true;
                         }
                         else
                         {
-                            ErrorShown = ErrorMessage;
+                            errorShown = errorMessage;
                         }
                     }
                     else
                     {
-                        if (Directory.Exists(Path))
+                        if (Directory.Exists(path))
                         {
                             return true;
                         }
                         else
                         {
-                            ErrorShown = ErrorMessage;
+                            errorShown = errorMessage;
                         }
                     }
                 }
                 else if (!char.IsControl(key.KeyChar))
                 {
-                    ErrorShown = "";
-                    Path = Path + key.KeyChar;
+                    errorShown = "";
+                    path = path + key.KeyChar;
                 }
                 else
                 {
 
                 }
-            } while (PathProcess);
+            } while (pathProcess);
             return false;
         }
     }

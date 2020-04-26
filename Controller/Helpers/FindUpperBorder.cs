@@ -9,18 +9,18 @@ namespace Wetterstation
 {
     partial class main
     {
-        static int FindUpperBorder(ref Record[] WeatherData)
+        static int FindUpperBorder(ref Record[] weatherData)
         {
-            Defragment(ref WeatherData);
-            int Pos = 0;
-            for (Pos = 0; Pos < WeatherData.Length; Pos++)
+            Defragment(ref weatherData);
+            int position = 0;
+            for (position = 0; position < weatherData.Length; position++)
             {
-                if (WeatherData[Pos].Date == "  .  .    ")
+                if (weatherData[position].date == "  .  .    ")
                 {
                     break;
                 }
             }
-            return Pos;
+            return position;
         }
     }
 }

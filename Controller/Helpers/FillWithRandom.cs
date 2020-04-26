@@ -12,17 +12,17 @@ namespace Wetterstation
     partial class main
     {
         static Random r = new Random();
-        static void FillWithRandom(ref Record[] WeatherData, int NumberOfEntries)
+        static void FillWithRandom(ref Record[] weatherData, int numberOfEntries)
         {
-            for (int i = 0; i < WeatherData.Length; i++)
+            for (int i = 0; i < weatherData.Length; i++)
             {
-                if (i < NumberOfEntries)
+                if (i < numberOfEntries)
                 {
-                    WeatherData[i] = CreateValidRandomEntry();
+                    weatherData[i] = CreateValidRandomEntry();
                 }
                 else
                 {
-                    WeatherData[i] = new Record { Date = "  .  .    ", AirTemperature = 0.0d, AirPressure = 0, Humidity = 0 };
+                    weatherData[i] = new Record { date = "  .  .    ", airTemperature = 0.0d, airPressure = 0, humidity = 0 };
                 }
             }
 
@@ -39,7 +39,7 @@ namespace Wetterstation
             uint nPressure = (uint)r.Next(700, 1080);
             //Humidity
             uint nHumidity = (uint)r.Next(0, 100);
-            return new Record { Date = nDate, AirTemperature = nTemperature, AirPressure = nPressure, Humidity = nHumidity };
+            return new Record { date = nDate, airTemperature = nTemperature, airPressure = nPressure, humidity = nHumidity };
         }
     }
 }

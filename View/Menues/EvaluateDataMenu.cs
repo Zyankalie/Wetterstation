@@ -9,40 +9,40 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void EvaluateDataMenu(ref Record[] WeatherDatra)
+        static void EvaluateDataMenu(ref Record[] weatherDatra)
         {
-            bool MenueFinished = false;
-            bool ParameterSelected = true;
-            int Algorithm = -1;
-            string[] EvaluateValues = { "Arithmetisches Mittel", "Geometrisches Mittel", "Median", "Zurück" };
-            int SelectedParameter = -1;
-            string[] PossibleParameters = { "Lufttemperatur", "Luftdruck", "Luftfeuchtigkeit", "Alle Werte", "Zurück" };
+            bool menueFinished = false;
+            bool parameterSelected = true;
+            int algorithm = -1;
+            string[] evaluateValues = { "Arithmetisches Mittel", "Geometrisches Mittel", "Median", "Zurück" };
+            int selectedParameter = -1;
+            string[] possibleParameters = { "Lufttemperatur", "Luftdruck", "Luftfeuchtigkeit", "Alle Werte", "Zurück" };
 
             do
             {
-                ParameterSelected = true;
-                Algorithm = ShowSomeMenu(ref EvaluateValues, "Wählen Sie ein Auswertungsverfahren aus.");
-                if (Algorithm != 3)
+                parameterSelected = true;
+                algorithm = ShowSomeMenu(ref evaluateValues, "Wählen Sie ein Auswertungsverfahren aus.");
+                if (algorithm != 3)
                 {
                     do
                     {
-                        SelectedParameter = ShowSomeMenu(ref PossibleParameters, "Bitte wählen Sie den Parameter aus,\r\ndessen " + IntToEval(Algorithm) + " berechnet werden soll.");
-                        if (SelectedParameter == 4)
+                        selectedParameter = ShowSomeMenu(ref possibleParameters, "Bitte wählen Sie den Parameter aus,\r\ndessen " + IntToEval(algorithm) + " berechnet werden soll.");
+                        if (selectedParameter == 4)
                         {
-                            ParameterSelected = false;
+                            parameterSelected = false;
                         }
                         else
                         {
-                            ShowEvaluatedData(ref WeatherDatra, Algorithm, SelectedParameter);
-                            ParameterSelected = false;
+                            ShowEvaluatedData(ref weatherDatra, algorithm, selectedParameter);
+                            parameterSelected = false;
                         }
-                    } while (ParameterSelected);
+                    } while (parameterSelected);
                 }
                 else
                 {
-                    MenueFinished = true;
+                    menueFinished = true;
                 }
-            } while (!MenueFinished);
+            } while (!menueFinished);
         }
     }
 }

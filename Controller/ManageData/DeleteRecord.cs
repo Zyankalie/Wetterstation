@@ -10,12 +10,12 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void DeleteRecord(ref Record[] WeatherData, int Position)
+        static void DeleteRecord(ref Record[] weatherData, int position)
         {
-            WeatherData[Position].Date = "  .  .    ";
-            WeatherData[Position].AirTemperature = 0.0;
-            WeatherData[Position].AirPressure = 0;
-            WeatherData[Position].Humidity = 0;
+            weatherData[position].date = "  .  .    ";
+            weatherData[position].airTemperature = 0.0;
+            weatherData[position].airPressure = 0;
+            weatherData[position].humidity = 0;
         }
     }
 }

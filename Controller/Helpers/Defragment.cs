@@ -9,18 +9,18 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void Defragment(ref Record[] WeatherData)
+        static void Defragment(ref Record[] weatherData)
         {
-            bool Swaped = true;
-            while (Swaped)
+            bool swapped = true;
+            while (swapped)
             {
-                Swaped = false;
-                for (int i = 1; i < WeatherData.Length - 1; i++)
+                swapped = false;
+                for (int i = 1; i < weatherData.Length - 1; i++)
                 {
-                    if (WeatherData[i - 1].Date == "  .  .    " && WeatherData[i].Date != "  .  .    ")
+                    if (weatherData[i - 1].date == "  .  .    " && weatherData[i].date != "  .  .    ")
                     {
-                        Swaped = true;
-                        Swap(ref WeatherData, i, i - 1);
+                        swapped = true;
+                        Swap(ref weatherData, i, i - 1);
                     }
                 }
             }

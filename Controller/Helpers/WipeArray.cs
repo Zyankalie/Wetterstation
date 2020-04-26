@@ -2,15 +2,15 @@
 {
     partial class main
     { 
-        static void WipeArray(ref Record[] WeatherData)
+        static void WipeArray(ref Record[] weatherData)
         {
-            int UpperBorder = FindUpperBorder(ref WeatherData);
-            for(int index = 0; index < UpperBorder; index++)
+            int upperBorder = FindUpperBorder(ref weatherData);
+            for(int index = 0; index < upperBorder; index++)
             {
-                WeatherData[index].Date = "  .  .    ";
-                WeatherData[index].AirTemperature = 0.0;
-                WeatherData[index].AirPressure = 0;
-                WeatherData[index].Humidity = 0;
+                weatherData[index].date = "  .  .    ";
+                weatherData[index].airTemperature = 0.0;
+                weatherData[index].airPressure = 0;
+                weatherData[index].humidity = 0;
             }
         }
     }

@@ -10,22 +10,22 @@ namespace Wetterstation
 {
     partial class main
     {
-        static double Median(ref Record[] WeatherData, int EvaluationParameter)
+        static double Median(ref Record[] weatherData, int evaluationParameter)
         {
-            Defragment(ref WeatherData);
-            BubbleSort(ref WeatherData, EvaluationParameter + 1, true);
-            int i = FindUpperBorder(ref WeatherData);
-            if (EvaluationParameter == 0)
+            Defragment(ref weatherData);
+            BubbleSort(ref weatherData, evaluationParameter + 1, true);
+            int i = FindUpperBorder(ref weatherData);
+            if (evaluationParameter == 0)
             {
-                return WeatherData[i / 2].AirTemperature;
+                return weatherData[i / 2].airTemperature;
             }
-            else if (EvaluationParameter == 1)
+            else if (evaluationParameter == 1)
             {
-                return WeatherData[i / 2].AirPressure;
+                return weatherData[i / 2].airPressure;
             }
-            else if (EvaluationParameter == 2)
+            else if (evaluationParameter == 2)
             {
-                return WeatherData[i / 2].Humidity;
+                return weatherData[i / 2].humidity;
             }
             else
             {

@@ -9,9 +9,9 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void AlterRecord(ref Record[] WeatherData, int Position, ref Record AlteredRecord)
+        static void AlterRecord(ref Record[] weatherData, int position, ref Record alteredRecord)
         {
-            WeatherData[Position] = AlteredRecord;
+            weatherData[position] = alteredRecord;
         }
     }
 }

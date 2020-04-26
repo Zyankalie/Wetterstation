@@ -9,35 +9,35 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void MainMenu(ref Record[] WeatherData)
+        static void MainMenu(ref Record[] weatherData)
         {
-            bool MenuFinished = false;
+            bool menuFinished = false;
             do
             {
-                string Headline = "Hauptmenü";
-                string[] MenuItems = { "Daten anzeigen", "Daten verwalten", "Daten auswerten", "Programm schließen" };
-                int Select = ShowSomeMenu(ref MenuItems, Headline);
-                if (Select == 0)
+                string headline = "Hauptmenü";
+                string[] menuItems = { "Daten anzeigen", "Daten verwalten", "Daten auswerten", "Programm schließen" };
+                int select = ShowSomeMenu(ref menuItems, headline);
+                if (select == 0)
                 {
-                    ShowDataMenu(ref WeatherData);
+                    ShowDataMenu(ref weatherData);
                 }
-                else if (Select == 1)
+                else if (select == 1)
                 {
-                    ManageDataMenu(ref WeatherData);
+                    ManageDataMenu(ref weatherData);
                 }
-                else if (Select == 2)
+                else if (select == 2)
                 {
-                    EvaluateDataMenu(ref WeatherData);
+                    EvaluateDataMenu(ref weatherData);
                 }
-                else if (Select == 3)
+                else if (select == 3)
                 {
-                    MenuFinished = true;
+                    menuFinished = true;
                 }
                 else
                 {
                     //Sollte nicht erreicht werden können
                 }
-            } while (!MenuFinished);
+            } while (!menuFinished);
         }
     }
 }

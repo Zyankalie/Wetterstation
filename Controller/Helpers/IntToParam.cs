@@ -8,21 +8,21 @@ namespace Wetterstation
 {
     partial class main
     {
-        static string IntToParam(int Parameter)
+        static string IntToParam(int parameter)
         {
-            if (Parameter == 0)
+            if (parameter == 0)
             {
                 return "Datum";
             }
-            else if (Parameter == 1)
+            else if (parameter == 1)
             {
                 return "Lufttemperatur";
             }
-            else if (Parameter == 2)
+            else if (parameter == 2)
             {
                 return "Luftdruck";
             }
-            else if (Parameter == 3)
+            else if (parameter == 3)
             {
                 return "Luftfeuchtigkeit";
             }

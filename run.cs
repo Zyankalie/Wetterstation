@@ -17,17 +17,17 @@ namespace Wetterstation
             Console.CursorVisible = false;
             Splashinfo();
             Console.ReadKey(true);
-            Record[] WeatherData = new Record[366];
-            FillWithRandom(ref WeatherData, 365);
-            MainMenu(ref WeatherData);
+            Record[] weatherData = new Record[366];
+            FillWithRandom(ref weatherData, 365);
+            MainMenu(ref weatherData);
             //string tmp = string.Join("\r\n", WeatherData.Select(x => $"{x.Date};{ x.AirTemperature};{ x.AirPressure};{ x.Humidity}"));
         }
         struct Record
         {
-            public string Date;
-            public double AirTemperature;
-            public uint AirPressure;
-            public uint Humidity;
+            public string date;
+            public double airTemperature;
+            public uint airPressure;
+            public uint humidity;
         }
     }
     

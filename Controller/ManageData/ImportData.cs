@@ -12,10 +12,10 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void ImportData(ref Record[] WeatherData, string FilePath)
+        static void ImportData(ref Record[] weatherData, string filePath)
         {
-            WipeArray(ref WeatherData);
-            FileStream FS = new FileStream(FilePath, FileMode.Open, FileAccess.Read);
+            WipeArray(ref weatherData);
+            FileStream FS = new FileStream(filePath, FileMode.Open, FileAccess.Read);
             StreamReader SR = new StreamReader(FS, Encoding.UTF8);
             string[] currentLine;
             Record InsertRecord;
@@ -26,11 +26,11 @@ namespace Wetterstation
             for (int index = 0; !SR.EndOfStream; index++)
             {
                 currentLine = SR.ReadLine().Split(';');
-                InsertRecord = new Record { Date = currentLine[0], AirTemperature = Convert.ToDouble(currentLine[1]), AirPressure = Convert.ToUInt32(currentLine[2]), Humidity = Convert.ToUInt32(currentLine[3]) };
-                Validated = ValidateEntry(ref WeatherData, ref InsertRecord);
+                InsertRecord = new Record { date = currentLine[0], airTemperature = Convert.ToDouble(currentLine[1]), airPressure = Convert.ToUInt32(currentLine[2]), humidity = Convert.ToUInt32(currentLine[3]) };
+                Validated = ValidateEntry(ref weatherData, ref InsertRecord);
                 if (Validated == 0)
                 {
-                    AddRecord(ref WeatherData, ref InsertRecord, ref Position);
+                    AddRecord(ref weatherData, ref InsertRecord, ref Position);
                 }
                 else
                 {

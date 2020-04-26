@@ -10,11 +10,11 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void FreeASpot(ref Record[] WeatherData, int Position)
+        static void FreeASpot(ref Record[] weatherData, int position)
         {
-            for (int UpperBorder = FindUpperBorder(ref WeatherData); UpperBorder > Position; UpperBorder--)
+            for (int upperBorder = FindUpperBorder(ref weatherData); upperBorder > position; upperBorder--)
             {
-                Swap(ref WeatherData, UpperBorder, UpperBorder - 1);
+                Swap(ref weatherData, upperBorder, upperBorder - 1);
             }
         }
     }

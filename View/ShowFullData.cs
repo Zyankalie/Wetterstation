@@ -13,16 +13,16 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void ShowFullData(ref Record[] WeatherData)
+        static void ShowFullData(ref Record[] weatherData)
         {
-            bool ContentIsShown = true;
+            bool contentIsShown = true;
             int currPage = 0;
             string currData = "";
-            Defragment(ref WeatherData);
+            Defragment(ref weatherData);
             int numberPagesFilled = 0;
             for (int i = 0; i < 366; i++)
             {
-                if (WeatherData[i].Date != "  .  .    ")
+                if (weatherData[i].date != "  .  .    ")
                 {
                     numberPagesFilled++;
                 }
@@ -48,13 +48,13 @@ namespace Wetterstation
 
                 for (int PageContent = currPage * 15; (PageContent < (currPage * 15 + 15)) && (PageContent < 366); PageContent++)
                 {
-                    if (WeatherData[PageContent].Date != "  .  .    ")
+                    if (weatherData[PageContent].date != "  .  .    ")
                     {
                         currData += new string(' ', 3 - (PageContent + 1).ToString().Length) + (PageContent + 1)
-                            + "    " + WeatherData[PageContent].Date
-                        + new string(' ', 8 + (3 - WeatherData[PageContent].AirTemperature.ToString("N1").Length)) + WeatherData[PageContent].AirTemperature.ToString("N1") + "°C"
-                        + new string(' ', 15 + (3 - WeatherData[PageContent].AirPressure.ToString().Length)) + WeatherData[PageContent].AirPressure + "HPa"
-                        + new string(' ', 14 + (2 - WeatherData[PageContent].Humidity.ToString().Length)) + WeatherData[PageContent].Humidity + "%";
+                            + "    " + weatherData[PageContent].date
+                        + new string(' ', 8 + (3 - weatherData[PageContent].airTemperature.ToString("N1").Length)) + weatherData[PageContent].airTemperature.ToString("N1") + "°C"
+                        + new string(' ', 15 + (3 - weatherData[PageContent].airPressure.ToString().Length)) + weatherData[PageContent].airPressure + "HPa"
+                        + new string(' ', 14 + (2 - weatherData[PageContent].humidity.ToString().Length)) + weatherData[PageContent].humidity + "%";
                         Console.WriteLine(currData);
                     }
                     currData = "";
@@ -86,21 +86,21 @@ namespace Wetterstation
                 }
                 else if (key.Key.ToString() == "Escape")
                 {
-                    ContentIsShown = false;
+                    contentIsShown = false;
                 }
-            } while (ContentIsShown);
+            } while (contentIsShown);
         }
 
-        static void ShowFullData(ref Record[] Wetterdaten, int SearchedEntry)
+        static void ShowFullData(ref Record[] weatherData, int searchedEntry)
         {
-            bool ContentIsShown = true;
-            int currPage = SearchedEntry / 15;
+            bool contentIsShown = true;
+            int currPage = searchedEntry / 15;
             string currData = "";
-            Defragment(ref Wetterdaten);
+            Defragment(ref weatherData);
             int numberPagesFilled = 0;
             for (int i = 0; i < 366; i++)
             {
-                if (Wetterdaten[i].Date != "  .  .    ")
+                if (weatherData[i].date != "  .  .    ")
                 {
                     numberPagesFilled++;
                 }
@@ -124,18 +124,18 @@ namespace Wetterstation
                 Console.ForegroundColor = ConsoleColor.White;
                 for (int PageContent = currPage * 15; (PageContent < (currPage * 15 + 15)) && (PageContent < 366); PageContent++)
                 {
-                    if (Wetterdaten[PageContent].Date != "  .  .    ")
+                    if (weatherData[PageContent].date != "  .  .    ")
                     {
-                        if (PageContent == SearchedEntry)
+                        if (PageContent == searchedEntry)
                         {
                             Console.ForegroundColor = ConsoleColor.Green;
                         }
 
                         currData += new string(' ', 3 - (PageContent + 1).ToString().Length) + (PageContent + 1)
-                            + "    " + Wetterdaten[PageContent].Date
-                        + new string(' ', 8 + (3 - Wetterdaten[PageContent].AirTemperature.ToString("N1").Length)) + Wetterdaten[PageContent].AirTemperature.ToString("N1") + "°C"
-                        + new string(' ', 15 + (3 - Wetterdaten[PageContent].AirPressure.ToString().Length)) + Wetterdaten[PageContent].AirPressure + "HPa"
-                        + new string(' ', 14 + (2 - Wetterdaten[PageContent].Humidity.ToString().Length)) + Wetterdaten[PageContent].Humidity + "%";
+                            + "    " + weatherData[PageContent].date
+                        + new string(' ', 8 + (3 - weatherData[PageContent].airTemperature.ToString("N1").Length)) + weatherData[PageContent].airTemperature.ToString("N1") + "°C"
+                        + new string(' ', 15 + (3 - weatherData[PageContent].airPressure.ToString().Length)) + weatherData[PageContent].airPressure + "HPa"
+                        + new string(' ', 14 + (2 - weatherData[PageContent].humidity.ToString().Length)) + weatherData[PageContent].humidity + "%";
                         Console.WriteLine(currData);
                         Console.ForegroundColor = ConsoleColor.White;
                     }
@@ -167,9 +167,9 @@ namespace Wetterstation
                 }
                 else if (key.Key.ToString() == "Escape")
                 {
-                    ContentIsShown = false;
+                    contentIsShown = false;
                 }
-            } while (ContentIsShown);
+            } while (contentIsShown);
         }
     }
 }

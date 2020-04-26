@@ -10,32 +10,32 @@ namespace Wetterstation
 {
     partial class main
     {
-        static bool InputMaskNewEntry(ref Record[] WeatherData, ref Record newEntry, ref int Pos)
+        static bool InputMaskNewEntry(ref Record[] weatherData, ref Record newEntry, ref int position)
         {
-            bool Editing = true;
+            bool editing = true;
             int currentline = 0;
-            string[] UserInputs = { "", "", "", "", "" };
-            string[] Parameters = { "Datum", "Lufttemperatur", "Luftdruck", "Luftfeuchtigkeit", "Position" };
-            string[] MenuPath = { "Datenverwalten Menü", "Eingabe fortsetzen" };
+            string[] userInputs = { "", "", "", "", "" };
+            string[] parameters = { "Datum", "Lufttemperatur", "Luftdruck", "Luftfeuchtigkeit", "Position" };
+            string[] menuPath = { "Datenverwalten Menü", "Eingabe fortsetzen" };
 
             do
             {
                 Console.Clear();
                 Console.WriteLine("Bitte geben Sie die Werte für einen neuen Datensatz ein:");
-                for (int i = 0; i < Parameters.Length; i++)
+                for (int i = 0; i < parameters.Length; i++)
                 {
                     if (i == currentline)
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
                     }
-                    Console.WriteLine(Parameters[i] + ": " + UserInputs[i]);
+                    Console.WriteLine(parameters[i] + ": " + userInputs[i]);
                     Console.ForegroundColor = ConsoleColor.White;
                 }
 
                 ConsoleKeyInfo key = Console.ReadKey(true);
                 if (key.Key == ConsoleKey.Escape)
                 {
-                    Editing = false;
+                    editing = false;
                 }
                 else if (key.Key == ConsoleKey.DownArrow)
                 {
@@ -54,26 +54,26 @@ namespace Wetterstation
                 else if (key.Key == ConsoleKey.Backspace)
                 {
 
-                    UserInputs[currentline] = UserInputs[currentline].Substring(0, UserInputs[currentline].Length > 0 ? UserInputs[currentline].Length - 1 : 0);
+                    userInputs[currentline] = userInputs[currentline].Substring(0, userInputs[currentline].Length > 0 ? userInputs[currentline].Length - 1 : 0);
 
                 }
                 else if (key.Key == ConsoleKey.Enter)
                 {
-                    newEntry.Date = UserInputs[0];
-                    newEntry.AirTemperature = Convert.ToDouble(UserInputs[1]);
-                    newEntry.AirPressure = Convert.ToUInt32(UserInputs[2]);
-                    newEntry.Humidity = Convert.ToUInt32(UserInputs[3]);
-                    int Validation = ValidateEntry(ref WeatherData, ref newEntry);
-                    if (UserInputs[4] != "" && (Convert.ToInt32(UserInputs[4]) > 366 || (Convert.ToInt32(UserInputs[4]) < 1)))
+                    newEntry.date = userInputs[0];
+                    newEntry.airTemperature = Convert.ToDouble(userInputs[1]);
+                    newEntry.airPressure = Convert.ToUInt32(userInputs[2]);
+                    newEntry.humidity = Convert.ToUInt32(userInputs[3]);
+                    int Validation = ValidateEntry(ref weatherData, ref newEntry);
+                    if (userInputs[4] != "" && (Convert.ToInt32(userInputs[4]) > 366 || (Convert.ToInt32(userInputs[4]) < 1)))
                     {
                         Validation += 64;
                     }
                     if (Validation != 0)
                     {
-                        int Option = ShowSomeMenu(ref MenuPath, ShowErrorMessage(Validation));
+                        int Option = ShowSomeMenu(ref menuPath, ShowErrorMessage(Validation));
                         if (Option == 0)
                         {
-                            Editing = false;
+                            editing = false;
                             return false;
                         }
                         else if (Option == 1)
@@ -83,8 +83,8 @@ namespace Wetterstation
                     }
                     else
                     {
-                        Pos = Convert.ToInt32(UserInputs[4] == "" ? "-1" : UserInputs[4]);
-                        Editing = false;
+                        position = Convert.ToInt32(userInputs[4] == "" ? "-1" : userInputs[4]);
+                        editing = false;
                         return true;
                     }
                 }
@@ -94,39 +94,39 @@ namespace Wetterstation
                     {
                         if (key.KeyChar == '.' || char.IsLetterOrDigit(key.KeyChar))
                         {
-                            UserInputs[currentline] += key.KeyChar;
+                            userInputs[currentline] += key.KeyChar;
                         }
                     }
                     else if (currentline == 1)
                     {
                         if (key.KeyChar == ',' || char.IsDigit(key.KeyChar))
                         {
-                            UserInputs[currentline] += key.KeyChar;
+                            userInputs[currentline] += key.KeyChar;
                         }
                     }
                     else if (currentline == 2)
                     {
                         if (char.IsDigit(key.KeyChar))
                         {
-                            UserInputs[currentline] += key.KeyChar;
+                            userInputs[currentline] += key.KeyChar;
                         }
                     }
                     else if (currentline == 3)
                     {
                         if (char.IsDigit(key.KeyChar))
                         {
-                            UserInputs[currentline] += key.KeyChar;
+                            userInputs[currentline] += key.KeyChar;
                         }
                     }
                     else if (currentline == 4)
                     {
                         if (char.IsDigit(key.KeyChar))
                         {
-                            UserInputs[currentline] += key.KeyChar;
+                            userInputs[currentline] += key.KeyChar;
                         }
                     }
                 }
-            } while (Editing);
+            } while (editing);
             return false;
         }
 
@@ -179,10 +179,10 @@ namespace Wetterstation
                 }
                 else if (key.Key == ConsoleKey.Enter)
                 {
-                    newEntry.Date = UserInputs[0];
-                    newEntry.AirTemperature = Convert.ToDouble(UserInputs[1]);
-                    newEntry.AirPressure = Convert.ToUInt32(UserInputs[2]);
-                    newEntry.Humidity = Convert.ToUInt32(UserInputs[3]);
+                    newEntry.date = UserInputs[0];
+                    newEntry.airTemperature = Convert.ToDouble(UserInputs[1]);
+                    newEntry.airPressure = Convert.ToUInt32(UserInputs[2]);
+                    newEntry.humidity = Convert.ToUInt32(UserInputs[3]);
                     int Validation = ValidateEntry(ref Wetterdaten, ref newEntry);
 
                     if (Validation != 0)
