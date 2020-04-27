@@ -28,51 +28,51 @@ namespace Wetterstation
 {
     partial class main
     {
-        static string ShowErrorMessage(int error)
+        static string GenerateErrorMessage(int error)
         {
             string errorMessage = "Fehler:\r\n";
-            int currError = 1;
+            int currentError = 1;
             while(error > 0)
             {
-                currError = 1;
-                while(currError <= error)
+                currentError = 1;
+                while(currentError <= error)
                 {
-                    currError = currError * 2;
+                    currentError = currentError * 2;
                 }
-                currError /= 2;
-                if (currError == 1)
+                currentError /= 2;
+                if (currentError == 1)
                 {
                     errorMessage += "Datensatz konnte nicht gefunden werden!\r\n";
                 }
-                else if(currError == 2)
+                else if(currentError == 2)
                 {
                     errorMessage += "Ungültiges Datum!\r\n";
                 }
-                else if (currError == 4)
+                else if (currentError == 4)
                 {
                     errorMessage += "Ungültige Lufttemperatur!\r\n";
                 }
-                else if (currError == 8)
+                else if (currentError == 8)
                 {
                     errorMessage += "Ungültiger Luftdruck!\r\n";
                 }
-                else if (currError == 16)
+                else if (currentError == 16)
                 {
                     errorMessage += "Ungültige Luftfeuchtigkeit!\r\n";
                 }
-                else if (currError == 32)
+                else if (currentError == 32)
                 {
                     errorMessage += "Datenbank voll!\r\n";
                 }
-                else if(currError == 64)
+                else if(currentError == 64)
                 {
                     errorMessage += "Ungültige Position!\r\n";
                 }
-                else if(currError == 128)
+                else if(currentError == 128)
                 {
                     errorMessage += "Es befindet sich kein Datensatz an dieser Position!\r\n";
                 }
-                error -= currError;
+                error -= currentError;
             }            
             return errorMessage;
         }

@@ -7,7 +7,7 @@
 //              13.04.2020 Daten hinzufügen/löschen/verändern
 //              14.04.2020 Pathvalidation
 
-//TODO: Import/Export
+//TODO: Auslagern von Löschen/Verändern/Hinzufügen
 using System;
 using System.IO;
 
@@ -18,14 +18,18 @@ namespace Wetterstation
         static void ManageDataMenu(ref Record[] weatherData)
         {
             bool menueFinished = false;
+            bool processOngoing = true;
+
             string[] manageSelection = { "Datensatz hinzufügen", "Datensatz verändern", "Datensatz löschen", "Datensätze importieren", "Datensätze exportieren", "Zurück" };
             string[] yesNo = { "Ja", "Nein" };
             string path = "";
+
             int selection = -1;
-            bool processOngoing = true;
             int @continue = -1;
-            int position = -1;
+            int position = FindUpperBorder(ref weatherData);
+
             Record newEntry;
+
             do
             {
                 processOngoing = true;
@@ -35,9 +39,9 @@ namespace Wetterstation
                     do
                     {
                         newEntry = new Record { date = "  .  .    ", airTemperature = 0.0d, airPressure = 0, humidity = 0 };
-                        if (InputMaskNewEntry(ref weatherData, ref newEntry, ref position))
+                        if (InputMaskEntryManipulation(ref weatherData, ref newEntry, ref position))
                         {
-                            AddRecord(ref weatherData, ref newEntry, ref position);
+                            AddRecord(ref weatherData, ref newEntry, position);
                             @continue = ShowSomeMenu(ref yesNo, "Datensatz wurde hinzugefügt.\r\nWollen Sie einen weiteren Datensatz hinzufügen?");
                             if (@continue == 0)
                             {
@@ -67,7 +71,7 @@ namespace Wetterstation
                         position = Convert.ToInt32(Console.ReadLine());
                         if (weatherData[position - 1].date == "  .  .    ")
                         {
-                            @continue = ShowSomeMenu(ref yesNo, ShowErrorMessage(128) + "Wollen Sie eine andere Position eingeben?");
+                            @continue = ShowSomeMenu(ref yesNo, GenerateErrorMessage(128) + "Wollen Sie eine andere Position eingeben?");
                             if (@continue == 0)
                             {
 
@@ -80,7 +84,7 @@ namespace Wetterstation
                         else
                         {
                             newEntry = weatherData[position - 1];
-                            if (InputMaskNewEntry(ref weatherData, ref newEntry, newEntry.date, newEntry.airTemperature.ToString(), newEntry.airPressure.ToString(), newEntry.humidity.ToString(), position.ToString()))
+                            if (InputMaskEntryManipulation(ref weatherData, ref newEntry, newEntry.date, newEntry.airTemperature.ToString(), newEntry.airPressure.ToString(), newEntry.humidity.ToString(), position.ToString()))
                             {
                                 AlterRecord(ref weatherData, position - 1, ref newEntry);
                                 @continue = ShowSomeMenu(ref yesNo, "Datensatz wurde angepasst.\r\nWollen Sie einen weiteren Datensatz anpassen?");
@@ -113,7 +117,7 @@ namespace Wetterstation
                         position = Convert.ToInt32(Console.ReadLine());
                         if (weatherData[position - 1].date == "  .  .    ")
                         {
-                            @continue = ShowSomeMenu(ref yesNo, ShowErrorMessage(128) + "Wollen Sie eine andere Position eingeben?");
+                            @continue = ShowSomeMenu(ref yesNo, GenerateErrorMessage(128) + "Wollen Sie eine andere Position eingeben?");
                             if (@continue == 0)
                             {
 

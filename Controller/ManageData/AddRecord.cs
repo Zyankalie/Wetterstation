@@ -10,17 +10,17 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void AddRecord(ref Record[] weatherData, ref Record newEntry, ref int position)
+        static void AddRecord(ref Record[] weatherData, ref Record newEntry, int position)
         {
-            if (position == -1)
+            if (position != -1)
             {
-                weatherData[FindUpperBorder(ref weatherData)] = newEntry;
+                FreeASpot(ref weatherData, position - 1);                
             }
             else
             {
-                FreeASpot(ref weatherData, position - 1);
-                weatherData[position - 1] = newEntry;
+                //Nichts                
             }
+            weatherData[position - 1] = newEntry;
         }
     }
 }

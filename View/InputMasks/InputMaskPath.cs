@@ -40,9 +40,7 @@ namespace Wetterstation
                 Console.WriteLine("Dateipfad: " + path);
                 Console.WriteLine();
                 Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(errorShown);
-                Console.ForegroundColor = ConsoleColor.White;
+                WriteWithColor(ConsoleColor.Red, errorShown);
                 Console.CursorTop = 6;
                 Console.CursorLeft = 11 + path.Length;
 
@@ -88,7 +86,7 @@ namespace Wetterstation
                 }
                 else
                 {
-
+                    //Nichts
                 }
             } while (pathProcess);
             return false;

@@ -26,35 +26,28 @@ namespace Wetterstation
 
                 for (int counter = 0; counter < menuPoints.Length; counter++)
                 {
-                    if (curItem == counter)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine(menuPoints[counter]);
-                        Console.ForegroundColor = ConsoleColor.White;
-                    }
-                    else
-                    {
-                        Console.WriteLine(menuPoints[counter]);
-                    }
+                    WriteWithColor((curItem == counter) ? ConsoleColor.Green : ConsoleColor.White, menuPoints[counter]);
                 }
 
                 Console.WriteLine("\n\nNavigieren können Sie mit den Pfeiltasten.\nBestätigen Sie Ihre Eingabe mit der return-Taste.");
                 key = Console.ReadKey(true);
-                if (key.Key.ToString() == "DownArrow")
+                if (key.Key == ConsoleKey.DownArrow)
                 {
                     curItem++;
-                    if (curItem > menuPoints.Length - 1) curItem = 0;
+                    if (curItem > menuPoints.Length - 1) 
+                        curItem = 0;
                 }
-                else if (key.Key.ToString() == "UpArrow")
+                else if (key.Key == ConsoleKey.UpArrow)
                 {
                     curItem--;
-                    if (curItem < 0) curItem = Convert.ToInt32(menuPoints.Length - 1);
+                    if (curItem < 0) 
+                        curItem = menuPoints.Length - 1;
                 }
                 else
                 {
                     //Nichts
                 }
-            } while (key.Key.ToString() != "Enter");
+            } while (key.Key != ConsoleKey.Enter);
             return curItem;
         }
     }

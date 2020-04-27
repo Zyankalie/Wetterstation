@@ -15,12 +15,14 @@ namespace Wetterstation
         static void run()
         {
             Console.CursorVisible = false;
+
             Splashinfo();
             Console.ReadKey(true);
-            Record[] weatherData = new Record[366];
-            FillWithRandom(ref weatherData, 365);
-            MainMenu(ref weatherData);
-            //string tmp = string.Join("\r\n", WeatherData.Select(x => $"{x.Date};{ x.AirTemperature};{ x.AirPressure};{ x.Humidity}"));
+
+            Record[] WeatherData = new Record[366];
+            FillWithRandom(ref WeatherData, 360);
+
+            MainMenu(ref WeatherData);            
         }
         struct Record
         {

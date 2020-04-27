@@ -13,10 +13,12 @@ namespace Wetterstation
         {
             bool menueFinished = false;
             bool parameterSelected = true;
-            int algorithm = -1;
+            
             string[] evaluateValues = { "Arithmetisches Mittel", "Geometrisches Mittel", "Median", "Zurück" };
-            int selectedParameter = -1;
             string[] possibleParameters = { "Lufttemperatur", "Luftdruck", "Luftfeuchtigkeit", "Alle Werte", "Zurück" };
+
+            int selectedParameter = -1;
+            int algorithm = -1;
 
             do
             {

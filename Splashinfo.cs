@@ -13,17 +13,16 @@ namespace Wetterstation
     {
         static void Splashinfo()
         {
-
-            Console.WriteLine("Projektname:     Wetterstation");
-            Console.WriteLine("Version:         1.0");
-            Console.WriteLine("Datum:           06.04.2020");
-            Console.WriteLine("Autor:           Jan-Lukas Spilles");
-            Console.WriteLine("Klasse:          IA119");
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
+            string[] titles = { "Projektname:", "Version:", "Datum:", "Autor:", "Klasse:" };
+            string[] information = { "Wetterstation", "1.0", "06.04.2020", "Jan-Lukas Spilles", "IA119" };
+            Console.CursorTop = 5;            
+            for (int i = 0; i < information.Length; i++)
+            {
+                Console.CursorLeft = (Console.WindowWidth - 30) / 2;
+                Console.WriteLine("{0,-10}{1,20}", titles[i], information[i]);
+                Thread.Sleep(400);
+            }
+            Console.SetCursorPosition((Console.WindowWidth - 50) / 2, Console.WindowHeight - 2);
             Console.WriteLine("Drücken Sie eine beliebige Taste, um fortzufahren.");
         }
     }

@@ -77,7 +77,7 @@ namespace Wetterstation
                                         Console.Clear();
                                         if (positionOfItem == -1)
                                         {
-                                            errorHandling = ShowSomeMenu(ref menuPathSearching, ShowErrorMessage(1) + "In welchen Menüpunkt wollen Sie zurückkehren?");
+                                            errorHandling = ShowSomeMenu(ref menuPathSearching, GenerateErrorMessage(1) + "In welchen Menüpunkt wollen Sie zurückkehren?");
                                             if (errorHandling == 0)
                                             {
                                                 searchProcess = false;
@@ -139,6 +139,7 @@ namespace Wetterstation
                                 {
                                     do
                                     {
+                                        // TODO: auslagern von Inputmaske
                                         Console.Clear();
                                         Console.WriteLine("Bitte den Suchwert für den Parameter " + IntToParam(parameterSelected) + " eingeben.");
                                         userInput = Console.ReadLine();
@@ -146,7 +147,7 @@ namespace Wetterstation
                                         Console.Clear();
                                         if (positionOfItem == -1)
                                         {
-                                            errorHandling = ShowSomeMenu(ref menuPathSearching, ShowErrorMessage(1) + "In welchen Menüpunkt wollen Sie zurückkehren?");
+                                            errorHandling = ShowSomeMenu(ref menuPathSearching, GenerateErrorMessage(1) + "In welchen Menüpunkt wollen Sie zurückkehren?");
                                             if (errorHandling == 0)
                                             {
                                                 searchProcess = false;

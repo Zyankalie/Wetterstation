@@ -18,23 +18,22 @@ namespace Wetterstation
             FileStream FS = new FileStream(filePath, FileMode.Open, FileAccess.Read);
             StreamReader SR = new StreamReader(FS, Encoding.UTF8);
             string[] currentLine;
-            Record InsertRecord;
-            int Position = -1;
+            Record insertRecord;
             string errorLog = "Nachfolgende Datensätze konnten nicht importiert werden:\r\n";
-            int Validated = -1;
+            int validated = -1;
 
             for (int index = 0; !SR.EndOfStream; index++)
             {
                 currentLine = SR.ReadLine().Split(';');
-                InsertRecord = new Record { date = currentLine[0], airTemperature = Convert.ToDouble(currentLine[1]), airPressure = Convert.ToUInt32(currentLine[2]), humidity = Convert.ToUInt32(currentLine[3]) };
-                Validated = ValidateEntry(ref weatherData, ref InsertRecord);
-                if (Validated == 0)
+                insertRecord = new Record { date = currentLine[0], airTemperature = Convert.ToDouble(currentLine[1]), airPressure = Convert.ToUInt32(currentLine[2]), humidity = Convert.ToUInt32(currentLine[3]) };
+                validated = ValidateEntry(ref weatherData, ref insertRecord);
+                if (validated == 0)
                 {
-                    AddRecord(ref weatherData, ref InsertRecord, ref Position);
+                    AddRecord(ref weatherData, ref insertRecord, index);
                 }
                 else
                 {
-                    errorLog += "Eintrag " + index + ": " + currentLine + "\r\n" + ShowErrorMessage(Validated) + "\r\n";
+                    errorLog += "Eintrag " + index + ": " + currentLine + "\r\n" + GenerateErrorMessage(validated) + "\r\n";
                 }
             }
             SR.Close();
