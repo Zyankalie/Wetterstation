@@ -11,7 +11,7 @@ namespace Wetterstation
     {
         static int FindUpperBorder(ref Record[] weatherData)
         {
-            Defragment(ref weatherData);
+            DefragmentArray(ref weatherData);
             int position = 0;
             for (position = 0; position < weatherData.Length; position++)
             {

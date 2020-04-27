@@ -57,8 +57,8 @@
     <Compile Include="View\InputMaskNewEntry.cs" />
     <Compile Include="View\InputMaskPath.cs" />
     <Compile Include="View\ShowEvaluatedData.cs" />
-    <Compile Include="Controller\Helpers\Defragment.cs" />
-    <Compile Include="Controller\Helpers\Swap.cs" />
+    <Compile Include="Controller\Helpers\DefragmentArray.cs" />
+    <Compile Include="Controller\Helpers\SwapRecords.cs" />
     <Compile Include="Controller\ManageData\AddRecord.cs" />
     <Compile Include="Controller\ManageData\AlterRecord.cs" />
     <Compile Include="Controller\ManageData\Validation\DateValidation.cs" />

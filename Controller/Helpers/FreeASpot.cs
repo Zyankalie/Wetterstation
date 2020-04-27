@@ -14,7 +14,7 @@ namespace Wetterstation
         {
             for (int upperBorder = FindUpperBorder(ref weatherData); upperBorder > position; upperBorder--)
             {
-                Swap(ref weatherData, upperBorder, upperBorder - 1);
+                SwapRecords(ref weatherData, upperBorder, upperBorder - 1);
             }
         }
     }

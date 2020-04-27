@@ -9,7 +9,7 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void Defragment(ref Record[] weatherData)
+        static void DefragmentArray(ref Record[] weatherData)
         {
             bool swapped = true;
             while (swapped)
@@ -20,7 +20,7 @@ namespace Wetterstation
                     if (weatherData[i - 1].date == "  .  .    " && weatherData[i].date != "  .  .    ")
                     {
                         swapped = true;
-                        Swap(ref weatherData, i, i - 1);
+                        SwapRecords(ref weatherData, i, i - 1);
                     }
                 }
             }

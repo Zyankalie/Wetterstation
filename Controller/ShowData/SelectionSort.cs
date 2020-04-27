@@ -13,7 +13,7 @@ namespace Wetterstation
         static void SelectionSort(ref Record[] weatherData, int sortParameter, bool ascDesc)
         {
             int pivot = -1;
-            Defragment(ref weatherData);
+            DefragmentArray(ref weatherData);
             int upperBorder = FindUpperBorder(ref weatherData);
 
             if (sortParameter == 0)
@@ -38,7 +38,7 @@ namespace Wetterstation
                             }
                         }
                     }
-                    Swap(ref weatherData, aeussereSchleife, pivot);
+                    SwapRecords(ref weatherData, aeussereSchleife, pivot);
                 }
             }
             else if (sortParameter == 1)
@@ -63,7 +63,7 @@ namespace Wetterstation
                             }
                         }
                     }
-                    Swap(ref weatherData, aeussereSchleife, pivot);
+                    SwapRecords(ref weatherData, aeussereSchleife, pivot);
                 }
             }
             else if (sortParameter == 2)
@@ -88,7 +88,7 @@ namespace Wetterstation
                             }
                         }
                     }
-                    Swap(ref weatherData, aeussereSchleife, pivot);
+                    SwapRecords(ref weatherData, aeussereSchleife, pivot);
                 }
             }
             else if (sortParameter == 3)
@@ -113,7 +113,7 @@ namespace Wetterstation
                             }
                         }
                     }
-                    Swap(ref weatherData, aeussereSchleife, pivot);
+                    SwapRecords(ref weatherData, aeussereSchleife, pivot);
                 }
             }
             else

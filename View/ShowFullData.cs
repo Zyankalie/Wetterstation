@@ -18,7 +18,7 @@ namespace Wetterstation
             bool contentIsShown = true;
             int currPage = 0;
             string currData = "";
-            Defragment(ref weatherData);
+            DefragmentArray(ref weatherData);
             int numberPagesFilled = 0;
             for (int i = 0; i < 366; i++)
             {
@@ -96,7 +96,7 @@ namespace Wetterstation
             bool contentIsShown = true;
             int currPage = searchedEntry / 15;
             string currData = "";
-            Defragment(ref weatherData);
+            DefragmentArray(ref weatherData);
             int numberPagesFilled = 0;
             for (int i = 0; i < 366; i++)
             {

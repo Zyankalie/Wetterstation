@@ -13,32 +13,32 @@ namespace Wetterstation
     {
         static double GeometricMean(ref Record[] weatherData, int evaluationParameter)
         {
-            double mittel = 1;
+            double mean = 1;
             int i = 0;
             int upperBorder = FindUpperBorder(ref weatherData);
             if (evaluationParameter == 0)
             {
                 for (i = 0; i < upperBorder; i++)
                 {
-                    mittel = mittel * weatherData[i].airTemperature;
+                    mean = mean * weatherData[i].airTemperature;
                 }
-                return NthRoot(mittel, i);
+                return NthRoot(mean, i);
             }
             else if (evaluationParameter == 1)
             {
                 for (i = 0; i < upperBorder; i++)
                 {
-                    mittel = mittel * weatherData[i].airPressure;
+                    mean = mean * weatherData[i].airPressure;
                 }
-                return NthRoot(mittel, i);
+                return NthRoot(mean, i);
             }
             else if (evaluationParameter == 2)
             {
                 for (i = 0; i < upperBorder; i++)
                 {
-                    mittel = mittel * weatherData[i].humidity;
+                    mean = mean * weatherData[i].humidity;
                 }
-                return NthRoot(mittel, i);
+                return NthRoot(mean, i);
             }
             else
             {

@@ -19,13 +19,12 @@ namespace Wetterstation
         {
             bool menueFinished = false;
             string[] manageSelection = { "Datensatz hinzufügen", "Datensatz verändern", "Datensatz löschen", "Datensätze importieren", "Datensätze exportieren", "Zurück" };
-            string[] jaNein = { "Ja", "Nein" };
+            string[] yesNo = { "Ja", "Nein" };
             string path = "";
             int selection = -1;
             bool processOngoing = true;
             int @continue = -1;
             int position = -1;
-            int sure = -1;
             Record newEntry;
             do
             {
@@ -39,7 +38,7 @@ namespace Wetterstation
                         if (InputMaskNewEntry(ref weatherData, ref newEntry, ref position))
                         {
                             AddRecord(ref weatherData, ref newEntry, ref position);
-                            @continue = ShowSomeMenu(ref jaNein, "Datensatz wurde hinzugefügt.\r\nWollen Sie einen weiteren Datensatz hinzufügen?");
+                            @continue = ShowSomeMenu(ref yesNo, "Datensatz wurde hinzugefügt.\r\nWollen Sie einen weiteren Datensatz hinzufügen?");
                             if (@continue == 0)
                             {
 
@@ -68,7 +67,7 @@ namespace Wetterstation
                         position = Convert.ToInt32(Console.ReadLine());
                         if (weatherData[position - 1].date == "  .  .    ")
                         {
-                            @continue = ShowSomeMenu(ref jaNein, ShowErrorMessage(128) + "Wollen Sie eine andere Position eingeben?");
+                            @continue = ShowSomeMenu(ref yesNo, ShowErrorMessage(128) + "Wollen Sie eine andere Position eingeben?");
                             if (@continue == 0)
                             {
 
@@ -84,7 +83,7 @@ namespace Wetterstation
                             if (InputMaskNewEntry(ref weatherData, ref newEntry, newEntry.date, newEntry.airTemperature.ToString(), newEntry.airPressure.ToString(), newEntry.humidity.ToString(), position.ToString()))
                             {
                                 AlterRecord(ref weatherData, position - 1, ref newEntry);
-                                @continue = ShowSomeMenu(ref jaNein, "Datensatz wurde angepasst.\r\nWollen Sie einen weiteren Datensatz anpassen?");
+                                @continue = ShowSomeMenu(ref yesNo, "Datensatz wurde angepasst.\r\nWollen Sie einen weiteren Datensatz anpassen?");
                                 if (@continue == 0)
                                 {
 
@@ -114,7 +113,7 @@ namespace Wetterstation
                         position = Convert.ToInt32(Console.ReadLine());
                         if (weatherData[position - 1].date == "  .  .    ")
                         {
-                            @continue = ShowSomeMenu(ref jaNein, ShowErrorMessage(128) + "Wollen Sie eine andere Position eingeben?");
+                            @continue = ShowSomeMenu(ref yesNo, ShowErrorMessage(128) + "Wollen Sie eine andere Position eingeben?");
                             if (@continue == 0)
                             {
 
@@ -127,7 +126,7 @@ namespace Wetterstation
                         else
                         {
                             DeleteRecord(ref weatherData, position - 1);
-                            @continue = ShowSomeMenu(ref jaNein, "Datensatz wurde löschen.\r\nWollen Sie einen weiteren Datensatz löschen?");
+                            @continue = ShowSomeMenu(ref yesNo, "Datensatz wurde löschen.\r\nWollen Sie einen weiteren Datensatz löschen?");
                             if (@continue == 0)
                             {
 
@@ -148,7 +147,7 @@ namespace Wetterstation
                     //Import                    
                     if (InputMaskPath(true, ref path))
                     {
-                        if (ShowSomeMenu(ref jaNein, "Sind Sie sicher, dass Sie diese Datei importieren wollen?\r\nAktuelle werden unwiderruflich gelöscht,\r\nsofern keine Datensicherung vorliegt.") == 0)
+                        if (ShowSomeMenu(ref yesNo, "Sind Sie sicher, dass Sie diese Datei importieren wollen?\r\nAktuelle werden unwiderruflich gelöscht,\r\nsofern keine Datensicherung vorliegt.") == 0)
                         {
                             ImportData(ref weatherData, path);
                         }

@@ -16,7 +16,7 @@ namespace Wetterstation
         static int BinarySearch(ref Record[] weatherData, int searchParameter, string searchValue)
         {
             //Damit sortiert werden kann
-            Defragment(ref weatherData);
+            DefragmentArray(ref weatherData);
             //Damit binär gesucht werden kann
             BubbleSort(ref weatherData, searchParameter, true);
             int pivot = -1;

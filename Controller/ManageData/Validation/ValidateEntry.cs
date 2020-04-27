@@ -13,7 +13,7 @@ namespace Wetterstation
         static int ValidateEntry(ref Record[] weatherData, ref Record entry)
         {
             int result = 0;
-            Defragment(ref weatherData);
+            DefragmentArray(ref weatherData);
             if (weatherData[weatherData.Length - 1].date == "  .  .    ")
             {
                 if (!DateValidation(entry.date))

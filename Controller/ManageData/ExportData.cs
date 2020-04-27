@@ -18,7 +18,7 @@ namespace Wetterstation
             FileStream FS = new FileStream(destinationPath + "\\" + filename, FileMode.Create, FileAccess.Write);
             StreamWriter SW = new StreamWriter(FS, Encoding.UTF8);
             //SW.AutoFlush = true;
-            Defragment(ref weatherData);
+            DefragmentArray(ref weatherData);
             int upperBorder = FindUpperBorder(ref weatherData);
             SW.WriteLine("Datum;Lufttemperatur;Luftdruck;Luftfeuchtigkeit");
             for(int i = 0; i < upperBorder;i++)

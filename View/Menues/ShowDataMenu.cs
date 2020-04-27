@@ -69,6 +69,7 @@ namespace Wetterstation
                                 {
                                     do
                                     {
+                                        // TODO: auslagern von Inputmaske
                                         Console.Clear();
                                         Console.WriteLine("Bitte den Suchwert für den Parameter " + IntToParam(parameterSelected) + " eingeben.");
                                         userInput = Console.ReadLine();

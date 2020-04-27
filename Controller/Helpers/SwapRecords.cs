@@ -9,7 +9,7 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void Swap(ref Record[] weatherData, int elem1, int elem2)
+        static void SwapRecords(ref Record[] weatherData, int elem1, int elem2)
         {
             Record tmp = new Record { 
                 date = weatherData[elem1].date, 

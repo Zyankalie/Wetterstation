@@ -13,7 +13,7 @@ namespace Wetterstation
         static void BubbleSort(ref Record[] weatherData, int sortParameter, bool ascDesc)
         {
             bool swaped = true;
-            Defragment(ref weatherData);
+            DefragmentArray(ref weatherData);
             int upperBorder = FindUpperBorder(ref weatherData);
 
             if (sortParameter == 0)
@@ -27,7 +27,7 @@ namespace Wetterstation
                         {
                             if (CompareDates(weatherData[index1].date, weatherData[index1 - 1].date))
                             {
-                                Swap(ref weatherData, index1 - 1, index1);
+                                SwapRecords(ref weatherData, index1 - 1, index1);
                                 swaped = true;
                             }
                         }
@@ -35,7 +35,7 @@ namespace Wetterstation
                         {
                             if (CompareDates(weatherData[index1 - 1].date, weatherData[index1].date))
                             {
-                                Swap(ref weatherData, index1 - 1, index1);
+                                SwapRecords(ref weatherData, index1 - 1, index1);
                                 swaped = true;
                             }
                         }
@@ -53,7 +53,7 @@ namespace Wetterstation
                         {
                             if (weatherData[index1].airTemperature < weatherData[index1 - 1].airTemperature)
                             {
-                                Swap(ref weatherData, index1 - 1, index1);
+                                SwapRecords(ref weatherData, index1 - 1, index1);
                                 swaped = true;
                             }
                         }
@@ -61,7 +61,7 @@ namespace Wetterstation
                         {
                             if (weatherData[index1].airTemperature > weatherData[index1 - 1].airTemperature)
                             {
-                                Swap(ref weatherData, index1 - 1, index1);
+                                SwapRecords(ref weatherData, index1 - 1, index1);
                                 swaped = true;
                             }
                         }
@@ -79,7 +79,7 @@ namespace Wetterstation
                         {
                             if (weatherData[index1].airPressure < weatherData[index1 - 1].airPressure)
                             {
-                                Swap(ref weatherData, index1 - 1, index1);
+                                SwapRecords(ref weatherData, index1 - 1, index1);
                                 swaped = true;
                             }
                         }
@@ -87,7 +87,7 @@ namespace Wetterstation
                         {
                             if (weatherData[index1].airPressure > weatherData[index1 - 1].airPressure)
                             {
-                                Swap(ref weatherData, index1 - 1, index1);
+                                SwapRecords(ref weatherData, index1 - 1, index1);
                                 swaped = true;
                             }
                         }
@@ -105,7 +105,7 @@ namespace Wetterstation
                         {
                             if (weatherData[index1].humidity < weatherData[index1 - 1].humidity)
                             {
-                                Swap(ref weatherData, index1 - 1, index1);
+                                SwapRecords(ref weatherData, index1 - 1, index1);
                                 swaped = true;
                             }
                         }
@@ -113,7 +113,7 @@ namespace Wetterstation
                         {
                             if (weatherData[index1].humidity > weatherData[index1 - 1].humidity)
                             {
-                                Swap(ref weatherData, index1 - 1, index1);
+                                SwapRecords(ref weatherData, index1 - 1, index1);
                                 swaped = true;
                             }
                         }
