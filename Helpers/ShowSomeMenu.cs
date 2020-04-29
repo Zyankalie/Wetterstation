@@ -16,7 +16,7 @@ namespace Wetterstation
         static int ShowSomeMenu(ref string[] menuPoints, string headline)
         {
 
-            int curItem = 0;
+            int currentItem = 0;
             ConsoleKeyInfo key = new ConsoleKeyInfo();
 
             do
@@ -26,29 +26,29 @@ namespace Wetterstation
 
                 for (int counter = 0; counter < menuPoints.Length; counter++)
                 {
-                    WriteWithColor((curItem == counter) ? ConsoleColor.Green : ConsoleColor.White, menuPoints[counter]);
+                    WriteWithColor((currentItem == counter) ? ConsoleColor.Green : ConsoleColor.White, menuPoints[counter]);
                 }
 
                 Console.WriteLine("\n\nNavigieren können Sie mit den Pfeiltasten.\nBestätigen Sie Ihre Eingabe mit der return-Taste.");
                 key = Console.ReadKey(true);
                 if (key.Key == ConsoleKey.DownArrow)
                 {
-                    curItem++;
-                    if (curItem > menuPoints.Length - 1) 
-                        curItem = 0;
+                    currentItem++;
+                    if (currentItem > menuPoints.Length - 1) 
+                        currentItem = 0;
                 }
                 else if (key.Key == ConsoleKey.UpArrow)
                 {
-                    curItem--;
-                    if (curItem < 0) 
-                        curItem = menuPoints.Length - 1;
+                    currentItem--;
+                    if (currentItem < 0) 
+                        currentItem = menuPoints.Length - 1;
                 }
                 else
                 {
                     //Nichts
                 }
             } while (key.Key != ConsoleKey.Enter);
-            return curItem;
+            return currentItem;
         }
     }
 }

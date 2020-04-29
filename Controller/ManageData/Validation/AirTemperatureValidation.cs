@@ -11,14 +11,7 @@ namespace Wetterstation
     {
         static bool AirTemperatureValidation(double temperature)
         {
-            if (temperature > 60 || temperature < -50)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return temperature <= 60 && temperature >= -50;
         }
     }
 }

@@ -11,10 +11,11 @@ namespace Wetterstation
     {
         static void SwapRecords(ref Record[] weatherData, int elem1, int elem2)
         {
-            Record tmp = new Record { 
-                date = weatherData[elem1].date, 
+            Record tmp = new Record
+            {
+                date = weatherData[elem1].date,
                 airTemperature = weatherData[elem1].airTemperature,
-                airPressure = weatherData[elem1].airPressure, 
+                airPressure = weatherData[elem1].airPressure,
                 humidity = weatherData[elem1].humidity
             };
 

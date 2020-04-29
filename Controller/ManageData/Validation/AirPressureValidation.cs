@@ -11,14 +11,7 @@ namespace Wetterstation
     {
         static bool AirPressureValidation(uint pressure)
         {
-            if (pressure > 1080 || pressure < 700)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return pressure <= 1080 && pressure >= 700;
         }
     }
 }

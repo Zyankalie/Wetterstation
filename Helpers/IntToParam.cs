@@ -10,25 +10,13 @@ namespace Wetterstation
     {
         static string IntToParam(int parameter)
         {
-            if (parameter == 0)
+            switch (parameter)
             {
-                return "Datum";
-            }
-            else if (parameter == 1)
-            {
-                return "Lufttemperatur";
-            }
-            else if (parameter == 2)
-            {
-                return "Luftdruck";
-            }
-            else if (parameter == 3)
-            {
-                return "Luftfeuchtigkeit";
-            }
-            else
-            {
-                return "IntToParamError";
+                case 0: return "Datum";
+                case 1: return "Lufttemperatur";
+                case 2: return "Luftdruck";
+                case 3: return "Luftfeuchtigkeit";
+                default: return "IntToParamError";
             }
         }
     }

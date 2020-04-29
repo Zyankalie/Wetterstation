@@ -14,16 +14,16 @@ namespace Wetterstation
     {
         static void ExportData(ref Record[] weatherData, string destinationPath)
         {
-            string filename = "WeatherDataExport_" + DateTime.Now.Date.ToString().Substring(0, 10) + ".csv";            
+            string filename = "WeatherDataExport_" + DateTime.Now.Date.ToString().Substring(0, 10) + ".csv";
             FileStream FS = new FileStream(destinationPath + "\\" + filename, FileMode.Create, FileAccess.Write);
             StreamWriter SW = new StreamWriter(FS, Encoding.UTF8);
-            //SW.AutoFlush = true;
-            DefragmentArray(ref weatherData);
+            //Kein Defragment mehr nötig, da in FindUpperBorder schon aufgerufen
             int upperBorder = FindUpperBorder(ref weatherData);
+
             SW.WriteLine("Datum;Lufttemperatur;Luftdruck;Luftfeuchtigkeit");
-            for(int i = 0; i < upperBorder;i++)
+            for (int i = 0; i < upperBorder; i++)
             {
-                SW.WriteLine(weatherData[i].date + ";" + weatherData[i].airTemperature + ";" + weatherData[i].airPressure + ";" + weatherData[i].humidity);
+                SW.WriteLine($"{weatherData[i].date};{weatherData[i].airTemperature};{weatherData[i].airPressure};{weatherData[i].humidity}");
             }
             SW.Close();
             FS.Close();

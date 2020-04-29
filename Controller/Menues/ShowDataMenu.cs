@@ -23,25 +23,23 @@ namespace Wetterstation
             string[] ascendingDescending = { "Aufsteigend", "Absteigend", "Zurück", "Abbrechen" };
 
             bool menuFinished = false;
-            bool process = true;
-            bool selectedParameter = true;
-            bool searchProcess = true;
-            bool selectAscDesc = true;
+            bool process;
+            bool selectedParameter;
+            bool searchProcess;
+            bool selectAscDesc;
 
-            string userInput = "";
+            string userInput;
 
-            int processSelect = -1;
-            int parameterSelected = -1;
-            int selectedAlgorithm = -1;
-            int positionOfItem = -1;
-            int errorHandling = -1;
-            int ascDescSelect = -1;
+            int processSelect;
+            int parameterSelected;
+            int selectedAlgorithm;
+            int positionOfItem;
+            int errorHandling;
+            int ascDescSelect;
 
             do
             {
                 process = true;
-                selectedParameter = true;
-                searchProcess = true;
                 processSelect = ShowSomeMenu(ref menuItems, "Datensätze anzeigen");
                 if (processSelect == 0)
                 {
@@ -212,7 +210,6 @@ namespace Wetterstation
                         {
                             do
                             {
-                                selectAscDesc = true;
                                 parameterSelected = ShowSomeMenu(ref possibleParameters, "Nach welchem Parameter soll sortiert werden?");
                                 if (parameterSelected == 4)
                                 {
@@ -228,33 +225,21 @@ namespace Wetterstation
                                     do
                                     {
                                         ascDescSelect = ShowSomeMenu(ref ascendingDescending, "Sollen die Daten auf- oder abwärts sortiert werden?");
-                                        if (ascDescSelect == 0)
-                                        {
-                                            BubbleSort(ref weatherData, parameterSelected, true);
-                                        }
-                                        else if (ascDescSelect == 1)
-                                        {
-                                            BubbleSort(ref weatherData, parameterSelected, false);
-                                        }
-                                        else if (ascDescSelect == 2)
+                                        if (ascDescSelect == 2)
                                         {
                                             selectAscDesc = false;
                                         }
-                                        else if (ascDescSelect == 3)
+                                        else
                                         {
+                                            if (ascDescSelect == 0 || ascDescSelect == 1)
+                                            {
+                                                BubbleSort(ref weatherData, parameterSelected, !Convert.ToBoolean(ascDescSelect));
+                                                ShowFullData(ref weatherData);
+                                            }
                                             selectAscDesc = false;
                                             selectedParameter = false;
                                             process = false;
                                         }
-                                        else
-                                        {
-                                            //Nichts
-                                        }
-                                        ShowFullData(ref weatherData);
-                                        selectAscDesc = false;
-                                        selectedParameter = false;
-                                        process = false;
-
                                     } while (selectAscDesc);
                                 }
                             } while (selectedParameter);
@@ -263,7 +248,6 @@ namespace Wetterstation
                         {
                             do
                             {
-                                selectAscDesc = true;
                                 parameterSelected = ShowSomeMenu(ref possibleParameters, "Nach welchem Parameter soll sortiert werden?");
                                 if (parameterSelected == 4)
                                 {
@@ -279,33 +263,21 @@ namespace Wetterstation
                                     do
                                     {
                                         ascDescSelect = ShowSomeMenu(ref ascendingDescending, "Sollen die Daten auf- oder abwärts sortiert werden?");
-                                        if (ascDescSelect == 0)
-                                        {
-                                            SelectionSort(ref weatherData, parameterSelected, true);
-                                        }
-                                        else if (ascDescSelect == 1)
-                                        {
-                                            SelectionSort(ref weatherData, parameterSelected, false);
-                                        }
-                                        else if (ascDescSelect == 2)
+                                        if (ascDescSelect == 2)
                                         {
                                             selectAscDesc = false;
                                         }
-                                        else if (ascDescSelect == 3)
-                                        {
+                                        else
+                                        {                                            
+                                            if(ascDescSelect == 0 || ascDescSelect == 1)
+                                            {
+                                                SelectionSort(ref weatherData, parameterSelected, !Convert.ToBoolean(ascDescSelect));
+                                                ShowFullData(ref weatherData);
+                                            }
                                             selectAscDesc = false;
                                             selectedParameter = false;
                                             process = false;
                                         }
-                                        else
-                                        {
-                                            //Nichts
-                                        }
-                                        ShowFullData(ref weatherData);
-                                        selectAscDesc = false;
-                                        selectedParameter = false;
-                                        process = false;
-
                                     } while (selectAscDesc);
                                 }
                             } while (selectedParameter);

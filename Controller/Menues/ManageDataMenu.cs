@@ -18,14 +18,14 @@ namespace Wetterstation
         static void ManageDataMenu(ref Record[] weatherData)
         {
             bool menueFinished = false;
-            bool processOngoing = true;
+            bool processOngoing;
 
             string[] manageSelection = { "Datensatz hinzufügen", "Datensatz verändern", "Datensatz löschen", "Datensätze importieren", "Datensätze exportieren", "Zurück" };
             string[] yesNo = { "Ja", "Nein" };
             string path = "";
 
-            int selection = -1;
-            int @continue = -1;
+            int selection;
+            int @continue;
             int position = FindUpperBorder(ref weatherData);
 
             Record newEntry;

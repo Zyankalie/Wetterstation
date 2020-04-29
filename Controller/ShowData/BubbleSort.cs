@@ -12,31 +12,31 @@ namespace Wetterstation
     {
         static void BubbleSort(ref Record[] weatherData, int sortParameter, bool ascDesc)
         {
-            bool swaped = true;
+            bool swapped = true;
             DefragmentArray(ref weatherData);
             int upperBorder = FindUpperBorder(ref weatherData);
 
             if (sortParameter == 0)
             {
-                while (swaped)
+                while (swapped)
                 {
-                    swaped = false;
-                    for (int index1 = 1; index1 < upperBorder; index1 = index1 + 1)
+                    swapped = false;
+                    for (int counter = 1; counter < upperBorder; counter = counter + 1)
                     {
                         if (ascDesc)
                         {
-                            if (CompareDates(weatherData[index1].date, weatherData[index1 - 1].date))
+                            if (CompareDates(weatherData[counter].date, weatherData[counter - 1].date))
                             {
-                                SwapRecords(ref weatherData, index1 - 1, index1);
-                                swaped = true;
+                                SwapRecords(ref weatherData, counter - 1, counter);
+                                swapped = true;
                             }
                         }
                         else
                         {
-                            if (CompareDates(weatherData[index1 - 1].date, weatherData[index1].date))
+                            if (CompareDates(weatherData[counter - 1].date, weatherData[counter].date))
                             {
-                                SwapRecords(ref weatherData, index1 - 1, index1);
-                                swaped = true;
+                                SwapRecords(ref weatherData, counter - 1, counter);
+                                swapped = true;
                             }
                         }
                     }
@@ -44,25 +44,25 @@ namespace Wetterstation
             }
             else if (sortParameter == 1)
             {
-                while (swaped)
+                while (swapped)
                 {
-                    swaped = false;
-                    for (int index1 = 1; index1 < upperBorder; index1 = index1 + 1)
+                    swapped = false;
+                    for (int counter = 1; counter < upperBorder; counter = counter + 1)
                     {
                         if (ascDesc)
                         {
-                            if (weatherData[index1].airTemperature < weatherData[index1 - 1].airTemperature)
+                            if (weatherData[counter].airTemperature < weatherData[counter - 1].airTemperature)
                             {
-                                SwapRecords(ref weatherData, index1 - 1, index1);
-                                swaped = true;
+                                SwapRecords(ref weatherData, counter - 1, counter);
+                                swapped = true;
                             }
                         }
                         else
                         {
-                            if (weatherData[index1].airTemperature > weatherData[index1 - 1].airTemperature)
+                            if (weatherData[counter].airTemperature > weatherData[counter - 1].airTemperature)
                             {
-                                SwapRecords(ref weatherData, index1 - 1, index1);
-                                swaped = true;
+                                SwapRecords(ref weatherData, counter - 1, counter);
+                                swapped = true;
                             }
                         }
                     }
@@ -70,25 +70,25 @@ namespace Wetterstation
             }
             else if (sortParameter == 2)
             {
-                while (swaped)
+                while (swapped)
                 {
-                    swaped = false;
-                    for (int index1 = 1; index1 < upperBorder; index1 = index1 + 1)
+                    swapped = false;
+                    for (int counter = 1; counter < upperBorder; counter = counter + 1)
                     {
                         if (ascDesc)
                         {
-                            if (weatherData[index1].airPressure < weatherData[index1 - 1].airPressure)
+                            if (weatherData[counter].airPressure < weatherData[counter - 1].airPressure)
                             {
-                                SwapRecords(ref weatherData, index1 - 1, index1);
-                                swaped = true;
+                                SwapRecords(ref weatherData, counter - 1, counter);
+                                swapped = true;
                             }
                         }
                         else
                         {
-                            if (weatherData[index1].airPressure > weatherData[index1 - 1].airPressure)
+                            if (weatherData[counter].airPressure > weatherData[counter - 1].airPressure)
                             {
-                                SwapRecords(ref weatherData, index1 - 1, index1);
-                                swaped = true;
+                                SwapRecords(ref weatherData, counter - 1, counter);
+                                swapped = true;
                             }
                         }
                     }
@@ -96,25 +96,25 @@ namespace Wetterstation
             }
             else if (sortParameter == 3)
             {
-                while (swaped)
+                while (swapped)
                 {
-                    swaped = false;
-                    for (int index1 = 1; index1 < upperBorder; index1 = index1 + 1)
+                    swapped = false;
+                    for (int counter = 1; counter < upperBorder; counter = counter + 1)
                     {
                         if (ascDesc)
                         {
-                            if (weatherData[index1].humidity < weatherData[index1 - 1].humidity)
+                            if (weatherData[counter].humidity < weatherData[counter - 1].humidity)
                             {
-                                SwapRecords(ref weatherData, index1 - 1, index1);
-                                swaped = true;
+                                SwapRecords(ref weatherData, counter - 1, counter);
+                                swapped = true;
                             }
                         }
                         else
                         {
-                            if (weatherData[index1].humidity > weatherData[index1 - 1].humidity)
+                            if (weatherData[counter].humidity > weatherData[counter - 1].humidity)
                             {
-                                SwapRecords(ref weatherData, index1 - 1, index1);
-                                swaped = true;
+                                SwapRecords(ref weatherData, counter - 1, counter);
+                                swapped = true;
                             }
                         }
                     }

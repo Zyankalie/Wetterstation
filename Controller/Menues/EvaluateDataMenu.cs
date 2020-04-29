@@ -12,17 +12,16 @@ namespace Wetterstation
         static void EvaluateDataMenu(ref Record[] weatherDatra)
         {
             bool menueFinished = false;
-            bool parameterSelected = true;
+            bool parameterSelected;
             
             string[] evaluateValues = { "Arithmetisches Mittel", "Geometrisches Mittel", "Median", "Zurück" };
             string[] possibleParameters = { "Lufttemperatur", "Luftdruck", "Luftfeuchtigkeit", "Alle Werte", "Zurück" };
 
-            int selectedParameter = -1;
-            int algorithm = -1;
+            int selectedParameter;
+            int algorithm;
 
             do
             {
-                parameterSelected = true;
                 algorithm = ShowSomeMenu(ref evaluateValues, "Wählen Sie ein Auswertungsverfahren aus.");
                 if (algorithm != 3)
                 {

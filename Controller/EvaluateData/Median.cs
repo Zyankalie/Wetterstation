@@ -14,22 +14,13 @@ namespace Wetterstation
         {
             DefragmentArray(ref weatherData);
             BubbleSort(ref weatherData, evaluationParameter + 1, true);
-            int i = FindUpperBorder(ref weatherData);
-            if (evaluationParameter == 0)
+            int upperBorder = FindUpperBorder(ref weatherData);
+            switch (evaluationParameter)
             {
-                return weatherData[i / 2].airTemperature;
-            }
-            else if (evaluationParameter == 1)
-            {
-                return weatherData[i / 2].airPressure;
-            }
-            else if (evaluationParameter == 2)
-            {
-                return weatherData[i / 2].humidity;
-            }
-            else
-            {
-                return -1;
+                case 0: return weatherData[upperBorder / 2].airTemperature;
+                case 1: return weatherData[upperBorder / 2].airPressure;
+                case 2: return weatherData[upperBorder / 2].humidity;
+                default: return -1;
             }
         }
     }

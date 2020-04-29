@@ -14,7 +14,7 @@ namespace Wetterstation
         {
             if (position != -1)
             {
-                FreeASpot(ref weatherData, position - 1);                
+                FreeASpot(ref weatherData, position - 1);
             }
             else
             {

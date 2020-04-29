@@ -22,9 +22,9 @@ namespace Wetterstation
             {
                 Console.Clear();
                 Console.WriteLine("Bitte geben Sie die Werte für einen neuen Datensatz ein:");
-                for (int i = 0; i < parameters.Length; i++)
+                for (int counter = 0; counter < parameters.Length; counter++)
                 {
-                    WriteWithColor((i == currentline) ? ConsoleColor.Green : ConsoleColor.White, parameters[i] + ": " + userInputs[i]);
+                    WriteWithColor((counter == currentline) ? ConsoleColor.Green : ConsoleColor.White, parameters[counter] + ": " + userInputs[counter]);
                 }
 
                 ConsoleKeyInfo key = Console.ReadKey(true);
@@ -137,9 +137,9 @@ namespace Wetterstation
             {
                 Console.Clear();
                 Console.WriteLine("Bitte geben Sie die Werte für einen neuen Datensatz ein:");
-                for (int i = 0; i < parameters.Length; i++)
+                for (int counter = 0; counter < parameters.Length; counter++)
                 {
-                    WriteWithColor((i == currentline) ? ConsoleColor.Green : ConsoleColor.White, parameters[i] + ": " + userInputs[i]);
+                    WriteWithColor((counter == currentline) ? ConsoleColor.Green : ConsoleColor.White, parameters[counter] + ": " + userInputs[counter]);
                 }
 
                 ConsoleKeyInfo key = Console.ReadKey(true);

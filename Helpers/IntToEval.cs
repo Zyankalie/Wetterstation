@@ -10,21 +10,12 @@ namespace Wetterstation
     {
         static string IntToEval(int parameter)
         {
-            if (parameter == 0)
+            switch (parameter)
             {
-                return "Arithmetisches Mittel";
-            }
-            else if (parameter == 1)
-            {
-                return "Geometrisches Mittel";
-            }
-            else if (parameter == 2)
-            {
-                return "Median";
-            }
-            else
-            {
-                return "IntToEvalError";
+                case 0: return "Arithmetisches Mittel";
+                case 1: return "Geometrisches Mittel";
+                case 2: return "Median";
+                default: return "IntToEvalError";
             }
         }
     }

@@ -78,6 +78,7 @@ namespace Wetterstation
                             errorShown = errorMessage;
                         }
                     }
+                    return true;
                 }
                 else if (!char.IsControl(key.KeyChar))
                 {

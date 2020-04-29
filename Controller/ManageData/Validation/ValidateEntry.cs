@@ -24,7 +24,6 @@ namespace Wetterstation
                 {
                     result += 4;
                 }
-
                 if (!AirPressureValidation(entry.airPressure))
                 {
                     result += 8;

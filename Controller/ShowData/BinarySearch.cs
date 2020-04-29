@@ -22,7 +22,7 @@ namespace Wetterstation
             int pivot = -1;
             int lowerLimit = 0;
             int upperLimit = FindUpperBorder(ref weatherData);
-            int pos = -1;
+            int position = -1;
 
             if (searchParameter == 0)
             {
@@ -31,7 +31,7 @@ namespace Wetterstation
                     pivot = lowerLimit + ((upperLimit - lowerLimit) / 2);
                     if (weatherData[pivot].date == searchValue)
                     {
-                        pos = pivot;
+                        position = pivot;
                         break;
                     }
                     else if (CompareDates(searchValue, weatherData[pivot].date))
@@ -51,7 +51,7 @@ namespace Wetterstation
                     pivot = lowerLimit + ((upperLimit - lowerLimit) / 2);
                     if (weatherData[pivot].airTemperature == Convert.ToDouble(searchValue))
                     {
-                        pos = pivot;
+                        position = pivot;
                         break;
                     }
                     else if (Convert.ToDouble(searchValue) > weatherData[pivot].airTemperature)
@@ -71,7 +71,7 @@ namespace Wetterstation
                     pivot = lowerLimit + ((upperLimit - lowerLimit) / 2);
                     if (weatherData[pivot].airPressure == Convert.ToInt32(searchValue))
                     {
-                        pos = pivot;
+                        position = pivot;
                         break;
                     }
                     else if (Convert.ToInt32(searchValue) > weatherData[pivot].airPressure)
@@ -91,7 +91,7 @@ namespace Wetterstation
                     pivot = lowerLimit + ((upperLimit - lowerLimit) / 2);
                     if (weatherData[pivot].humidity == Convert.ToInt32(searchValue))
                     {
-                        pos = pivot;
+                        position = pivot;
                         break;
                     }
                     else if (Convert.ToInt32(searchValue) > weatherData[pivot].humidity)
@@ -108,7 +108,7 @@ namespace Wetterstation
             {
                 //Nichts
             }
-            return pos;
+            return position;
         }
     }
 }

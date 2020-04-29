@@ -14,35 +14,29 @@ namespace Wetterstation
         static double ArithmeticMean(ref Record[] weatherData, int evaluationParameter)
         {
             double mean = 0;
-            int i = 0;
+            int numberOfElements;
             int upperBorder = FindUpperBorder(ref weatherData);
-            if (evaluationParameter == 0)
+            switch (evaluationParameter)
             {
-                for (i = 0; i < upperBorder; i++)
-                {
-                    mean = mean + weatherData[i].airTemperature;
-                }
-                return mean / i;
-            }
-            else if (evaluationParameter == 1)
-            {
-                for (i = 0; i < upperBorder; i++)
-                {
-                    mean = mean + weatherData[i].airPressure;
-                }
-                return mean / i;
-            }
-            else if (evaluationParameter == 2)
-            {
-                for (i = 0; i < upperBorder; i++)
-                {
-                    mean = mean + weatherData[i].humidity;
-                }
-                return mean / i;
-            }
-            else
-            {
-                return -1;
+                case 0:
+                    for (numberOfElements = 0; numberOfElements < upperBorder; numberOfElements++)
+                    {
+                        mean += weatherData[numberOfElements].airTemperature;
+                    }
+                    return mean / numberOfElements;
+                case 1:
+                    for (numberOfElements = 0; numberOfElements < upperBorder; numberOfElements++)
+                    {
+                        mean += weatherData[numberOfElements].airPressure;
+                    }
+                    return mean / numberOfElements;
+                case 2:
+                    for (numberOfElements = 0; numberOfElements < upperBorder; numberOfElements++)
+                    {
+                        mean += weatherData[numberOfElements].humidity;
+                    }
+                    return mean / numberOfElements;
+                default: return -1;
             }
         }
     }

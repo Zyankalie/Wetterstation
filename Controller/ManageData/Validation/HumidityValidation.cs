@@ -11,14 +11,7 @@ namespace Wetterstation
     {
         static bool HumidityValidation(uint humidity)
         {
-            if (humidity > 100 || humidity < 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return humidity <= 100 && humidity >= 0;
         }
     }
 }

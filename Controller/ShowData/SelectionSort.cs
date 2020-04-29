@@ -18,102 +18,102 @@ namespace Wetterstation
 
             if (sortParameter == 0)
             {
-                for (int aeussereSchleife = 0; aeussereSchleife < upperBorder; aeussereSchleife = aeussereSchleife + 1)
+                for (int outerLoop = 0; outerLoop < upperBorder; outerLoop = outerLoop + 1)
                 {
-                    pivot = aeussereSchleife;
-                    for (int innereSchleife = aeussereSchleife; innereSchleife < upperBorder; innereSchleife = innereSchleife + 1)
+                    pivot = outerLoop;
+                    for (int innerLoop = outerLoop; innerLoop < upperBorder; innerLoop = innerLoop + 1)
                     {
                         if (ascDesc)
                         {
-                            if (CompareDates(weatherData[innereSchleife].date, weatherData[pivot].date))
+                            if (CompareDates(weatherData[innerLoop].date, weatherData[pivot].date))
                             {
-                                pivot = innereSchleife;
+                                pivot = innerLoop;
                             }
                         }
                         else
                         {
-                            if (CompareDates(weatherData[pivot].date, weatherData[innereSchleife].date))
+                            if (CompareDates(weatherData[pivot].date, weatherData[innerLoop].date))
                             {
-                                pivot = innereSchleife;
+                                pivot = innerLoop;
                             }
                         }
                     }
-                    SwapRecords(ref weatherData, aeussereSchleife, pivot);
+                    SwapRecords(ref weatherData, outerLoop, pivot);
                 }
             }
             else if (sortParameter == 1)
             {
-                for (int aeussereSchleife = 0; aeussereSchleife < upperBorder; aeussereSchleife = aeussereSchleife + 1)
+                for (int outerLoop = 0; outerLoop < upperBorder; outerLoop = outerLoop + 1)
                 {
-                    pivot = aeussereSchleife;
-                    for (int innereSchleife = aeussereSchleife; innereSchleife < upperBorder; innereSchleife = innereSchleife + 1)
+                    pivot = outerLoop;
+                    for (int innerLoop = outerLoop; innerLoop < upperBorder; innerLoop = innerLoop + 1)
                     {
                         if (ascDesc)
                         {
-                            if (weatherData[innereSchleife].airTemperature < weatherData[pivot].airTemperature)
+                            if (weatherData[innerLoop].airTemperature < weatherData[pivot].airTemperature)
                             {
-                                pivot = innereSchleife;
+                                pivot = innerLoop;
                             }
                         }
                         else
                         {
-                            if (weatherData[innereSchleife].airTemperature > weatherData[pivot].airTemperature)
+                            if (weatherData[innerLoop].airTemperature > weatherData[pivot].airTemperature)
                             {
-                                pivot = innereSchleife;
+                                pivot = innerLoop;
                             }
                         }
                     }
-                    SwapRecords(ref weatherData, aeussereSchleife, pivot);
+                    SwapRecords(ref weatherData, outerLoop, pivot);
                 }
             }
             else if (sortParameter == 2)
             {
-                for (int aeussereSchleife = 0; aeussereSchleife < upperBorder; aeussereSchleife = aeussereSchleife + 1)
+                for (int outerLoop = 0; outerLoop < upperBorder; outerLoop = outerLoop + 1)
                 {
-                    pivot = aeussereSchleife;
-                    for (int innereSchleife = aeussereSchleife; innereSchleife < upperBorder; innereSchleife = innereSchleife + 1)
+                    pivot = outerLoop;
+                    for (int innerLoop = outerLoop; innerLoop < upperBorder; innerLoop = innerLoop + 1)
                     {
                         if (ascDesc)
                         {
-                            if (weatherData[innereSchleife].airPressure < weatherData[pivot].airPressure)
+                            if (weatherData[innerLoop].airPressure < weatherData[pivot].airPressure)
                             {
-                                pivot = innereSchleife;
+                                pivot = innerLoop;
                             }
                         }
                         else
                         {
-                            if (weatherData[innereSchleife].airPressure > weatherData[pivot].airPressure)
+                            if (weatherData[innerLoop].airPressure > weatherData[pivot].airPressure)
                             {
-                                pivot = innereSchleife;
+                                pivot = innerLoop;
                             }
                         }
                     }
-                    SwapRecords(ref weatherData, aeussereSchleife, pivot);
+                    SwapRecords(ref weatherData, outerLoop, pivot);
                 }
             }
             else if (sortParameter == 3)
             {
-                for (int aeussereSchleife = 0; aeussereSchleife < upperBorder; aeussereSchleife = aeussereSchleife + 1)
+                for (int outerLoop = 0; outerLoop < upperBorder; outerLoop = outerLoop + 1)
                 {
-                    pivot = aeussereSchleife;
-                    for (int innereSchleife = aeussereSchleife; innereSchleife < upperBorder; innereSchleife = innereSchleife + 1)
+                    pivot = outerLoop;
+                    for (int innerLoop = outerLoop; innerLoop < upperBorder; innerLoop = innerLoop + 1)
                     {
                         if (ascDesc)
                         {
-                            if (weatherData[innereSchleife].humidity < weatherData[pivot].humidity)
+                            if (weatherData[innerLoop].humidity < weatherData[pivot].humidity)
                             {
-                                pivot = innereSchleife;
+                                pivot = innerLoop;
                             }
                         }
                         else
                         {
-                            if (weatherData[innereSchleife].humidity > weatherData[pivot].humidity)
+                            if (weatherData[innerLoop].humidity > weatherData[pivot].humidity)
                             {
-                                pivot = innereSchleife;
+                                pivot = innerLoop;
                             }
                         }
                     }
-                    SwapRecords(ref weatherData, aeussereSchleife, pivot);
+                    SwapRecords(ref weatherData, outerLoop, pivot);
                 }
             }
             else

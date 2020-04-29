@@ -31,49 +31,44 @@ namespace Wetterstation
         static string GenerateErrorMessage(int error)
         {
             string errorMessage = "Fehler:\r\n";
-            int currentError = 1;
-            while(error > 0)
+            int currentError;
+            while (error > 0)
             {
                 currentError = 1;
-                while(currentError <= error)
+                while (currentError <= error)
                 {
                     currentError = currentError * 2;
                 }
                 currentError /= 2;
-                if (currentError == 1)
+                switch (currentError)
                 {
-                    errorMessage += "Datensatz konnte nicht gefunden werden!\r\n";
-                }
-                else if(currentError == 2)
-                {
-                    errorMessage += "Ungültiges Datum!\r\n";
-                }
-                else if (currentError == 4)
-                {
-                    errorMessage += "Ungültige Lufttemperatur!\r\n";
-                }
-                else if (currentError == 8)
-                {
-                    errorMessage += "Ungültiger Luftdruck!\r\n";
-                }
-                else if (currentError == 16)
-                {
-                    errorMessage += "Ungültige Luftfeuchtigkeit!\r\n";
-                }
-                else if (currentError == 32)
-                {
-                    errorMessage += "Datenbank voll!\r\n";
-                }
-                else if(currentError == 64)
-                {
-                    errorMessage += "Ungültige Position!\r\n";
-                }
-                else if(currentError == 128)
-                {
-                    errorMessage += "Es befindet sich kein Datensatz an dieser Position!\r\n";
+                    case 1:
+                        errorMessage += "Datensatz konnte nicht gefunden werden!\r\n";
+                        break;
+                    case 2:
+                        errorMessage += "Ungültiges Datum!\r\n";
+                        break;
+                    case 4:
+                        errorMessage += "Ungültige Lufttemperatur!\r\n";
+                        break;
+                    case 8:
+                        errorMessage += "Ungültiger Luftdruck!\r\n";
+                        break;
+                    case 16:
+                        errorMessage += "Ungültige Luftfeuchtigkeit!\r\n";
+                        break;
+                    case 32:
+                        errorMessage += "Datenbank voll!\r\n";
+                        break;
+                    case 64:
+                        errorMessage += "Ungültige Position!\r\n";
+                        break;
+                    case 128:
+                        errorMessage += "Es befindet sich kein Datensatz an dieser Position!\r\n";
+                        break;
                 }
                 error -= currentError;
-            }            
+            }
             return errorMessage;
         }
     }
