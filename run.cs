@@ -7,12 +7,11 @@
 //              14.04.2020 Methodenaufruf FillWithRandom hinzugefügt
 //              19.04.2020 Aufruf Splashinfo hinzugefügt
 using System;
-using System.Linq;
 namespace Wetterstation
 {
     partial class main
     {
-        static void run()
+        static void Run()
         {
             Console.CursorVisible = false;
 
@@ -22,7 +21,7 @@ namespace Wetterstation
             Record[] WeatherData = new Record[366];
             FillWithRandom(ref WeatherData, 360);
 
-            MainMenu(ref WeatherData);            
+            MainMenu(ref WeatherData);
         }
         struct Record
         {
@@ -32,5 +31,5 @@ namespace Wetterstation
             public uint humidity;
         }
     }
-    
+
 }

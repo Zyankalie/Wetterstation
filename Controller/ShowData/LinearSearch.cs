@@ -15,10 +15,11 @@ namespace Wetterstation
     {
         static int LinearSearch(ref Record[] weatherData, int searchParameter, string searchValue)
         {
-            int position = 0;
+            int position;
+            int upperBorder = FindUpperBorder(ref weatherData);
             if (searchParameter == 0)
             {
-                for (position = 0; position < weatherData.Length; position++)
+                for (position = 0; position < upperBorder; position++)
                 {
                     if (weatherData[position].date == searchValue)
                     {
@@ -32,9 +33,10 @@ namespace Wetterstation
             }
             else if (searchParameter == 1)
             {
-                for (position = 0; position < weatherData.Length; position++)
+                for (position = 0; position < upperBorder; position++)
                 {
-                    if (weatherData[position].airTemperature== Convert.ToDouble(searchValue))
+
+                    if (weatherData[position].airTemperature == Convert.ToDouble(searchValue))
                     {
                         return position;
                     }
@@ -46,7 +48,7 @@ namespace Wetterstation
             }
             else if (searchParameter == 2)
             {
-                for (position = 0; position < weatherData.Length; position++)
+                for (position = 0; position < upperBorder; position++)
                 {
                     if (weatherData[position].airPressure == Convert.ToInt32(searchValue))
                     {
@@ -60,19 +62,19 @@ namespace Wetterstation
             }
             else if (searchParameter == 3)
             {
-                for (position = 0; position < weatherData.Length; position++)
+                for (position = 0; position < upperBorder; position++)
                 {
                     if (weatherData[position].humidity == Convert.ToInt32(searchValue))
                     {
                         return position;
                     }
-                    else 
-                    { 
+                    else
+                    {
                         //Nichts                    
                     }
                 }
             }
-            else 
+            else
             {
                 return -1;
             }

@@ -12,7 +12,6 @@ namespace Wetterstation
     {
         static double Median(ref Record[] weatherData, int evaluationParameter)
         {
-            DefragmentArray(ref weatherData);
             BubbleSort(ref weatherData, evaluationParameter + 1, true);
             int upperBorder = FindUpperBorder(ref weatherData);
             switch (evaluationParameter)

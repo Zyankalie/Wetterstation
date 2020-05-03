@@ -28,7 +28,7 @@ namespace Wetterstation
             bool searchProcess;
             bool selectAscDesc;
 
-            string userInput;
+            string userInput = "";
 
             int processSelect;
             int parameterSelected;
@@ -67,44 +67,27 @@ namespace Wetterstation
                                 {
                                     do
                                     {
-                                        // TODO: auslagern von Inputmaske
-                                        Console.Clear();
-                                        Console.WriteLine("Bitte den Suchwert für den Parameter " + IntToParam(parameterSelected) + " eingeben.");
-                                        userInput = Console.ReadLine();
+                                        InputMaskSearchValue(parameterSelected, ref userInput);
                                         positionOfItem = LinearSearch(ref weatherData, parameterSelected, userInput);
-                                        Console.Clear();
                                         if (positionOfItem == -1)
                                         {
                                             errorHandling = ShowSomeMenu(ref menuPathSearching, GenerateErrorMessage(1) + "In welchen Menüpunkt wollen Sie zurückkehren?");
-                                            if (errorHandling == 0)
+                                            switch (errorHandling)
                                             {
-                                                searchProcess = false;
-                                                selectedParameter = false;
-                                                process = false;
-                                                menuFinished = true;
-                                            }
-                                            else if (errorHandling == 1)
-                                            {
-                                                searchProcess = false;
-                                                selectedParameter = false;
-                                                process = false;
-                                            }
-                                            else if (errorHandling == 2)
-                                            {
-                                                searchProcess = false;
-                                                selectedParameter = false;
-                                            }
-                                            else if (errorHandling == 3)
-                                            {
-                                                searchProcess = false;
-                                            }
-                                            else if (errorHandling == 4)
-                                            {
-                                                //Nichts - Parameter Eingabe
-                                            }
-                                            else
-                                            {
-                                                //Nichts - Wird nie erreicht
+                                                case 0:
+                                                    menuFinished = true;
+                                                    goto case 1;
+                                                case 1:
+                                                    process = false;
+                                                    goto case 2;
+                                                case 2:
+                                                    selectedParameter = false;
+                                                    goto case 3;
+                                                case 3:
+                                                    searchProcess = false;
+                                                    userInput = "";
+                                                    break;
+                                                default: break;
                                             }
                                         }
                                         else
@@ -137,44 +120,28 @@ namespace Wetterstation
                                 {
                                     do
                                     {
-                                        // TODO: auslagern von Inputmaske
-                                        Console.Clear();
-                                        Console.WriteLine("Bitte den Suchwert für den Parameter " + IntToParam(parameterSelected) + " eingeben.");
-                                        userInput = Console.ReadLine();
+                                        InputMaskSearchValue(parameterSelected, ref userInput);
                                         positionOfItem = BinarySearch(ref weatherData, parameterSelected, userInput);
-                                        Console.Clear();
                                         if (positionOfItem == -1)
                                         {
                                             errorHandling = ShowSomeMenu(ref menuPathSearching, GenerateErrorMessage(1) + "In welchen Menüpunkt wollen Sie zurückkehren?");
-                                            if (errorHandling == 0)
+
+                                            switch (errorHandling)
                                             {
-                                                searchProcess = false;
-                                                selectedParameter = false;
-                                                process = false;
-                                                menuFinished = true;
-                                            }
-                                            else if (errorHandling == 1)
-                                            {
-                                                searchProcess = false;
-                                                selectedParameter = false;
-                                                process = false;
-                                            }
-                                            else if (errorHandling == 2)
-                                            {
-                                                searchProcess = false;
-                                                selectedParameter = false;
-                                            }
-                                            else if (errorHandling == 3)
-                                            {
-                                                searchProcess = false;
-                                            }
-                                            else if (errorHandling == 4)
-                                            {
-                                                //Nichts - Parameter Eingabe
-                                            }
-                                            else
-                                            {
-                                                //Nichts - Wird nie erreicht
+                                                case 0:
+                                                    menuFinished = true;
+                                                    goto case 1;
+                                                case 1:
+                                                    process = false;
+                                                    goto case 2;
+                                                case 2:
+                                                    selectedParameter = false;
+                                                    goto case 3;
+                                                case 3:
+                                                    searchProcess = false;
+                                                    userInput = "";
+                                                    break;
+                                                default: break;
                                             }
                                         }
                                         else
@@ -268,8 +235,8 @@ namespace Wetterstation
                                             selectAscDesc = false;
                                         }
                                         else
-                                        {                                            
-                                            if(ascDescSelect == 0 || ascDescSelect == 1)
+                                        {
+                                            if (ascDescSelect == 0 || ascDescSelect == 1)
                                             {
                                                 SelectionSort(ref weatherData, parameterSelected, !Convert.ToBoolean(ascDescSelect));
                                                 ShowFullData(ref weatherData);

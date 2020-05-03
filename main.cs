@@ -10,7 +10,7 @@ namespace Wetterstation
     {
         static void Main(string[] args)
         {
-            run();
+            Run();
         }
     }
 }

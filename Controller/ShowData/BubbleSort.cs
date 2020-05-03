@@ -13,7 +13,6 @@ namespace Wetterstation
         static void BubbleSort(ref Record[] weatherData, int sortParameter, bool ascDesc)
         {
             bool swapped = true;
-            DefragmentArray(ref weatherData);
             int upperBorder = FindUpperBorder(ref weatherData);
 
             if (sortParameter == 0)
@@ -21,7 +20,7 @@ namespace Wetterstation
                 while (swapped)
                 {
                     swapped = false;
-                    for (int counter = 1; counter < upperBorder; counter = counter + 1)
+                    for (int counter = 1; counter < upperBorder; counter += 1)
                     {
                         if (ascDesc)
                         {
@@ -47,7 +46,7 @@ namespace Wetterstation
                 while (swapped)
                 {
                     swapped = false;
-                    for (int counter = 1; counter < upperBorder; counter = counter + 1)
+                    for (int counter = 1; counter < upperBorder; counter += 1)
                     {
                         if (ascDesc)
                         {
@@ -73,7 +72,7 @@ namespace Wetterstation
                 while (swapped)
                 {
                     swapped = false;
-                    for (int counter = 1; counter < upperBorder; counter = counter + 1)
+                    for (int counter = 1; counter < upperBorder; counter += 1)
                     {
                         if (ascDesc)
                         {
@@ -99,7 +98,7 @@ namespace Wetterstation
                 while (swapped)
                 {
                     swapped = false;
-                    for (int counter = 1; counter < upperBorder; counter = counter + 1)
+                    for (int counter = 1; counter < upperBorder; counter += 1)
                     {
                         if (ascDesc)
                         {

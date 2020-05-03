@@ -68,7 +68,6 @@ namespace Wetterstation
                         int Option = ShowSomeMenu(ref menuPath, GenerateErrorMessage(Validation));
                         if (Option == 0)
                         {
-                            editing = false;
                             return false;
                         }
                         else if (Option == 1)
@@ -79,7 +78,6 @@ namespace Wetterstation
                     else
                     {
                         position = Convert.ToInt32(userInputs[4] == "" ? "-1" : userInputs[4]);
-                        editing = false;
                         return true;
                     }
                 }
@@ -180,7 +178,6 @@ namespace Wetterstation
                         int Option = ShowSomeMenu(ref menuPath, GenerateErrorMessage(Validation));
                         if (Option == 0)
                         {
-                            editing = false;
                             return false;
                         }
                         else if (Option == 1)
@@ -190,7 +187,6 @@ namespace Wetterstation
                     }
                     else
                     {
-                        editing = false;
                         return true;
                     }
                 }

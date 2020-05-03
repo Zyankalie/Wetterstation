@@ -21,10 +21,10 @@ namespace Wetterstation
             Record insertRecord;
             string errorLog = "Nachfolgende Datensätze konnten nicht importiert werden:\r\n";
             int validated;
-            
+
             for (int index = 0; !SR.EndOfStream; index++)
             {
-                currentLine = SR.ReadLine().Split(';');                
+                currentLine = SR.ReadLine().Split(';');
                 insertRecord = new Record { date = currentLine[0], airTemperature = Convert.ToDouble(currentLine[1]), airPressure = Convert.ToUInt32(currentLine[2]), humidity = Convert.ToUInt32(currentLine[3]) };
                 validated = ValidateEntry(ref weatherData, ref insertRecord);
                 if (validated == 0)

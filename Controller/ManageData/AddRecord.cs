@@ -18,7 +18,6 @@ namespace Wetterstation
             }
             else
             {
-                //Nichts                
             }
             weatherData[position - 1] = newEntry;
         }

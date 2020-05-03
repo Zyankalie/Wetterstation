@@ -15,13 +15,12 @@ namespace Wetterstation
     {
         static int BinarySearch(ref Record[] weatherData, int searchParameter, string searchValue)
         {
-            //Damit sortiert werden kann
-            DefragmentArray(ref weatherData);
+            int upperLimit = FindUpperBorder(ref weatherData);
             //Damit binär gesucht werden kann
             BubbleSort(ref weatherData, searchParameter, true);
-            int pivot = -1;
+            int pivot;
             int lowerLimit = 0;
-            int upperLimit = FindUpperBorder(ref weatherData);
+
             int position = -1;
 
             if (searchParameter == 0)
@@ -42,7 +41,7 @@ namespace Wetterstation
                     {
                         upperLimit = pivot - 1;
                     }
-                }                
+                }
             }
             else if (searchParameter == 1)
             {

@@ -55,8 +55,10 @@
     <Compile Include="Helpers\WipeArray.cs" />
     <Compile Include="Helpers\WriteWithColor.cs" />
     <Compile Include="Splashinfo.cs" />
+    <Compile Include="View\InputMasks\InputMaskEnterEntryPosition.cs" />
     <Compile Include="View\InputMasks\InputMaskEntryManipulation.cs" />
     <Compile Include="View\InputMasks\InputMaskPath.cs" />
+    <Compile Include="View\InputMasks\InputMaskSearchValue.cs" />
     <Compile Include="View\OutputMasks\ShowEvaluatedData.cs" />
     <Compile Include="Helpers\DefragmentArray.cs" />
     <Compile Include="Helpers\SwapRecords.cs" />
@@ -76,8 +78,8 @@
     <Compile Include="Helpers\ShowSomeMenu.cs" />
     <Compile Include="Controller\Menues\ShowDataMenu.cs" />
     <Compile Include="Controller\ShowData\CompareDates.cs" />
-    <Compile Include="run.cs" />
-    <Compile Include="main.cs" />
+    <Compile Include="Run.cs" />
+    <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controller\ShowData\BinarySearch.cs" />
     <Compile Include="Controller\ShowData\BubbleSort.cs" />

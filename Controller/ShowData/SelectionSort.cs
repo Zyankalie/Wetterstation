@@ -12,16 +12,15 @@ namespace Wetterstation
     {
         static void SelectionSort(ref Record[] weatherData, int sortParameter, bool ascDesc)
         {
-            int pivot = -1;
-            DefragmentArray(ref weatherData);
+            int pivot;
             int upperBorder = FindUpperBorder(ref weatherData);
 
             if (sortParameter == 0)
             {
-                for (int outerLoop = 0; outerLoop < upperBorder; outerLoop = outerLoop + 1)
+                for (int outerLoop = 0; outerLoop < upperBorder; outerLoop++)
                 {
                     pivot = outerLoop;
-                    for (int innerLoop = outerLoop; innerLoop < upperBorder; innerLoop = innerLoop + 1)
+                    for (int innerLoop = outerLoop; innerLoop < upperBorder; innerLoop++)
                     {
                         if (ascDesc)
                         {
@@ -43,10 +42,10 @@ namespace Wetterstation
             }
             else if (sortParameter == 1)
             {
-                for (int outerLoop = 0; outerLoop < upperBorder; outerLoop = outerLoop + 1)
+                for (int outerLoop = 0; outerLoop < upperBorder; outerLoop++)
                 {
                     pivot = outerLoop;
-                    for (int innerLoop = outerLoop; innerLoop < upperBorder; innerLoop = innerLoop + 1)
+                    for (int innerLoop = outerLoop; innerLoop < upperBorder; innerLoop++)
                     {
                         if (ascDesc)
                         {
@@ -68,10 +67,10 @@ namespace Wetterstation
             }
             else if (sortParameter == 2)
             {
-                for (int outerLoop = 0; outerLoop < upperBorder; outerLoop = outerLoop + 1)
+                for (int outerLoop = 0; outerLoop < upperBorder; outerLoop++)
                 {
                     pivot = outerLoop;
-                    for (int innerLoop = outerLoop; innerLoop < upperBorder; innerLoop = innerLoop + 1)
+                    for (int innerLoop = outerLoop; innerLoop < upperBorder; innerLoop++)
                     {
                         if (ascDesc)
                         {
@@ -93,10 +92,10 @@ namespace Wetterstation
             }
             else if (sortParameter == 3)
             {
-                for (int outerLoop = 0; outerLoop < upperBorder; outerLoop = outerLoop + 1)
+                for (int outerLoop = 0; outerLoop < upperBorder; outerLoop++)
                 {
                     pivot = outerLoop;
-                    for (int innerLoop = outerLoop; innerLoop < upperBorder; innerLoop = innerLoop + 1)
+                    for (int innerLoop = outerLoop; innerLoop < upperBorder; innerLoop++)
                     {
                         if (ascDesc)
                         {

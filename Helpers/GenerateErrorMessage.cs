@@ -37,7 +37,7 @@ namespace Wetterstation
                 currentError = 1;
                 while (currentError <= error)
                 {
-                    currentError = currentError * 2;
+                    currentError *= 2;
                 }
                 currentError /= 2;
                 switch (currentError)

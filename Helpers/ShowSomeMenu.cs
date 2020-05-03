@@ -17,7 +17,7 @@ namespace Wetterstation
         {
 
             int currentItem = 0;
-            ConsoleKeyInfo key = new ConsoleKeyInfo();
+            ConsoleKeyInfo key;
 
             do
             {
@@ -34,14 +34,18 @@ namespace Wetterstation
                 if (key.Key == ConsoleKey.DownArrow)
                 {
                     currentItem++;
-                    if (currentItem > menuPoints.Length - 1) 
+                    if (currentItem > menuPoints.Length - 1)
+                    {
                         currentItem = 0;
+                    }
                 }
                 else if (key.Key == ConsoleKey.UpArrow)
                 {
                     currentItem--;
-                    if (currentItem < 0) 
+                    if (currentItem < 0)
+                    {
                         currentItem = menuPoints.Length - 1;
+                    }
                 }
                 else
                 {

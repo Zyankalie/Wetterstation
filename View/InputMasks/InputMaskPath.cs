@@ -13,8 +13,8 @@ namespace Wetterstation
     {
         static bool InputMaskPath(bool importExport, ref string path)
         {
-            string headline = "";
-            string errorMessage = "";
+            string headline;
+            string errorMessage;
             if (importExport)
             {
                 headline = "Bitte geben Sie den relativen Pfad zu der Datei an,\r\nwelche importiert werden soll.";
@@ -83,7 +83,7 @@ namespace Wetterstation
                 else if (!char.IsControl(key.KeyChar))
                 {
                     errorShown = "";
-                    path = path + key.KeyChar;
+                    path += key.KeyChar;
                 }
                 else
                 {

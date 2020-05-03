@@ -19,20 +19,19 @@ namespace Wetterstation
             bool contentIsShown = true;
             int currentPage = 0;
 
-            DefragmentArray(ref weatherData);
             int upperBorder = FindUpperBorder(ref weatherData);
 
             int numberPagesFilled = upperBorder;
-            numberPagesFilled = numberPagesFilled % 15 == 0 ? numberPagesFilled / 15 : numberPagesFilled / 15 + 1;
+            numberPagesFilled = numberPagesFilled % 15 == 0 ? numberPagesFilled / 15 : (numberPagesFilled / 15) + 1;
 
             do
             {
                 Console.Clear();
                 WriteWithColor(ConsoleColor.Blue, "{0,3}{1,9}{2,25}{3,16}{4,27}", "Pos", "Datum", "Lufttemperatur", "Luftdruck", "Luftfeuchtigkeit");
 
-                for (int currentEntry = currentPage * 15; (currentEntry < (currentPage * 15 + 15)) && (currentEntry < upperBorder); currentEntry++)
+                for (int currentEntry = currentPage * 15; (currentEntry < ((currentPage * 15) + 15)) && (currentEntry < upperBorder); currentEntry++)
                 {
-                    Console.WriteLine("{0,-3}{1,14}{2,11}°C{3,18}HPa{4,16}%", (currentEntry + 1), weatherData[currentEntry].date.ToString(), weatherData[currentEntry].airTemperature.ToString("N1"), weatherData[currentEntry].airPressure, weatherData[currentEntry].humidity);
+                    Console.WriteLine("{0,-3}{1,14}{2,11}°C{3,18}HPa{4,16}%", currentEntry + 1, weatherData[currentEntry].date.ToString(), weatherData[currentEntry].airTemperature.ToString("N1"), weatherData[currentEntry].airPressure, weatherData[currentEntry].humidity);
                 }
 
                 Console.SetCursorPosition(Console.CursorLeft, Console.WindowHeight - 3);
@@ -79,7 +78,6 @@ namespace Wetterstation
             bool contentIsShown = true;
             int currentPage = 0;
 
-            DefragmentArray(ref weatherData);
             int upperBorder = FindUpperBorder(ref weatherData);
 
             int numberPagesFilled = upperBorder;

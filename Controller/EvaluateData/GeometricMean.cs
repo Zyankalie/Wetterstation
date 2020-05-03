@@ -23,21 +23,22 @@ namespace Wetterstation
                     {
                         mean *= weatherData[numberOfElements].airTemperature;
                     }
-                    return NthRoot(mean, numberOfElements);
+                    break;
                 case 1:
                     for (numberOfElements = 0; numberOfElements < upperBorder; numberOfElements++)
                     {
                         mean *= weatherData[numberOfElements].airPressure;
                     }
-                    return NthRoot(mean, numberOfElements);
+                    break;
                 case 2:
                     for (numberOfElements = 0; numberOfElements < upperBorder; numberOfElements++)
                     {
                         mean *= weatherData[numberOfElements].humidity;
                     }
-                    return NthRoot(mean, numberOfElements);
+                    break;
                 default: return -1;
             }
+            return NthRoot(mean, numberOfElements);
         }
     }
 }

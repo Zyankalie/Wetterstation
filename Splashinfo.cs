@@ -15,11 +15,11 @@ namespace Wetterstation
         {
             string[] titles = { "Projektname:", "Version:", "Datum:", "Autor:", "Klasse:" };
             string[] information = { "Wetterstation", "1.0", "06.04.2020", "Jan-Lukas Spilles", "IA119" };
-            Console.CursorTop = 5;            
+            Console.CursorTop = 5;
             for (int i = 0; i < information.Length; i++)
             {
-                Console.CursorLeft = (Console.WindowWidth - 30) / 2;
-                Console.WriteLine("{0,-10}{1,20}", titles[i], information[i]);
+                Console.CursorLeft = (Console.WindowWidth - 32) / 2;
+                Console.WriteLine("{0,-12}{1,20}", titles[i], information[i]);
                 Thread.Sleep(400);
             }
             Console.SetCursorPosition((Console.WindowWidth - 50) / 2, Console.WindowHeight - 2);
