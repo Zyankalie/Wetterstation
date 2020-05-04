@@ -6,6 +6,7 @@
 //              Valide: 1900 <= x 
 //Aenderungen:  14.04.2020 Erstellung
 using System;
+using System.Text.RegularExpressions;
 
 namespace Wetterstation
 {
@@ -13,30 +14,8 @@ namespace Wetterstation
     {
         static bool DateValidation(string date)
         {
-            string[] dateAsArray = date.Split('.');
-            if (dateAsArray.Length == 3)
-            {
-                if (Convert.ToInt32(dateAsArray[0]) > 31 || Convert.ToInt32(dateAsArray[0]) < 0)
-                {
-                    return false;
-                }
-                else if (Convert.ToInt32(dateAsArray[1]) > 12 || Convert.ToInt32(dateAsArray[1]) < 0)
-                {
-                    return false;
-                }
-                else if (Convert.ToInt32(dateAsArray[2]) < 1900)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-            }
-            else
-            {
-                return false;
-            }
+            Regex r = new Regex(@"([0][1-9]|[1|2][0-9]|[3][0-1]).([0][1-9]|[1][0-2]).(19|20)\d\d");
+            return r.Match(date).Success;
         }
     }
 }

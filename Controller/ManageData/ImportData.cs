@@ -22,7 +22,8 @@ namespace Wetterstation
             string errorLog = "Nachfolgende Datensätze konnten nicht importiert werden:\r\n";
             int validated;
 
-            for (int index = 0; !SR.EndOfStream; index++)
+            currentLine = SR.ReadLine().Split(';');
+            for (int index = 1; !SR.EndOfStream; index++)
             {
                 currentLine = SR.ReadLine().Split(';');
                 insertRecord = new Record { date = currentLine[0], airTemperature = Convert.ToDouble(currentLine[1]), airPressure = Convert.ToUInt32(currentLine[2]), humidity = Convert.ToUInt32(currentLine[3]) };

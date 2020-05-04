@@ -7,12 +7,13 @@
 //              wird true zurückgegeben, sonst false.
 //Aenderungen:  10.04.2020 Erstellung
 using System;
+
 namespace Wetterstation
 {
     partial class main
     {
         static bool CompareDates(string firstDate, string secondDate)
-        {
+        {        
             string[] firstDateAsArray = firstDate.Split('.');
             string[] secondDateAsArray = secondDate.Split('.');
             if (Convert.ToInt32(firstDateAsArray[2]) < Convert.ToInt32(secondDateAsArray[2]))

@@ -22,7 +22,7 @@ namespace Wetterstation
             }
             else
             {
-                headline = "Bitte geben Sie den relativen Pfad zu dem Verzeichnis an,\r\nin welche die Wetterdaten exportiert werden sollen";
+                headline = "Bitte geben Sie den relativen Pfad zu dem Verzeichnis an,\r\nin welche die Wetterdaten exportiert werden sollen.";
                 errorMessage = "Das Verzeichnis \"" + path + "\" existiert nicht. Bitte überprüfen Sie Ihre Eingabe!";
             }
             path = "";
