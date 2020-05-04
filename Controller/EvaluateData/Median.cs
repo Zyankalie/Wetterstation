@@ -12,7 +12,7 @@ namespace Wetterstation
     {
         static double Median(ref Record[] weatherData, int evaluationParameter)
         {
-            BubbleSort(ref weatherData, evaluationParameter + 1, true);
+            BubbleSort(ref weatherData, evaluationParameter + 1, true, out int swapCounter, out int ifCounter, out double timeElapsed, out int arrayAccessCounter);
             int upperBorder = FindUpperBorder(ref weatherData);
             switch (evaluationParameter)
             {

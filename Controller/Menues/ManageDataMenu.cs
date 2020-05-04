@@ -9,6 +9,8 @@
 
 //TODO: Auslagern von Löschen/Verändern/Hinzufügen
 
+using System;
+
 namespace Wetterstation
 {
     partial class main
@@ -60,7 +62,7 @@ namespace Wetterstation
                 {
                     do
                     {
-                        if (InputMaskEnterEntryPosition(ref position, "Geben Sie die Position des Datensatzes an, den Sie anpassen wollen."))
+                        if (InputMaskEnterEntryPosition(ref weatherData, ref position, "Geben Sie die Position des Datensatzes an, den Sie anpassen wollen."))
                         {
                             if (weatherData[position - 1].date == "  .  .    ")
                             {
@@ -106,7 +108,7 @@ namespace Wetterstation
                 {
                     do
                     {
-                        if (InputMaskEnterEntryPosition(ref position, "Geben Sie die Position des Datensatzes an, den Sie löschen wollen."))
+                        if (InputMaskEnterEntryPosition(ref weatherData, ref position, "Geben Sie die Position des Datensatzes an, den Sie löschen wollen."))
                         {
                             if (weatherData[position - 1].date == "  .  .    ")
                             {
@@ -147,7 +149,20 @@ namespace Wetterstation
                     {
                         if (ShowSomeMenu(ref yesNo, "Sind Sie sicher, dass Sie diese Datei importieren wollen?\r\nAktuelle Daten werden unwiderruflich gelöscht,\r\nsofern keine Datensicherung vorliegt.") == 0)
                         {
-                            ImportData(ref weatherData, path);
+                            Console.Clear();
+                            string error = ImportData(ref weatherData, path);
+                            Console.WriteLine("Import abgeschlossen!");
+                            if (error != "")
+                            {
+                                Console.WriteLine(error);
+                            }
+                            else
+                            {
+                                //Nichts
+                            }
+                            Console.SetCursorPosition(Console.CursorLeft, Console.WindowHeight - 2);
+                            Console.WriteLine("Drücken Sie eine beliebige Taste, um fortzufahren.");
+                            Console.ReadKey(true);
                         }
                         else
                         {
@@ -164,6 +179,13 @@ namespace Wetterstation
                     if (InputMaskPath(false, ref path))
                     {
                         ExportData(ref weatherData, path);
+                        Console.Clear();
+                        Console.WriteLine("Export abgeschlossen!");
+                        Console.WriteLine("Die Datei befindet sich in folgendem Verzeichnis:\r\n");
+                        WriteWithColor(ConsoleColor.Green, path);
+                        Console.SetCursorPosition(Console.CursorLeft, Console.WindowHeight - 2);
+                        Console.WriteLine("Drücken Sie eine beliebige Taste, um fortzufahren.");
+                        Console.ReadKey(true);
                     }
                     else
                     {

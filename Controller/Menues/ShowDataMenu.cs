@@ -200,7 +200,8 @@ namespace Wetterstation
                                         {
                                             if (ascDescSelect == 0 || ascDescSelect == 1)
                                             {
-                                                BubbleSort(ref weatherData, parameterSelected, !Convert.ToBoolean(ascDescSelect));
+                                                BubbleSort(ref weatherData, parameterSelected, !Convert.ToBoolean(ascDescSelect), out int swapCounter, out int ifCounter, out double timeElapsed, out int arrayAccessCounter);
+                                                ShowSortingStatistics(swapCounter, ifCounter, timeElapsed, arrayAccessCounter, "BubbleSort");
                                                 ShowFullData(ref weatherData);
                                             }
                                             selectAscDesc = false;
@@ -238,7 +239,8 @@ namespace Wetterstation
                                         {
                                             if (ascDescSelect == 0 || ascDescSelect == 1)
                                             {
-                                                SelectionSort(ref weatherData, parameterSelected, !Convert.ToBoolean(ascDescSelect));
+                                                SelectionSort(ref weatherData, parameterSelected, !Convert.ToBoolean(ascDescSelect), out int swapCounter, out int ifCounter, out double timeElapsed, out int arrayAccessCounter);
+                                                ShowSortingStatistics(swapCounter, ifCounter, timeElapsed, arrayAccessCounter, "SelectionSort");
                                                 ShowFullData(ref weatherData);
                                             }
                                             selectAscDesc = false;

@@ -12,17 +12,17 @@ namespace Wetterstation
 {
     partial class main
     {
-        static void ImportData(ref Record[] weatherData, string filePath)
+        static string ImportData(ref Record[] weatherData, string filePath)
         {
             WipeArray(ref weatherData);
             FileStream FS = new FileStream(filePath, FileMode.Open, FileAccess.Read);
             StreamReader SR = new StreamReader(FS, Encoding.UTF8);
-            string[] currentLine;
+            string[] currentLine = SR.ReadLine().Split(';');
             Record insertRecord;
             string errorLog = "Nachfolgende Datensätze konnten nicht importiert werden:\r\n";
             int validated;
+            int errorCounter = 0;
 
-            currentLine = SR.ReadLine().Split(';');
             for (int index = 1; !SR.EndOfStream; index++)
             {
                 currentLine = SR.ReadLine().Split(';');
@@ -34,11 +34,13 @@ namespace Wetterstation
                 }
                 else
                 {
+                    errorCounter++;
                     errorLog += "Eintrag " + index + ": " + currentLine + "\r\n" + GenerateErrorMessage(validated) + "\r\n";
                 }
             }
             SR.Close();
             FS.Close();
+            return errorCounter==0?"":errorLog;
         }
     }
 }

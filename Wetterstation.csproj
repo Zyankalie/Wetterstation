@@ -87,6 +87,7 @@
     <Compile Include="Controller\ShowData\SelectionSort.cs" />
     <Compile Include="Helpers\GenerateErrorMessage.cs" />
     <Compile Include="View\OutputMasks\ShowFullData.cs" />
+    <Compile Include="View\OutputMasks\ShowSortingStatistics.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

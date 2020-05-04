@@ -7,13 +7,15 @@
 //              return -1 heißt, dass der EvaluationParameter fehlerhaft war
 //Aenderungen:  12.04.2020 Erstellung
 
+using System;
+
 namespace Wetterstation
 {
     partial class main
     {
         static double GeometricMean(ref Record[] weatherData, int evaluationParameter)
         {
-            double mean = 1;
+            double mean = 0;
             int numberOfElements;
             int upperBorder = FindUpperBorder(ref weatherData);
             switch (evaluationParameter)
@@ -21,24 +23,24 @@ namespace Wetterstation
                 case 0:
                     for (numberOfElements = 0; numberOfElements < upperBorder; numberOfElements++)
                     {
-                        mean *= weatherData[numberOfElements].airTemperature;
+                        mean += Math.Log(weatherData[numberOfElements].airTemperature);
                     }
                     break;
                 case 1:
                     for (numberOfElements = 0; numberOfElements < upperBorder; numberOfElements++)
                     {
-                        mean *= weatherData[numberOfElements].airPressure;
+                        mean += Math.Log(weatherData[numberOfElements].airPressure);
                     }
                     break;
                 case 2:
                     for (numberOfElements = 0; numberOfElements < upperBorder; numberOfElements++)
                     {
-                        mean *= weatherData[numberOfElements].humidity;
+                        mean += Math.Log(weatherData[numberOfElements].humidity);
                     }
                     break;
                 default: return -1;
             }
-            return NthRoot(mean, numberOfElements);
+            return mean;
         }
     }
 }

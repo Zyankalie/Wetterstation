@@ -26,7 +26,6 @@ namespace Wetterstation
                     weatherData[i] = new Record { date = "  .  .    ", airTemperature = 0.0d, airPressure = 0, humidity = 0 };
                 }
             }
-
         }
 
         static Record CreateValidRandomEntry()

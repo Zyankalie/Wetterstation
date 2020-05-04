@@ -4,7 +4,7 @@ namespace Wetterstation
 {
     partial class main
     {
-        static bool InputMaskEnterEntryPosition(ref int position, string headline)
+        static bool InputMaskEnterEntryPosition(ref Record[] weatherData, ref int position, string headline)
         {
             bool userInputActive = true;
             string userInput = "";
@@ -16,8 +16,9 @@ namespace Wetterstation
                 Console.WriteLine(userInput);
                 Console.CursorTop = 2;
                 Console.CursorLeft = userInput.Length;
-                Console.SetCursorPosition(0, Console.WindowHeight - 2);
-                Console.WriteLine("Drücken Sie eine beliebige Taste, um fortzufahren.");
+                Console.SetCursorPosition(0, Console.WindowHeight - 4);
+                Console.WriteLine("Wollen Sie vorher nochmal alle Datensätze anschauen?\r\nFalls ja drücken sie die F1-Taste.");
+                Console.WriteLine("Drücken Sie die Eingabe-Taste, um ihre Auswahl zu bestätigen.");
                 ConsoleKeyInfo key = Console.ReadKey(true);
 
                 if (key.Key == ConsoleKey.Escape)
@@ -30,12 +31,16 @@ namespace Wetterstation
                 }
                 else if (key.Key == ConsoleKey.Enter)
                 {
-                    position = Convert.ToInt32(Console.ReadLine());
+                    position = Convert.ToInt32(userInput);
                     return true;
                 }
                 else if (char.IsDigit(key.KeyChar))
                 {
                     userInput += key.KeyChar;
+                }
+                else if (key.Key == ConsoleKey.F1)
+                {
+                    ShowFullData(ref weatherData);
                 }
                 else
                 {

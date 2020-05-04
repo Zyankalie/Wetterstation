@@ -17,7 +17,7 @@ namespace Wetterstation
         {
             int upperLimit = FindUpperBorder(ref weatherData);
             //Damit binär gesucht werden kann
-            BubbleSort(ref weatherData, searchParameter, true);
+            BubbleSort(ref weatherData, searchParameter, true, out int swapCounter, out int ifCounter, out double timeElapsed, out int arrayAccessCounter);
             int pivot;
             int lowerLimit = 0;
 
