@@ -58,19 +58,19 @@ namespace Wetterstation
                     newEntry.airTemperature = Convert.ToDouble(userInputs[1]);
                     newEntry.airPressure = Convert.ToUInt32(userInputs[2]);
                     newEntry.humidity = Convert.ToUInt32(userInputs[3]);
-                    int Validation = ValidateEntry(ref weatherData, ref newEntry);
+                    int validation = ValidateEntry(ref weatherData, ref newEntry);
                     if (userInputs[4] != "" && (Convert.ToInt32(userInputs[4]) > 366 || (Convert.ToInt32(userInputs[4]) < 1)))
                     {
-                        Validation += 64;
+                        validation += 64;
                     }
-                    if (Validation != 0)
+                    if (validation != 0)
                     {
-                        int Option = ShowSomeMenu(ref menuPath, GenerateErrorMessage(Validation));
-                        if (Option == 0)
+                        int option = ShowSomeMenu(ref menuPath, GenerateErrorMessage(validation));
+                        if (option == 0)
                         {
                             return false;
                         }
-                        else if (Option == 1)
+                        else if (option == 1)
                         {
 
                         }
@@ -171,16 +171,16 @@ namespace Wetterstation
                     newEntry.airTemperature = Convert.ToDouble(userInputs[1]);
                     newEntry.airPressure = Convert.ToUInt32(userInputs[2]);
                     newEntry.humidity = Convert.ToUInt32(userInputs[3]);
-                    int Validation = ValidateEntry(ref weatherData, ref newEntry);
+                    int validation = ValidateEntry(ref weatherData, ref newEntry);
 
-                    if (Validation != 0)
+                    if (validation != 0)
                     {
-                        int Option = ShowSomeMenu(ref menuPath, GenerateErrorMessage(Validation));
-                        if (Option == 0)
+                        int option = ShowSomeMenu(ref menuPath, GenerateErrorMessage(validation));
+                        if (option == 0)
                         {
                             return false;
                         }
-                        else if (Option == 1)
+                        else if (option == 1)
                         {
 
                         }

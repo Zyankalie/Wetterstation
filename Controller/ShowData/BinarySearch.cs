@@ -48,7 +48,7 @@ namespace Wetterstation
                 while (upperLimit >= lowerLimit)
                 {
                     pivot = lowerLimit + ((upperLimit - lowerLimit) / 2);
-                    if (weatherData[pivot].airTemperature == Convert.ToDouble(searchValue))
+                    if (weatherData[pivot].airTemperature.ToString() == searchValue)
                     {
                         position = pivot;
                         break;

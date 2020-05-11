@@ -7,8 +7,6 @@
 //              13.04.2020 Daten hinzufügen/löschen/verändern
 //              14.04.2020 Pathvalidation
 
-//TODO: Auslagern von Löschen/Verändern/Hinzufügen
-
 using System;
 
 namespace Wetterstation

@@ -36,7 +36,7 @@ namespace Wetterstation
                 for (position = 0; position < upperBorder; position++)
                 {
 
-                    if (weatherData[position].airTemperature == Convert.ToDouble(searchValue))
+                    if (weatherData[position].airTemperature.ToString() == searchValue)
                     {
                         return position;
                     }
