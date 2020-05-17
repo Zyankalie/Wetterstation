@@ -46,6 +46,7 @@
     <Compile Include="Controller\EvaluateData\ArithmeticMean.cs" />
     <Compile Include="Controller\EvaluateData\GeometricMean.cs" />
     <Compile Include="Controller\EvaluateData\Median.cs" />
+    <Compile Include="Helpers\CanBeDate.cs" />
     <Compile Include="Helpers\FillWithRandom.cs" />
     <Compile Include="Helpers\FindUpperBorder.cs" />
     <Compile Include="Helpers\FreeASpot.cs" />

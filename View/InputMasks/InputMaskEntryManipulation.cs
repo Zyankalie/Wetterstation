@@ -5,6 +5,7 @@
 //Beschreibung: Eingabemaske für das Hinzufügen von Datensätzen
 //Aenderungen:  16.04.2020 Erstellung
 using System;
+using System.Linq;
 
 namespace Wetterstation
 {
@@ -85,7 +86,7 @@ namespace Wetterstation
                 {
                     if (currentline == 0)
                     {
-                        if (key.KeyChar == '.' || char.IsLetterOrDigit(key.KeyChar))
+                        if (CanBeDate(userInputs[currentline], key.KeyChar))
                         {
                             userInputs[currentline] += key.KeyChar;
                         }
@@ -194,14 +195,14 @@ namespace Wetterstation
                 {
                     if (currentline == 0)
                     {
-                        if (key.KeyChar == '.' || char.IsLetterOrDigit(key.KeyChar))
+                        if (CanBeDate(userInputs[currentline], key.KeyChar))
                         {
                             userInputs[currentline] += key.KeyChar;
                         }
                     }
                     else if (currentline == 1)
                     {
-                        if (key.KeyChar == ',' || char.IsDigit(key.KeyChar))
+                        if (key.KeyChar == ',' && userInputs[currentline].Length != 0 && 0 == userInputs[currentline].Count(x => x == ',') || char.IsDigit(key.KeyChar))
                         {
                             userInputs[currentline] += key.KeyChar;
                         }

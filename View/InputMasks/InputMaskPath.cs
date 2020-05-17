@@ -17,12 +17,12 @@ namespace Wetterstation
             string errorMessage;
             if (importExport)
             {
-                headline = "Bitte geben Sie den relativen Pfad zu der Datei an,\r\nwelche importiert werden soll.";                    
+                headline = "Bitte geben Sie den relativen Pfad zu der Datei an,\r\nwelche importiert werden soll.";
                 errorMessage = "Der Dateipfad \"" + path + "\" existiert nicht. Bitte überprüfen Sie Ihre Eingabe!";
             }
             else
             {
-                headline = "Bitte geben Sie den relativen Pfad zu dem Verzeichnis an,\r\nin welche die Wetterdaten exportiert werden sollen.";                    
+                headline = "Bitte geben Sie den relativen Pfad zu dem Verzeichnis an,\r\nin welche die Wetterdaten exportiert werden sollen.";
                 errorMessage = "Das Verzeichnis \"" + path + "\" existiert nicht. Bitte überprüfen Sie Ihre Eingabe!";
             }
             path = "";
@@ -34,10 +34,10 @@ namespace Wetterstation
                 Console.Clear();
                 Console.WriteLine(headline);
                 Console.WriteLine();
-                Console.WriteLine("Bestätigen Sie die Eingabe mit der Eingabetaste.");                
+                Console.WriteLine("Bestätigen Sie die Eingabe mit der Eingabetaste.");
                 Console.WriteLine("Um zurück zu gelangen drücken Sie die Escape Taste.");
                 Console.WriteLine();
-                Console.WriteLine();                
+                Console.WriteLine();
                 Console.WriteLine("Sie befinden sich im Pfad:");
                 WriteWithColor(ConsoleColor.Green, Directory.GetCurrentDirectory());
                 Console.WriteLine();
@@ -75,7 +75,7 @@ namespace Wetterstation
                     }
                     else
                     {
-                        if (Directory.Exists(Directory.GetCurrentDirectory() + "\\" + path))
+                        if (!File.Exists(Directory.GetCurrentDirectory() + "\\" + path))
                         {
                             path = Directory.GetCurrentDirectory() + "\\" + path;
                             Console.CursorVisible = false;

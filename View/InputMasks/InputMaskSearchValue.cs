@@ -33,14 +33,14 @@ namespace Wetterstation
                 {
                     if (searchParameter == 0)
                     {
-                        if (char.IsDigit(key.KeyChar) || (key.Key == ConsoleKey.OemPeriod && 3 > userInput.Count(f => f == '.') && userInput.Length < 10))
+                        if (CanBeDate(userInput, key.KeyChar))
                         {
                             userInput += key.KeyChar;
                         }
                     }
                     else if (searchParameter == 1)
                     {
-                        if (char.IsDigit(key.KeyChar) || (key.Key == ConsoleKey.OemComma && 2 > userInput.Count(f => f == ',') && userInput.Length < 4))
+                        if (key.KeyChar == ',' && userInput.Length != 0 && 0 == userInput.Count(x => x == ',') || char.IsDigit(key.KeyChar))
                         {
                             userInput += key.KeyChar;
                         }

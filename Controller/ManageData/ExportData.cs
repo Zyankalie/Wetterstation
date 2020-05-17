@@ -14,8 +14,8 @@ namespace Wetterstation
     {
         static void ExportData(ref Record[] weatherData, string destinationPath)
         {
-            string filename = "WeatherDataExport_" + DateTime.Now.Date.ToString().Substring(0, 10) + ".csv";
-            FileStream FS = new FileStream(destinationPath + "\\" + filename, FileMode.Create, FileAccess.Write);
+            //string filename = "WeatherDataExport_" + Path.GetFileName(destinationPath) + ".csv";
+            FileStream FS = new FileStream(destinationPath + ".csv", FileMode.Create, FileAccess.Write);
             StreamWriter SW = new StreamWriter(FS, Encoding.UTF8);
             //Kein Defragment mehr nötig, da in FindUpperBorder schon aufgerufen
             int upperBorder = FindUpperBorder(ref weatherData);
