@@ -40,7 +40,9 @@ namespace Wetterstation
                     }
                     else if (searchParameter == 1)
                     {
-                        if (key.KeyChar == ',' && userInput.Length != 0 && 0 == userInput.Count(x => x == ',') || char.IsDigit(key.KeyChar))
+                        if ((key.KeyChar == '-' && userInput.Length == 0)
+                            || (key.KeyChar == ',' && userInput.Count(x => x == ',') == 0 && userInput.Count(y => char.IsDigit(y)) > 0)
+                            || char.IsDigit(key.KeyChar))
                         {
                             userInput += key.KeyChar;
                         }

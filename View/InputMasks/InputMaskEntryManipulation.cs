@@ -14,8 +14,8 @@ namespace Wetterstation
         static bool InputMaskEntryManipulation(ref Record[] weatherData, ref Record newEntry, ref int position)
         {
             bool editing = true;
-            int currentline = 0;
-            string[] userInputs = { "", "", "", "", position.ToString() };
+            int currentLine = 0;
+            string[] userInputs = { "", "", "", "", (position + 1).ToString() };
             string[] parameters = { "Datum", "Lufttemperatur", "Luftdruck", "Luftfeuchtigkeit", "Position" };
             string[] menuPath = { "Datenverwalten Menü", "Eingabe fortsetzen" };
 
@@ -25,7 +25,7 @@ namespace Wetterstation
                 Console.WriteLine("Bitte geben Sie die Werte für einen neuen Datensatz ein:");
                 for (int counter = 0; counter < parameters.Length; counter++)
                 {
-                    WriteWithColor((counter == currentline) ? ConsoleColor.Green : ConsoleColor.White, parameters[counter] + ": " + userInputs[counter]);
+                    WriteWithColor((counter == currentLine) ? ConsoleColor.Green : ConsoleColor.White, parameters[counter] + ": " + userInputs[counter]);
                 }
 
                 ConsoleKeyInfo key = Console.ReadKey(true);
@@ -35,22 +35,22 @@ namespace Wetterstation
                 }
                 else if (key.Key == ConsoleKey.DownArrow)
                 {
-                    if (currentline < 4)
+                    if (currentLine < 4)
                     {
-                        currentline++;
+                        currentLine++;
                     }
                 }
                 else if (key.Key == ConsoleKey.UpArrow)
                 {
-                    if (currentline > 0)
+                    if (currentLine > 0)
                     {
-                        currentline--;
+                        currentLine--;
                     }
                 }
                 else if (key.Key == ConsoleKey.Backspace)
                 {
 
-                    userInputs[currentline] = userInputs[currentline].Substring(0, userInputs[currentline].Length > 0 ? userInputs[currentline].Length - 1 : 0);
+                    userInputs[currentLine] = userInputs[currentLine].Substring(0, userInputs[currentLine].Length > 0 ? userInputs[currentLine].Length - 1 : 0);
 
                 }
                 else if (key.Key == ConsoleKey.Enter)
@@ -60,7 +60,7 @@ namespace Wetterstation
                     newEntry.airPressure = Convert.ToUInt32(userInputs[2]);
                     newEntry.humidity = Convert.ToUInt32(userInputs[3]);
                     int validation = ValidateEntry(ref weatherData, ref newEntry);
-                    if (userInputs[4] != "" && (Convert.ToInt32(userInputs[4]) > 366 || (Convert.ToInt32(userInputs[4]) < 1)))
+                    if (userInputs[4] != "" && (Convert.ToInt32(userInputs[4]) > 366 || (Convert.ToInt32(userInputs[4]) < 0)))
                     {
                         validation += 64;
                     }
@@ -84,39 +84,41 @@ namespace Wetterstation
                 }
                 else
                 {
-                    if (currentline == 0)
+                    if (currentLine == 0)
                     {
-                        if (CanBeDate(userInputs[currentline], key.KeyChar))
+                        if (CanBeDate(userInputs[currentLine], key.KeyChar))
                         {
-                            userInputs[currentline] += key.KeyChar;
+                            userInputs[currentLine] += key.KeyChar;
                         }
                     }
-                    else if (currentline == 1)
+                    else if (currentLine == 1)
                     {
-                        if (key.KeyChar == ',' || char.IsDigit(key.KeyChar))
+                        if ((key.KeyChar == '-' && userInputs[currentLine].Length == 0)
+                            || (key.KeyChar == ',' && userInputs[currentLine].Count(x => x == ',') == 0 && userInputs[currentLine].Count(y => char.IsDigit(y)) > 0)
+                            || char.IsDigit(key.KeyChar))
                         {
-                            userInputs[currentline] += key.KeyChar;
+                            userInputs[currentLine] += key.KeyChar;
                         }
                     }
-                    else if (currentline == 2)
+                    else if (currentLine == 2)
                     {
                         if (char.IsDigit(key.KeyChar))
                         {
-                            userInputs[currentline] += key.KeyChar;
+                            userInputs[currentLine] += key.KeyChar;
                         }
                     }
-                    else if (currentline == 3)
+                    else if (currentLine == 3)
                     {
                         if (char.IsDigit(key.KeyChar))
                         {
-                            userInputs[currentline] += key.KeyChar;
+                            userInputs[currentLine] += key.KeyChar;
                         }
                     }
-                    else if (currentline == 4)
+                    else if (currentLine == 4)
                     {
                         if (char.IsDigit(key.KeyChar))
                         {
-                            userInputs[currentline] += key.KeyChar;
+                            userInputs[currentLine] += key.KeyChar;
                         }
                     }
                 }
@@ -127,7 +129,7 @@ namespace Wetterstation
         static bool InputMaskEntryManipulation(ref Record[] weatherData, ref Record newEntry, string date, string temperature, string pressure, string humidity, string position)
         {
             bool editing = true;
-            int currentline = 0;
+            int currentLine = 0;
             string[] userInputs = { date, temperature, pressure, humidity, position };
             string[] parameters = { "Datum", "Lufttemperatur", "Luftdruck", "Luftfeuchtigkeit", "Position" };
             string[] menuPath = { "Datenverwalten Menü", "Eingabe fortsetzen" };
@@ -138,7 +140,7 @@ namespace Wetterstation
                 Console.WriteLine("Bitte geben Sie die Werte für einen neuen Datensatz ein:");
                 for (int counter = 0; counter < parameters.Length; counter++)
                 {
-                    WriteWithColor((counter == currentline) ? ConsoleColor.Green : ConsoleColor.White, parameters[counter] + ": " + userInputs[counter]);
+                    WriteWithColor((counter == currentLine) ? ConsoleColor.Green : ConsoleColor.White, parameters[counter] + ": " + userInputs[counter]);
                 }
 
                 ConsoleKeyInfo key = Console.ReadKey(true);
@@ -148,22 +150,22 @@ namespace Wetterstation
                 }
                 else if (key.Key == ConsoleKey.DownArrow)
                 {
-                    if (currentline < 3)
+                    if (currentLine < 3)
                     {
-                        currentline++;
+                        currentLine++;
                     }
                 }
                 else if (key.Key == ConsoleKey.UpArrow)
                 {
-                    if (currentline > 0)
+                    if (currentLine > 0)
                     {
-                        currentline--;
+                        currentLine--;
                     }
                 }
                 else if (key.Key == ConsoleKey.Backspace)
                 {
 
-                    userInputs[currentline] = userInputs[currentline].Substring(0, userInputs[currentline].Length > 0 ? userInputs[currentline].Length - 1 : 0);
+                    userInputs[currentLine] = userInputs[currentLine].Substring(0, userInputs[currentLine].Length > 0 ? userInputs[currentLine].Length - 1 : 0);
 
                 }
                 else if (key.Key == ConsoleKey.Enter)
@@ -193,32 +195,34 @@ namespace Wetterstation
                 }
                 else
                 {
-                    if (currentline == 0)
+                    if (currentLine == 0)
                     {
-                        if (CanBeDate(userInputs[currentline], key.KeyChar))
+                        if (CanBeDate(userInputs[currentLine], key.KeyChar))
                         {
-                            userInputs[currentline] += key.KeyChar;
+                            userInputs[currentLine] += key.KeyChar;
                         }
                     }
-                    else if (currentline == 1)
+                    else if (currentLine == 1)
                     {
-                        if (key.KeyChar == ',' && userInputs[currentline].Length != 0 && 0 == userInputs[currentline].Count(x => x == ',') || char.IsDigit(key.KeyChar))
+                        if ((key.KeyChar == '-' && userInputs[currentLine].Length == 0)
+                            || (key.KeyChar == ',' && userInputs[currentLine].Count(x => x == ',') == 0 && userInputs[currentLine].Count(y => char.IsDigit(y)) > 0)
+                            || char.IsDigit(key.KeyChar))
                         {
-                            userInputs[currentline] += key.KeyChar;
+                            userInputs[currentLine] += key.KeyChar;
                         }
                     }
-                    else if (currentline == 2)
+                    else if (currentLine == 2)
                     {
                         if (char.IsDigit(key.KeyChar))
                         {
-                            userInputs[currentline] += key.KeyChar;
+                            userInputs[currentLine] += key.KeyChar;
                         }
                     }
-                    else if (currentline == 3)
+                    else if (currentLine == 3)
                     {
                         if (char.IsDigit(key.KeyChar))
                         {
-                            userInputs[currentline] += key.KeyChar;
+                            userInputs[currentLine] += key.KeyChar;
                         }
                     }
                 }

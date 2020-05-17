@@ -8,6 +8,7 @@
 //              14.04.2020 Pathvalidation
 
 using System;
+using System.IO;
 
 namespace Wetterstation
 {
@@ -180,7 +181,7 @@ namespace Wetterstation
                         Console.Clear();
                         Console.WriteLine("Export abgeschlossen!");
                         Console.WriteLine("Die Datei befindet sich in folgendem Verzeichnis:\r\n");
-                        WriteWithColor(ConsoleColor.Green, path);
+                        WriteWithColor(ConsoleColor.Green, path.Substring(0, path.LastIndexOf("\\")));
                         Console.SetCursorPosition(Console.CursorLeft, Console.WindowHeight - 2);
                         Console.WriteLine("Drücken Sie eine beliebige Taste, um fortzufahren.");
                         Console.ReadKey(true);

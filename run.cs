@@ -19,7 +19,7 @@ namespace Wetterstation
             Console.ReadKey(true);
 
             Record[] WeatherData = new Record[366];
-            FillWithRandom(ref WeatherData, 360);
+            FillWithRandom(ref WeatherData, 0);
 
             MainMenu(ref WeatherData);
         }
